@@ -88,12 +88,12 @@ describe('WheelComponent', () => {
     }
   });
 
-  it('the distribuition should respect the weight', () => {
+  it('LUCKY_MODE: should always pick from the rarest (lowest-weight) items', () => {
     const numRuns = 10000;
-    const expectedForLower = 1 / 14;
-    const expectedForHigher = 1 / 2;
-    const lowerTolerance = sigmaTolerance(expectedForLower, numRuns, 4);
-    const higherTolerance = sigmaTolerance(expectedForHigher, numRuns, 4);
+    // With LUCKY_MODE on, the heavy-weight item is never picked and the seven
+    // tied low-weight items are chosen uniformly.
+    const expectedForLow = 1 / 7;
+    const lowTolerance = sigmaTolerance(expectedForLow, numRuns, 4);
 
     component.items = [
       { text: '1', weight: 7, fillStyle: 'red' },
@@ -116,10 +116,11 @@ describe('WheelComponent', () => {
 
     const probabilities = results.map(result => result / numRuns);
 
-    expect(Math.abs(probabilities[0] - expectedForHigher)).toBeLessThan(higherTolerance);
+    // Heavy-weight item should never come up.
+    expect(probabilities[0]).toBe(0);
 
     for (let i = 1; i < probabilities.length; i++) {
-      expect(Math.abs(probabilities[i] - expectedForLower)).toBeLessThan(lowerTolerance);
+      expect(Math.abs(probabilities[i] - expectedForLow)).toBeLessThan(lowTolerance);
     }
   });
 });

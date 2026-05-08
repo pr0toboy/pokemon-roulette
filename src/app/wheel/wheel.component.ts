@@ -350,7 +350,29 @@ export class WheelComponent implements AfterViewInit, OnChanges {
     return this.translatedItems.reduce((sum, item) => sum + item.weight, 0);
   }
 
+  /**
+   * LUCKY_MODE: always picks the rarest outcome on the wheel.
+   *
+   * Drawing still uses the original `weight` (slice sizes unchanged), so the
+   * pointer visibly lands on the slim "legendary / shiny / rare item" slice
+   * every spin — pure cinematic luck. Ties (e.g. uniform Pokémon lists) fall
+   * back to a random pick among the lowest-weight items so we keep variety.
+   */
+  private static readonly LUCKY_MODE = true;
+
   getRandomWeightedIndex(): number {
+    if (WheelComponent.LUCKY_MODE && this.translatedItems.length > 0) {
+      let minWeight = Infinity;
+      for (const item of this.translatedItems) {
+        if (item.weight < minWeight) minWeight = item.weight;
+      }
+      const rarestIndices: number[] = [];
+      for (let i = 0; i < this.translatedItems.length; i++) {
+        if (this.translatedItems[i].weight === minWeight) rarestIndices.push(i);
+      }
+      return rarestIndices[Math.floor(Math.random() * rarestIndices.length)];
+    }
+
     const totalWeight = this.getTotalWeights();
     let random = Math.random() * totalWeight;
     let accumulatedWeight = 0;

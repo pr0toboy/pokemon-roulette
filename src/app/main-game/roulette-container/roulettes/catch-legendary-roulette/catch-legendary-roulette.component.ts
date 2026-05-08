@@ -10,23 +10,15 @@ import {TranslatePipe} from '@ngx-translate/core';
 })
 export class CatchLegendaryRouletteComponent implements OnInit {
 
+  // LUCKY_MODE: keep `yes` as the rarest slice for every round so the wheel's
+  // "always pick the rarest" rule lands on a successful catch every time.
   catchRate = [
     { text: 'game.main.roulette.legendary.yes', fillStyle: 'green', weight: 1 },
     { text: 'game.main.roulette.legendary.no', fillStyle: 'crimson', weight: 3 }
   ];
 
   ngOnInit(): void {
-    if (this.currentRound >= 8) {
-      this.catchRate = [
-        { text: 'game.main.roulette.legendary.yes', fillStyle: 'green', weight: 3 },
-        { text: 'game.main.roulette.legendary.no', fillStyle: 'crimson', weight: 1 },
-      ];
-    } else if (this.currentRound >= 4) {
-      this.catchRate = [
-        { text: 'game.main.roulette.legendary.yes', fillStyle: 'green', weight: 2 },
-        { text: 'game.main.roulette.legendary.no', fillStyle: 'crimson', weight: 2 },
-      ];
-    }
+    // weights intentionally fixed — see LUCKY_MODE in WheelComponent.
   }
 
   @Input() currentRound: number = 0;

@@ -31,4 +31,8 @@ export type GameState =
   | 'elite-four-preparation'
   | 'elite-four-battle'
   | 'champion-battle'
+  | 'postgame-adventure'
+  | 'battle-tower'
+  | 'mythical-encounter'
+  | 'catch-mythical'
   | 'game-finish';

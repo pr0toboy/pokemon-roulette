@@ -47,6 +47,10 @@ import { RivalBattleRouletteComponent } from "./roulettes/rival-battle-roulette/
 import { EliteFourPrepRouletteComponent } from "./roulettes/elite-four-prep-roulette/elite-four-prep-roulette.component";
 import { EliteFourBattleRouletteComponent } from "./roulettes/elite-four-battle-roulette/elite-four-battle-roulette.component";
 import { ChampionBattleRouletteComponent } from "./roulettes/champion-battle-roulette/champion-battle-roulette.component";
+import { PostgameAdventureRouletteComponent } from "./roulettes/postgame-adventure-roulette/postgame-adventure-roulette.component";
+import { BattleTowerRouletteComponent } from "./roulettes/battle-tower-roulette/battle-tower-roulette.component";
+import { MythicalEncounterRouletteComponent } from "./roulettes/mythical-encounter-roulette/mythical-encounter-roulette.component";
+import { CatchMythicalRouletteComponent } from "./roulettes/catch-mythical-roulette/catch-mythical-roulette.component";
 import { EndGameComponent } from "../end-game/end-game.component";
 import { GameOverComponent } from "../game-over/game-over.component";
 import { ModalQueueService } from '../../services/modal-queue-service/modal-queue.service';
@@ -85,6 +89,10 @@ import { PokemonFormsService } from '../../services/pokemon-forms-service/pokemo
     EliteFourPrepRouletteComponent,
     EliteFourBattleRouletteComponent,
     ChampionBattleRouletteComponent,
+    PostgameAdventureRouletteComponent,
+    BattleTowerRouletteComponent,
+    MythicalEncounterRouletteComponent,
+    CatchMythicalRouletteComponent,
     EndGameComponent,
     GameOverComponent
 ],
@@ -190,6 +198,9 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
   runningShoesUsed: boolean = false;
   stolenPokemon!: PokemonItem | null;
   wheelSpinning: boolean = false;
+
+  /** Postgame Battle Tower floor counter — persists across multiple visits in the same run. */
+  towerFloor: number = 1;
 
   getGameState(): string {
     return this.currentGameState;
@@ -399,6 +410,7 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
     if (result) {
       this.playItemFoundAudio();
       this.trainerService.addBadge(this.leadersDefeatedAmount, this.fromLeader);
+      this.trainerService.levelUpTeam(2);
       this.gameStateService.advanceRound();
       this.gameStateService.setNextState('check-evolution');
 
@@ -498,6 +510,7 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
 
   rivalBattleResult(result: boolean): void {
     if (result) {
+      this.trainerService.levelUpTeam(1);
       this.chooseWhoWillEvolve('battle-rival');
     } else {
       this.doNothing();
@@ -622,6 +635,7 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
     this.respinReason = '';
 
     if (result) {
+      this.trainerService.levelUpTeam(3);
       this.gameStateService.advanceRound();
       this.gameStateService.setNextState('check-evolution');
     } else {
@@ -635,6 +649,7 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
     this.respinReason = '';
 
     if (result) {
+      this.trainerService.levelUpTeam(5);
       const rawIds = [
         ...this.trainerService.getTeam().map(p => p.pokemonId),
         ...this.trainerService.getStored().map(p => p.pokemonId)
@@ -645,10 +660,104 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
       }))];
       this.pokedexService.markWon(wonIds);
       this.gameStateService.advanceRound();
+
+      // Hall of Fame ceremony, then unlock the postgame loop instead of going
+      // straight to credits. The 'game-finish' state stays at the bottom of
+      // the stack — picking "Retire" from the postgame wheel pops back to it.
+      this.infoModalTitle = this.translateService.instant('game.main.roulette.postgame.hallOfFame.title');
+      this.infoModalMessage = this.translateService.instant('game.main.roulette.postgame.hallOfFame.message');
+      this.modalQueueService.open(this.infoModal, { centered: true, size: 'md' });
+      this.gameStateService.setNextState('postgame-adventure');
     } else {
       this.gameStateService.setNextState('game-over');
     }
 
+    this.finishCurrentState();
+  }
+
+  // ---------- POSTGAME ----------
+
+  /**
+   * Re-queues the postgame hub. Called by every postgame activity handler
+   * before the activity itself, so finishCurrentState pops the activity first
+   * and lands back on `postgame-adventure` once it resolves.
+   */
+  private requeuePostgame(): void {
+    this.gameStateService.setNextState('postgame-adventure');
+  }
+
+  enterBattleTower(): void {
+    this.requeuePostgame();
+    this.gameStateService.setNextState('battle-tower');
+    this.finishCurrentState();
+  }
+
+  battleTowerResult(result: boolean): void {
+    if (result) {
+      this.trainerService.levelUpTeam(3);
+      this.towerFloor++;
+      this.respinReason = 'game.main.roulette.tower.victory';
+      this.playItemFoundAudio();
+    } else {
+      // Losing in the tower kicks the player back to the postgame hub instead
+      // of triggering game-over: postgame is a sandbox, not a death-march.
+      this.respinReason = 'game.main.roulette.tower.defeat';
+    }
+    this.finishCurrentState();
+  }
+
+  postgameLegendaryEncounter(): void {
+    this.requeuePostgame();
+    this.gameStateService.setNextState('legendary-encounter');
+    this.finishCurrentState();
+  }
+
+  mythicalEncounter(): void {
+    this.requeuePostgame();
+    this.gameStateService.setNextState('mythical-encounter');
+    this.finishCurrentState();
+  }
+
+  mythicalCaptureChance(pokemon: PokemonItem): void {
+    this.currentContextPokemon = structuredClone(pokemon);
+    this.gameStateService.setNextState('catch-mythical');
+    this.finishCurrentState();
+  }
+
+  mythicalCaptureSuccess(): void {
+    this.preparePokemonCapture(this.currentContextPokemon);
+  }
+
+  postgameCatchPokemon(): void {
+    this.requeuePostgame();
+    this.gameStateService.setNextState('catch-pokemon');
+    this.finishCurrentState();
+  }
+
+  postgameTradePokemon(): void {
+    this.requeuePostgame();
+    this.tradePokemon();
+  }
+
+  postgameFindItem(): void {
+    this.requeuePostgame();
+    this.findItem();
+  }
+
+  postgameBattleRival(): void {
+    this.requeuePostgame();
+    this.battleRival();
+  }
+
+  postgameAreaZero(): void {
+    this.requeuePostgame();
+    this.areaZero();
+  }
+
+  retireFromPostgame(): void {
+    // Stack still has 'game-finish' on the bottom from initialization, so a
+    // plain finish lands on the credits screen.
+    this.respinReason = '';
     this.finishCurrentState();
   }
 
@@ -658,6 +767,7 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
 
   resetGameAction(): void {
     this.evolutionCredits = 0;
+    this.towerFloor = 1;
     this.resetGameEvent.emit();
     this.modalService.dismissAll();
   }

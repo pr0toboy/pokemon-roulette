@@ -339,6 +339,38 @@
                     "yes": "Oui",
                     "no": "Non"
                 },
+                "mythical": {
+                    "catch": "Attraper le Pokémon Mythique?",
+                    "which": "Quel Pokémon Mythique?",
+                    "yes": "Oui",
+                    "no": "Non"
+                },
+                "tower": {
+                    "title": "Tour de Combat",
+                    "floor": "Étage",
+                    "yes": "Victoire",
+                    "no": "Défaite",
+                    "victory": "Étage de la Tour franchi !",
+                    "defeat": "Mis K.O. dans la Tour."
+                },
+                "postgame": {
+                    "title": "Que fait le Maître maintenant ?",
+                    "hallOfFame": {
+                        "title": "Panthéon",
+                        "message": "Tu as vaincu la Ligue ! Ton équipe entre au Panthéon. L'aventure continue — explore le post-game, gravis la Tour de Combat et traque les Pokémon Mythiques."
+                    },
+                    "actions": {
+                        "battleTower": "Tour de Combat",
+                        "legendaryEncounter": "Chasser un Légendaire",
+                        "mythicalEncounter": "Chasser un Pokémon Mythique",
+                        "catchPokemon": "Capturer un Pokémon sauvage",
+                        "tradePokemon": "Échanger un Pokémon",
+                        "findItem": "Trouver un objet",
+                        "battleRival": "Revanche du Rival",
+                        "areaZero": "Explorer la Zone Zéro",
+                        "retire": "Terminer l'aventure"
+                    }
+                },
                 "rival": {
                     "against": "Combat contre",
                     "go": "C'est parti!",

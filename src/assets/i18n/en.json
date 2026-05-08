@@ -339,6 +339,38 @@
                     "yes": "Yes",
                     "no": "No"
                 },
+                "mythical": {
+                    "catch": "Catch the Mythical Pokémon?",
+                    "which": "Which Mythical Pokémon?",
+                    "yes": "Yes",
+                    "no": "No"
+                },
+                "tower": {
+                    "title": "Battle Tower",
+                    "floor": "Floor",
+                    "yes": "Win",
+                    "no": "Lose",
+                    "victory": "Tower floor cleared!",
+                    "defeat": "Knocked out of the tower."
+                },
+                "postgame": {
+                    "title": "What's next, Champion?",
+                    "hallOfFame": {
+                        "title": "Hall of Fame",
+                        "message": "You defeated the League! Your team is enshrined in the Hall of Fame. The adventure continues — explore the postgame, climb the Battle Tower, and hunt Mythical Pokémon."
+                    },
+                    "actions": {
+                        "battleTower": "Battle Tower",
+                        "legendaryEncounter": "Hunt a Legendary",
+                        "mythicalEncounter": "Hunt a Mythical Pokémon",
+                        "catchPokemon": "Catch a Wild Pokémon",
+                        "tradePokemon": "Trade a Pokémon",
+                        "findItem": "Find an Item",
+                        "battleRival": "Rival Rematch",
+                        "areaZero": "Explore Area Zero",
+                        "retire": "End the Adventure"
+                    }
+                },
                 "rival": {
                     "against": "Battle against",
                     "go": "Let's Go!",

@@ -1,0 +1,8 @@
+<h1 class="title">
+  {{ 'game.main.roulette.tower.title' | translate }}
+  <span class="floor-badge">{{ 'game.main.roulette.tower.floor' | translate }} {{ currentFloor }}</span>
+</h1>
+<app-wheel  #wheel
+            [items]="victoryOdds"
+            (selectedItemEvent)="onItemSelected($event)">
+</app-wheel>

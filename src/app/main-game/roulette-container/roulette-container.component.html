@@ -196,6 +196,38 @@
         (battleResultEvent)="championBattleResult($event)">
     </app-champion-battle-roulette>
   }
+  @case ('postgame-adventure') {
+    <app-postgame-adventure-roulette
+        [respinReason]="respinReason"
+        [currentFloor]="towerFloor"
+        (battleTowerEvent)="enterBattleTower()"
+        (legendaryEncounterEvent)="postgameLegendaryEncounter()"
+        (mythicalEncounterEvent)="mythicalEncounter()"
+        (catchPokemonEvent)="postgameCatchPokemon()"
+        (tradePokemonEvent)="postgameTradePokemon()"
+        (findItemEvent)="postgameFindItem()"
+        (battleRivalEvent)="postgameBattleRival()"
+        (areaZeroEvent)="postgameAreaZero()"
+        (retireEvent)="retireFromPostgame()">
+    </app-postgame-adventure-roulette>
+  }
+  @case ('battle-tower') {
+    <app-battle-tower-roulette
+        [currentFloor]="towerFloor"
+        (battleResultEvent)="battleTowerResult($event)">
+    </app-battle-tower-roulette>
+  }
+  @case ('mythical-encounter') {
+    <app-mythical-encounter-roulette
+        (selectedPokemonEvent)="mythicalCaptureChance($event)">
+    </app-mythical-encounter-roulette>
+  }
+  @case ('catch-mythical') {
+    <app-catch-mythical-roulette
+        (catchMythicalEvent)="mythicalCaptureSuccess()"
+        (nothingHappensEvent)="doNothing()">
+    </app-catch-mythical-roulette>
+  }
   @case ('game-finish') {
     <app-end-game></app-end-game>
   }

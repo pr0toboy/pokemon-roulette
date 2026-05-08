@@ -358,7 +358,7 @@ export class WheelComponent implements AfterViewInit, OnChanges {
    * every spin — pure cinematic luck. Ties (e.g. uniform Pokémon lists) fall
    * back to a random pick among the lowest-weight items so we keep variety.
    */
-  private static readonly LUCKY_MODE = true;
+  private static readonly LUCKY_MODE = false;
 
   getRandomWeightedIndex(): number {
     if (WheelComponent.LUCKY_MODE && this.translatedItems.length > 0) {

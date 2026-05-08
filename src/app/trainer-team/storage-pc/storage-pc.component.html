@@ -18,6 +18,7 @@
             <div  class="pokemon-storage-card shadow"
                   cdkDrag>
               <img class="img-fluid" [src]="getSprite(pokemon)">
+              <div class="pokemon-storage-level">Lv.{{ getLevel(pokemon) }}</div>
             </div>
           }
     </div>
@@ -34,6 +35,7 @@
               [cdkDragData]="pokemon"
               cdkDrag>
           <img [src]="getSprite(pokemon)" class="img-fluid">
+          <div class="pokemon-storage-level">Lv.{{ getLevel(pokemon) }}</div>
         </div>
       }
     </div>

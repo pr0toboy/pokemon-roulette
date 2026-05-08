@@ -116,6 +116,10 @@ export class StoragePcComponent implements OnInit, OnDestroy {
       return pokemon.sprite?.front_default || 'place-holder-pixel.png';
     }
 
+    getLevel(pokemon: PokemonItem): number {
+      return pokemon.level ?? TrainerService.STARTING_LEVEL;
+    }
+
     drop(event: CdkDragDrop<PokemonItem[]>) {
       if (event.previousContainer === event.container) {
         moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);

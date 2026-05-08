@@ -11,4 +11,10 @@ export interface PokemonItem extends WheelItem {
   } | null;
   shiny: boolean;
   power: 1 | 2 | 3 | 4 | 5;
+  /**
+   * Per-instance training level. Optional in source data because seed Pokédex
+   * entries don't define it — it is assigned when the Pokémon is added to the
+   * team (see TrainerService.addToTeam) and grows with battle victories.
+   */
+  level?: number;
 }

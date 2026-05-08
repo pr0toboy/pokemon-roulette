@@ -8,6 +8,7 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { BadgesComponent } from "./badges/badges.component";
 import { Badge } from '../interfaces/badge';
 import { TrainerService } from '../services/trainer-service/trainer.service';
+
 import { StoragePcComponent } from "./storage-pc/storage-pc.component";
 import { PokedexComponent } from "./pokedex/pokedex.component";
 import {TranslatePipe} from '@ngx-translate/core';
@@ -61,5 +62,9 @@ export class TrainerTeamComponent implements OnInit, OnDestroy {
       return pokemon.sprite?.front_shiny || 'place-holder-pixel.png';
     }
     return pokemon.sprite?.front_default || 'place-holder-pixel.png';
+  }
+
+  getLevel(pokemon: PokemonItem): number {
+    return pokemon.level ?? TrainerService.STARTING_LEVEL;
   }
 }

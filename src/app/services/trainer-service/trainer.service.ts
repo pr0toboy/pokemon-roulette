@@ -20,6 +20,12 @@ import { stickyBattleForms } from './sticky-battle-forms';
 })
 export class TrainerService implements OnDestroy {
 
+  /** Level assigned to a freshly-caught Pokémon. */
+  static readonly STARTING_LEVEL = 5;
+
+  /** Bonus level granted on top of the inherited one when a Pokémon evolves. */
+  private static readonly EVOLUTION_LEVEL_BONUS = 1;
+
   private static readonly DEFAULT_POTION: ItemItem = {
     text: 'items.potion.name',
     name: 'potion',
@@ -86,6 +92,11 @@ export class TrainerService implements OnDestroy {
     pokemon = structuredClone(pokemon);
     this.loadPokemonSpriteIfMissing(pokemon);
 
+    // Seed Pokédex entries don't carry a level; assign one on capture.
+    if (pokemon.level === undefined) {
+      pokemon.level = TrainerService.STARTING_LEVEL;
+    }
+
     if(this.trainerTeam.length < 6) {
       this.trainerTeam.push(pokemon);
     } else {
@@ -93,6 +104,20 @@ export class TrainerService implements OnDestroy {
     }
 
     this.lastAddedPokemon = pokemon;
+    this.trainerTeamObservable.next(this.getTeam());
+  }
+
+  /**
+   * Grants `amount` levels to every Pokémon currently in the active team.
+   * Stored Pokémon don't gain XP since they don't participate in battles.
+   */
+  levelUpTeam(amount: number): void {
+    if (amount <= 0 || this.trainerTeam.length === 0) {
+      return;
+    }
+    this.trainerTeam.forEach(pokemon => {
+      pokemon.level = (pokemon.level ?? TrainerService.STARTING_LEVEL) + amount;
+    });
     this.trainerTeamObservable.next(this.getTeam());
   }
 
@@ -167,6 +192,10 @@ export class TrainerService implements OnDestroy {
 
   replaceForEvolution(pokemonOut: PokemonItem, pokemonIn: PokemonItem): void {
     pokemonIn.shiny = pokemonOut.shiny;
+    // Carry the evolution chain's training: keep the level and add a small bonus
+    // so evolution feels rewarding without distorting the curve.
+    const inheritedLevel = pokemonOut.level ?? TrainerService.STARTING_LEVEL;
+    pokemonIn.level = inheritedLevel + TrainerService.EVOLUTION_LEVEL_BONUS;
     this.loadPokemonSpriteIfMissing(pokemonIn);
 
     let index = this.trainerTeam.indexOf(pokemonOut);
@@ -184,6 +213,9 @@ export class TrainerService implements OnDestroy {
   }
 
   performTrade(pokemonOut: PokemonItem, pokemonIn: PokemonItem): void {
+    // Trades are typically considered fair-value: the incoming Pokémon takes
+    // over the slot at the same training level as the one we're giving away.
+    pokemonIn.level = pokemonOut.level ?? TrainerService.STARTING_LEVEL;
     this.loadPokemonSpriteIfMissing(pokemonIn);
 
     let index = this.trainerTeam.indexOf(pokemonOut);
@@ -314,6 +346,7 @@ export class TrainerService implements OnDestroy {
 
         const replacement = structuredClone(targetForm);
         replacement.shiny = pokemon.shiny;
+        replacement.level = pokemon.level;
         replacement.sprite = null;
         this.loadPokemonSpriteIfMissing(replacement);
         collection[index] = replacement;
@@ -352,6 +385,7 @@ export class TrainerService implements OnDestroy {
 
         const replacement = structuredClone(targetForm);
         replacement.shiny = pokemon.shiny;
+        replacement.level = pokemon.level;
         replacement.sprite = null;
         this.loadPokemonSpriteIfMissing(replacement);
         collection[index] = replacement;

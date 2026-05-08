@@ -24,10 +24,37 @@
 .pokemon-container {
   padding: 0px;
   aspect-ratio: 1;
+  position: relative;
 
   img {
     animation: pokemon-show 0.5s ease-in-out;
   }
+}
+
+.level-badge {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px 5px;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+.level-badge-light {
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #222;
+  border: 1px solid #333;
+}
+
+.level-badge-dark {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border: 1px solid #fff;
 }
 
 @keyframes pokemon-show {

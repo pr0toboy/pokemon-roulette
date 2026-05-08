@@ -105,6 +105,13 @@ export class GymBattleRouletteComponent extends BaseBattleRouletteComponent {
       yesOdds.push({ text: 'game.main.roulette.gym.yes', fillStyle: 'green', weight: 1 });
     }
 
+    // Training bonus: every 5 levels gained on average above the starting level
+    // adds one extra "yes" slice — so a well-trained team noticeably tips the wheel.
+    const levelBonus = this.calcLevelBonus();
+    for (let i = 0; i < levelBonus; i++) {
+      yesOdds.push({ text: 'game.main.roulette.gym.yes', fillStyle: 'green', weight: 1 });
+    }
+
     if (this.currentLeader?.types?.length) {
       const { strongCount, weakCount } = this.typeMatchupService.calcTeamMatchup(
         this.trainerTeam,
@@ -148,6 +155,17 @@ export class GymBattleRouletteComponent extends BaseBattleRouletteComponent {
     noOdds.push({ text: 'game.main.roulette.gym.no', fillStyle: 'crimson', weight: 1 });
 
     this.victoryOdds = interleaveOdds(yesOdds, noOdds);
+  }
+
+  private calcLevelBonus(): number {
+    if (!this.trainerTeam.length) return 0;
+    const startingLevel = TrainerService.STARTING_LEVEL;
+    const totalLevels = this.trainerTeam.reduce(
+      (sum, p) => sum + (p.level ?? startingLevel),
+      0
+    );
+    const avgLevel = totalLevels / this.trainerTeam.length;
+    return Math.max(0, Math.floor((avgLevel - startingLevel) / 5));
   }
 
   private getCurrentLeader(): void {

@@ -22,7 +22,11 @@
                                    <img [src]="getSprite(trainerTeam[i])"
                                         class="img-fluid"
                                         placement="bottom"
-                                        ngbTooltip="{{ trainerTeam[i].text | translate }}">
+                                        ngbTooltip="{{ trainerTeam[i].text | translate }} — Lv. {{ getLevel(trainerTeam[i]) }}">
+                                   <span class="level-badge"
+                                         [ngClass]="(darkMode | async) ? 'level-badge-dark' : 'level-badge-light'">
+                                        Lv.{{ getLevel(trainerTeam[i]) }}
+                                   </span>
                               }
                          </div>
                     }

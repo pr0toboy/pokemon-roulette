@@ -738,27 +738,6 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
     this.preparePokemonCapture(this.currentContextPokemon);
   }
 
-  postgameCatchPokemon(): void {
-    this.requeuePostgame();
-    this.gameStateService.setNextState('catch-pokemon');
-    this.finishCurrentState();
-  }
-
-  postgameTradePokemon(): void {
-    this.requeuePostgame();
-    this.tradePokemon();
-  }
-
-  postgameFindItem(): void {
-    this.requeuePostgame();
-    this.findItem();
-  }
-
-  postgameBattleRival(): void {
-    this.requeuePostgame();
-    this.battleRival();
-  }
-
   postgameAreaZero(): void {
     this.requeuePostgame();
     this.areaZero();

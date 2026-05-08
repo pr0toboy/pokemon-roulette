@@ -7,11 +7,13 @@ import { GenerationService } from '../../../../services/generation-service/gener
 
 /**
  * Postgame hub roulette — what happens after the Champion is defeated.
- * Mirrors the structure of MainAdventureRouletteComponent but with the
- * postgame-only options (Battle Tower, Mythical hunt) and reuse of the
- * legendary / paradox / wild / trade activities. The wheel deliberately
- * loops: each landing routes back through the parent which re-queues
- * `postgame-adventure` unless the user picks "Retire".
+ *
+ * Deliberately stripped down to *postgame-exclusive* content: the player
+ * already had access to wild catches, item finds, trades and rival fights
+ * during the main story. Repeating those options here just made the wheel
+ * feel like a remix of the regular adventure. Now it's focused on what only
+ * exists post-league: the Battle Tower, Legendary and Mythical hunts, the
+ * Gen 9 Paradox sanctuary, and a way out.
  */
 @Component({
   selector: 'app-postgame-adventure-roulette',
@@ -29,32 +31,23 @@ export class PostgameAdventureRouletteComponent implements OnInit, OnDestroy {
   @Output() battleTowerEvent = new EventEmitter<void>();
   @Output() legendaryEncounterEvent = new EventEmitter<void>();
   @Output() mythicalEncounterEvent = new EventEmitter<void>();
-  @Output() catchPokemonEvent = new EventEmitter<void>();
-  @Output() tradePokemonEvent = new EventEmitter<void>();
-  @Output() findItemEvent = new EventEmitter<void>();
-  @Output() battleRivalEvent = new EventEmitter<void>();
   @Output() areaZeroEvent = new EventEmitter<void>();
   @Output() retireEvent = new EventEmitter<void>();
 
   // Order matters — `onItemSelected` switches on the index.
-  // Battle Tower gets `weight: 2` because climbing it is the headline activity.
-  // Retire gets `weight: 1` so it isn't oppressively likely to interrupt the loop.
+  // Battle Tower has the heaviest weight: it's the headline postgame loop.
   private readonly baseActions: WheelItem[] = [
-    { text: 'game.main.roulette.postgame.actions.battleTower',         fillStyle: 'gold',          weight: 2 }, // 0
-    { text: 'game.main.roulette.postgame.actions.legendaryEncounter',  fillStyle: 'crimson',       weight: 1 }, // 1
-    { text: 'game.main.roulette.postgame.actions.mythicalEncounter',   fillStyle: 'deeppink',      weight: 1 }, // 2
-    { text: 'game.main.roulette.postgame.actions.catchPokemon',        fillStyle: 'darkcyan',      weight: 1 }, // 3
-    { text: 'game.main.roulette.postgame.actions.tradePokemon',        fillStyle: 'darkorange',    weight: 1 }, // 4
-    { text: 'game.main.roulette.postgame.actions.findItem',            fillStyle: 'darkgoldenrod', weight: 1 }, // 5
-    { text: 'game.main.roulette.postgame.actions.battleRival',         fillStyle: 'black',         weight: 1 }, // 6
-    { text: 'game.main.roulette.postgame.actions.retire',              fillStyle: 'dimgray',       weight: 1 }, // 7
+    { text: 'game.main.roulette.postgame.actions.battleTower',        fillStyle: 'gold',     weight: 3 }, // 0
+    { text: 'game.main.roulette.postgame.actions.legendaryEncounter', fillStyle: 'crimson',  weight: 1 }, // 1
+    { text: 'game.main.roulette.postgame.actions.mythicalEncounter',  fillStyle: 'deeppink', weight: 1 }, // 2
+    { text: 'game.main.roulette.postgame.actions.retire',             fillStyle: 'dimgray',  weight: 1 }, // 3
   ];
 
   private readonly areaZeroAction: WheelItem = {
     text: 'game.main.roulette.postgame.actions.areaZero',
     fillStyle: 'darkslateblue',
     weight: 1
-  }; // 8 (only included on Gen 9 runs)
+  }; // 4 (only included on Gen 9 runs)
 
   actions: WheelItem[] = [...this.baseActions];
   private generationSubscription: Subscription | null = null;
@@ -76,12 +69,8 @@ export class PostgameAdventureRouletteComponent implements OnInit, OnDestroy {
       case 0: this.battleTowerEvent.emit(); break;
       case 1: this.legendaryEncounterEvent.emit(); break;
       case 2: this.mythicalEncounterEvent.emit(); break;
-      case 3: this.catchPokemonEvent.emit(); break;
-      case 4: this.tradePokemonEvent.emit(); break;
-      case 5: this.findItemEvent.emit(); break;
-      case 6: this.battleRivalEvent.emit(); break;
-      case 7: this.retireEvent.emit(); break;
-      case 8: this.areaZeroEvent.emit(); break;
+      case 3: this.retireEvent.emit(); break;
+      case 4: this.areaZeroEvent.emit(); break;
     }
   }
 }

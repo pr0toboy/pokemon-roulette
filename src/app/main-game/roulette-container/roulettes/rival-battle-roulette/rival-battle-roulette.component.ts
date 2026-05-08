@@ -78,6 +78,11 @@ export class RivalBattleRouletteComponent extends BaseBattleRouletteComponent {
       yesOdds.push({ text: 'game.main.roulette.rival.yes', fillStyle: 'green', weight: 1 });
     }
 
+    const levelBonus = this.calcLevelBonus();
+    for (let i = 0; i < levelBonus; i++) {
+      yesOdds.push({ text: 'game.main.roulette.rival.yes', fillStyle: 'green', weight: 1 });
+    }
+
     for (let index = 0; index < this.currentRound; index++) {
       noOdds.push({ text: 'game.main.roulette.rival.no', fillStyle: 'crimson', weight: 1 });
     }

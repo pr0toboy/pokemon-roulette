@@ -104,6 +104,11 @@ export class EliteFourBattleRouletteComponent extends BaseBattleRouletteComponen
       yesOdds.push({ text: 'game.main.roulette.elite.yes', fillStyle: 'green', weight: 1 });
     }
 
+    const levelBonus = this.calcLevelBonus();
+    for (let i = 0; i < levelBonus; i++) {
+      yesOdds.push({ text: 'game.main.roulette.elite.yes', fillStyle: 'green', weight: 1 });
+    }
+
     if (this.currentElite?.types?.length) {
       const { strongCount, weakCount } = this.typeMatchupService.calcTeamMatchup(
         this.trainerTeam,

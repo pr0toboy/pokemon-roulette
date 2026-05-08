@@ -68,6 +68,22 @@ export abstract class BaseBattleRouletteComponent implements OnInit, OnDestroy {
     return power;
   }
 
+  /**
+   * Bonus "yes"-slices granted to the team based on average level above the
+   * starting level. Shared by every battle roulette so training carries a
+   * consistent benefit through gyms, rival, Elite 4 and Champion fights.
+   */
+  protected calcLevelBonus(): number {
+    if (!this.trainerTeam?.length) return 0;
+    const startingLevel = TrainerService.STARTING_LEVEL;
+    const totalLevels = this.trainerTeam.reduce(
+      (sum, p) => sum + (p.level ?? startingLevel),
+      0
+    );
+    const avgLevel = totalLevels / this.trainerTeam.length;
+    return Math.max(0, Math.floor((avgLevel - startingLevel) / 5));
+  }
+
   protected hasPotions(): ItemItem | undefined {
     return this.trainerItems.find(item =>
       item.name === 'potion' || item.name === 'super-potion' || item.name === 'hyper-potion'

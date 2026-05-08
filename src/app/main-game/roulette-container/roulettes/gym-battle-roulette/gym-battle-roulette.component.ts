@@ -157,17 +157,6 @@ export class GymBattleRouletteComponent extends BaseBattleRouletteComponent {
     this.victoryOdds = interleaveOdds(yesOdds, noOdds);
   }
 
-  private calcLevelBonus(): number {
-    if (!this.trainerTeam.length) return 0;
-    const startingLevel = TrainerService.STARTING_LEVEL;
-    const totalLevels = this.trainerTeam.reduce(
-      (sum, p) => sum + (p.level ?? startingLevel),
-      0
-    );
-    const avgLevel = totalLevels / this.trainerTeam.length;
-    return Math.max(0, Math.floor((avgLevel - startingLevel) / 5));
-  }
-
   private getCurrentLeader(): void {
     this.currentLeader = this.gymLeadersByGeneration[this.generation.id][this.currentRound];
 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { GameState } from './game-state';
 import { BehaviorSubject } from 'rxjs';
 import { GenerationService } from '../generation-service/generation.service';
+import { GameStateSnapshot } from '../game-save-service/game-save.service';
 
 const GENERATION_GAME_CONFIG: Record<number, { gymCount: number; eliteFourCount: number }> = {
   1: { gymCount: 8, eliteFourCount: 4 },
@@ -97,5 +98,20 @@ export class GameStateService {
     this.setNextState('game-start');
     this.finishCurrentState();
     this.currentRound.next(0);
+  }
+
+  serialize(): GameStateSnapshot {
+    return {
+      currentRound: this.currentRound.value,
+      stateStack: [...this.stateStack],
+      currentState: this.state.value,
+    };
+  }
+
+  restore(snapshot: GameStateSnapshot): void {
+    this.stateStack = [...snapshot.stateStack];
+    this.currentRound.next(snapshot.currentRound);
+    // Push state.next last so subscribers react with a fully-coherent stack.
+    this.state.next(snapshot.currentState);
   }
 }

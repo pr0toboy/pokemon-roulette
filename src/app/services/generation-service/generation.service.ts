@@ -39,4 +39,11 @@ export class GenerationService {
   getCurrentGeneration(): GenerationItem {
     return this.generation.getValue();
   }
+
+  restore(generationId: number): void {
+    const target = this.generations.find(g => g.id === generationId);
+    if (target) {
+      this.generation.next(target);
+    }
+  }
 }

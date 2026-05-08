@@ -18,6 +18,7 @@ import { LanguageSelectorComponent } from './language-selector/language-selector
 import { RouletteContainerComponent } from './roulette-container/roulette-container.component';
 import { SettingsButtonComponent } from '../settings-button/settings-button.component';
 import { RareCandyService } from '../services/rare-candy-service/rare-candy.service';
+import { GameSaveService } from '../services/game-save-service/game-save.service';
 
 @Component({
   selector: 'app-main-game',
@@ -45,7 +46,8 @@ export class MainGameComponent implements OnInit {
     private trainerService: TrainerService,
     private modalService: NgbModal,
     private analyticsService: AnalyticsService,
-    private rareCandyService: RareCandyService) {
+    private rareCandyService: RareCandyService,
+    private gameSaveService: GameSaveService) {
       this.darkMode = this.themeService.isDark$;
   }
 
@@ -54,6 +56,11 @@ export class MainGameComponent implements OnInit {
 
   ngOnInit(): void {
     this.analyticsService.trackEvent('main-game-loaded', 'Main Game Loaded', 'user acess');
+
+    // Try to bring back a previously interrupted run before any wheel work
+    // begins; startAutoSave starts persisting on every state transition.
+    this.gameSaveService.restore();
+    this.gameSaveService.startAutoSave();
 
     this.gameStateService.wheelSpinningObserver.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(state => {
       this.wheelSpinning = state;
@@ -77,6 +84,7 @@ export class MainGameComponent implements OnInit {
   }
 
   resetGame(): void {
+    this.gameSaveService.clear();
     this.trainerService.resetTrainer();
     this.trainerService.resetTeam();
     this.trainerService.resetItems();

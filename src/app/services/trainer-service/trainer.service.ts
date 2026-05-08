@@ -14,6 +14,7 @@ import { GameState } from '../game-state-service/game-state';
 import { GameStateService } from '../game-state-service/game-state.service';
 import { palafinForms } from './palafin-forms';
 import { stickyBattleForms } from './sticky-battle-forms';
+import { TrainerSnapshot } from '../game-save-service/game-save.service';
 
 @Injectable({
   providedIn: 'root'
@@ -296,6 +297,31 @@ export class TrainerService implements OnDestroy {
 
   resetBadges() {
     this.trainerBadges = [];
+    this.trainerBadgesObservable.next(this.trainerBadges);
+  }
+
+  serialize(): TrainerSnapshot {
+    return {
+      gender: this.gender,
+      team: structuredClone(this.trainerTeam),
+      stored: structuredClone(this.storedPokemon),
+      items: structuredClone(this.trainerItems),
+      badges: structuredClone(this.trainerBadges),
+    };
+  }
+
+  restore(snapshot: TrainerSnapshot, generationId: number): void {
+    this.gender = snapshot.gender;
+    this.trainerTeam = structuredClone(snapshot.team);
+    this.storedPokemon = structuredClone(snapshot.stored);
+    this.trainerItems = structuredClone(snapshot.items);
+    this.trainerBadges = structuredClone(snapshot.badges);
+
+    // Re-emit so subscribers (TrainerTeamComponent, gym/tower roulettes) see
+    // the restored team rather than the empty default they observed at boot.
+    this.trainer.next({ sprite: this.getTrainerSprite(generationId, this.gender) });
+    this.trainerTeamObservable.next(this.getTeam());
+    this.trainerItemsObservable.next(this.trainerItems);
     this.trainerBadgesObservable.next(this.trainerBadges);
   }
 

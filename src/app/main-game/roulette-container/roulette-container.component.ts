@@ -55,6 +55,7 @@ import { EndGameComponent } from "../end-game/end-game.component";
 import { GameOverComponent } from "../game-over/game-over.component";
 import { ModalQueueService } from '../../services/modal-queue-service/modal-queue.service';
 import { PokemonFormsService } from '../../services/pokemon-forms-service/pokemon-forms.service';
+import { GameSaveService } from '../../services/game-save-service/game-save.service';
 
 @Component({
   selector: 'app-roulette-container',
@@ -119,7 +120,8 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
       private soundFxService: SoundFxService,
       private settingsService: SettingsService,
       private pokemonFormsService: PokemonFormsService,
-      private rareCandyService: RareCandyService) {
+      private rareCandyService: RareCandyService,
+      private gameSaveService: GameSaveService) {
       this.itemFoundAudio = this.soundFxService.createItemFoundSoundFx();
     }
 
@@ -199,8 +201,16 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
   stolenPokemon!: PokemonItem | null;
   wheelSpinning: boolean = false;
 
-  /** Postgame Battle Tower floor counter — persists across multiple visits in the same run. */
-  towerFloor: number = 1;
+  /**
+   * Postgame Battle Tower floor counter. Persisted via GameSaveService so a
+   * page reload mid-postgame doesn't drop the player back to floor 1.
+   */
+  get towerFloor(): number {
+    return this.gameSaveService.getExtra('towerFloor', 1);
+  }
+  set towerFloor(value: number) {
+    this.gameSaveService.setExtra('towerFloor', value);
+  }
 
   getGameState(): string {
     return this.currentGameState;

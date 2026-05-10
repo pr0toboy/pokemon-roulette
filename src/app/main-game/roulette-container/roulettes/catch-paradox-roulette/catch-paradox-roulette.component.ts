@@ -25,6 +25,7 @@ export class CatchParadoxRouletteComponent implements OnInit {
   }
 
   @Input() currentRound: number = 0;
+  @Input() titleKey: string = 'game.main.roulette.areaZero.catch';
   @Output() catchParadoxEvent = new EventEmitter<void>();
   @Output() nothingHappensEvent = new EventEmitter<void>();
 

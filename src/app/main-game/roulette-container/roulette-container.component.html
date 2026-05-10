@@ -132,12 +132,13 @@
   }
   @case ('ultra-beast-encounter') {
     <app-ultra-beast-roulette
-        (selectedPokemonEvent)="paradoxCaptureChance($event)">
+        (selectedPokemonEvent)="ultraBeastCaptureChance($event)">
     </app-ultra-beast-roulette>
   }
   @case ('catch-paradox') {
     <app-catch-paradox-roulette
         [currentRound]="leadersDefeatedAmount"
+        [titleKey]="isUltraBeastCapture ? 'game.main.roulette.ultraBeast.catch' : 'game.main.roulette.areaZero.catch'"
         (catchParadoxEvent)="paradoxCaptureSuccess()"
         (nothingHappensEvent)="doNothing()">
     </app-catch-paradox-roulette>
@@ -208,16 +209,53 @@
         (battleResultEvent)="championBattleResult($event)">
     </app-champion-battle-roulette>
   }
+  @case ('boss-encounter') {
+    <app-boss-encounter-roulette
+        (selectedPokemonEvent)="bossEncounterChosen($event)">
+    </app-boss-encounter-roulette>
+  }
+  @case ('boss-battle') {
+    <app-boss-battle-roulette
+        [boss]="currentBossPokemon"
+        [currentRound]="leadersDefeatedAmount"
+        (battleResultEvent)="bossBattleResult($event)">
+    </app-boss-battle-roulette>
+  }
+  @case ('catch-boss') {
+    <app-catch-boss-roulette
+        (catchBossEvent)="bossCatchSuccess()"
+        (nothingHappensEvent)="doNothing()">
+    </app-catch-boss-roulette>
+  }
   @case ('postgame-adventure') {
     <app-postgame-adventure-roulette
         [respinReason]="respinReason"
         [currentFloor]="towerFloor"
-        (battleTowerEvent)="enterBattleTower()"
-        (legendaryEncounterEvent)="postgameLegendaryEncounter()"
-        (mythicalEncounterEvent)="mythicalEncounter()"
-        (areaZeroEvent)="postgameAreaZero()"
+        (catchPokemonEvent)="masterCatchPokemon()"
+        (challengerEvent)="masterChallenger()"
+        (buyPotionsEvent)="masterBuyPotions()"
+        (doNothingEvent)="masterDoNothing()"
+        (catchTwoPokemonEvent)="masterCatchTwoPokemon()"
+        (visitDaycareEvent)="masterVisitDaycare($event)"
+        (teamRocketEncounterEvent)="masterTeamRocket()"
+        (mysteriousEggEvent)="masterMysteriousEgg()"
+        (legendaryEncounterEvent)="masterLegendaryEncounter()"
+        (tradePokemonEvent)="masterTradePokemon()"
+        (findItemEvent)="masterFindItem()"
+        (exploreCaveEvent)="masterExploreCave()"
+        (multitaskEvent)="masterMultitask()"
+        (goFishingEvent)="masterGoFishing()"
+        (findFossilEvent)="masterFindFossil()"
+        (battleRivalEvent)="masterBattleRival()"
+        (otherworldEncounterEvent)="masterOtherworldEncounter()"
         (retireEvent)="retireFromPostgame()">
     </app-postgame-adventure-roulette>
+  }
+  @case ('master-challenger') {
+    <app-master-challenger-roulette
+        [currentRound]="leadersDefeatedAmount"
+        (battleResultEvent)="masterChallengerResult($event)">
+    </app-master-challenger-roulette>
   }
   @case ('battle-tower') {
     <app-battle-tower-roulette

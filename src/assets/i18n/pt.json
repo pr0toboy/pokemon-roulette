@@ -95,7 +95,15 @@
         "rock": "Insígnia de Pedra",
         "ice_galar": "Insígnia de Gelo",
         "dark": "Insígnia Noturna",
-        "dragon": "Insígnia de Dragão"
+        "dragon": "Insígnia de Dragão",
+        "thermal": "Thermal Badge",
+        "stinger": "Stinger Badge",
+        "summit": "Summit Badge",
+        "paragon": "Paragon Badge",
+        "circuit": "Circuit Badge",
+        "dreamland": "Dreamland Badge",
+        "rainstorm": "Rainstorm Badge",
+        "tartarus": "Tartarus Badge"
     },
     "credits": {
         "title": "Créditos e Agradecimentos",
@@ -251,7 +259,8 @@
                         "findFossil": "Encontrar um Fóssil",
                         "battleRival": "Batalha contra o Rival",
                         "areaZero": "Explorar a Área Zero",
-                        "otherworld": "Encontro de outro mundo"
+                        "otherworld": "Outro mundo",
+                        "challenger": "Desafiante"
                     }
                 },
                 "areaZero": {
@@ -264,7 +273,8 @@
                     "ultraBeast": "Ultracriatura"
                 },
                 "ultraBeast": {
-                    "title": "Ultracriatura"
+                    "title": "Ultracriatura",
+                    "catch": "Capturar a Ultracriatura?"
                 },
                 "cave": {
                     "explore": {
@@ -360,6 +370,21 @@
                     "found": "Encontrou um(a)",
                     "title": "Qual item?"
                 },
+                "boss": {
+                    "which": "Qual chefe lendário aparece?",
+                    "victory": "Vitória?",
+                    "yes": "Sim",
+                    "no": "Não",
+                    "appears": "Surge um chefe lendário:",
+                    "intro": "Ele bloqueia o caminho. Derrota-o para tomar o seu poder!",
+                    "go": "Vamos lá!",
+                    "use": "Usou um(a)",
+                    "catch": {
+                        "title": "Capturar o chefe?",
+                        "yes": "Sim",
+                        "no": "Não"
+                    }
+                },
                 "legendary": {
                     "catch": "Captura o lendário?",
                     "which": "Qual Lendário?",
@@ -404,6 +429,34 @@
                 "trade": {
                     "title": "Trocar por?",
                     "which": "Qual Pokémon será trocado?"
+                },
+                "postgame": {
+                    "title": "O que faz o mestre?",
+                    "hallOfFame": {
+                        "title": "Hall da Fama",
+                        "message": "Você venceu a Liga! Seu time entra no Hall da Fama. A aventura continua — escale a Torre de Batalha entre as ações do Mestre."
+                    },
+                    "actions": {
+                        "retire": "Terminar a aventura"
+                    }
+                },
+                "tower": {
+                    "title": "Torre de Batalha",
+                    "floor": "Piso",
+                    "yes": "Vitória",
+                    "no": "Derrota",
+                    "victory": "Próximo piso!",
+                    "defeat": "Você sai da torre."
+                },
+                "challenger": {
+                    "title": "Um Desafiante aparece!",
+                    "intro": "Um treinador de nível Mestre está no seu caminho.",
+                    "warning": "Se você perder, sua aventura termina.",
+                    "go": "Lutar",
+                    "victory": "Vitória?",
+                    "yes": "Vitória",
+                    "no": "Derrota",
+                    "victoryMsg": "Desafiante derrotado!"
                 }
             },
             "trade": {
@@ -2131,6 +2184,22 @@
             "name": "Hassel",
             "quote1": "Eu sou Hassel, o dragão que guarda a fortaleza final do teste da Elite.",
             "quote2": "Prepare-se para aprender em primeira mão como é o sopro ardente de uma batalha feroz!"
+        },
+        "kayla": {
+            "name": "Kayla",
+            "quote1": "Baton Pass strategy ahead."
+        },
+        "eduard": {
+            "name": "Eduard",
+            "quote1": "Brace for the sandstorm."
+        },
+        "yuki": {
+            "name": "Yuki",
+            "quote1": "Let the hail fall."
+        },
+        "london": {
+            "name": "London",
+            "quote1": "Trick Room engaged."
         }
     },
     "gymLeaders": {
@@ -2495,6 +2564,38 @@
             "name": "Grusha",
             "quote1": "Bom, esse é o meu trabalho agora... então não leve para o lado pessoal o que estou prestes a fazer.",
             "quote2": "Prepare-se para sentir a realidade dura e fria."
+        },
+        "orion": {
+            "name": "Orion",
+            "quote1": "Welcome to Suntouched Gym!"
+        },
+        "xavier": {
+            "name": "Xavier",
+            "quote1": "Vipik is bug country."
+        },
+        "east": {
+            "name": "East",
+            "quote1": "Helios soars high."
+        },
+        "harmony": {
+            "name": "Harmony",
+            "quote1": "Sonata sings the fairy song."
+        },
+        "anastasia": {
+            "name": "Anastasia",
+            "quote1": "Kepler runs on perfect steel."
+        },
+        "diana": {
+            "name": "Diana",
+            "quote1": "Selene awakens at midnight."
+        },
+        "calreath": {
+            "name": "Calreath",
+            "quote1": "Amphitrite rules the deep."
+        },
+        "adam": {
+            "name": "Adam",
+            "quote1": "Welcome to the Dream Realm."
         }
     },
     "rival": {
@@ -2535,6 +2636,11 @@
             "name": "Nemona",
             "quote1": "Ei! Sou eeeeeeu!",
             "quote2": "Vamos ter uma batalha daquelas!"
+        },
+        "damian": {
+            "name": "Damian",
+            "quote1": "Show me how far you've come!",
+            "quote2": "I won't go easy on you."
         }
     },
     "champion": {
@@ -2581,6 +2687,11 @@
             "name": "Geeta",
             "quote1": "O teste final é uma batalha contra mim, a Campeã Suprema.",
             "quote2": "Você está pronto para seu teste final? Quero ver a verdadeira medida do seu talento!"
+        },
+        "reukra": {
+            "name": "Reukra",
+            "quote1": "I am Reukra of Perfection.",
+            "quote2": "My Deltas are evolution itself."
         }
     },
     "pokedex": {

@@ -485,3 +485,86 @@ export const evolutionChain : Record<number, number[]> = {
     10119:[10120],
     10181:[10119],
 }
+
+// Insurgence (Torren) — Delta Pokemon evolution chains. Mirror the canonical
+// species evolution lines using the Insurgence dex IDs (30727–30919). Without
+// these, deltas register as terminal in `EvolutionService.canEvolve`, so a
+// team holding e.g. Delta Bulbasaur + Ekans skips the evolution roulette and
+// silently evolves the only "evolvable" mon.
+Object.assign(evolutionChain, {
+    30727: [30728], 30728: [30729],                    // delta-bulbasaur → ivysaur → venusaur
+    30730: [30731], 30731: [30732],                    // delta-charmander line
+    30733: [30734], 30734: [30735],                    // delta-squirtle line
+    30736: [30737],                                    // delta-pawniard → bisharp
+    30738: [30739], 30739: [30740, 30741],             // delta-ralts → kirlia → gardevoir / gallade
+    30742: [30743],                                    // delta-sunkern → sunflora
+    30744: [30745],                                    // delta-bergmite → avalugg
+    30746: [30747],                                    // delta-scyther → scizor
+    30748: [30749],                                    // delta-scraggy → scrafty
+    30750: [30751],                                    // delta-combee → vespiquen
+    30752: [30753],                                    // delta-koffing → weezing
+    30754: [30755],                                    // delta-purrloin → liepard
+    30756: [30757],                                    // delta-phantump → trevenant
+    30758: [30759, 30760],                             // delta-snorunt → glalie / froslass
+    30761: [30762], 30762: [30763],                    // delta-shinx line
+    30764: [30765],                                    // delta-noibat → noivern
+    30766: [30767], 30767: [30768],                    // delta-budew → roselia → roserade
+    30769: [30770],                                    // delta-drifloon → drifblim
+    30771: [30772],                                    // delta-grimer → muk
+    30773: [30774],                                    // delta-wooper → quagsire
+    30775: [30776],                                    // delta-munchlax → snorlax
+    30777: [30778],                                    // delta-misdreavus → mismagius
+    30779: [30780], 30780: [30781],                    // delta-cyndaquil line
+    30782: [30783], 30783: [30784],                    // delta-treecko line
+    30785: [30786], 30786: [30787],                    // delta-torchic line
+    30788: [30789], 30789: [30790],                    // delta-turtwig line
+    30791: [30792], 30792: [30793],                    // delta-snivy line
+    30794: [30795], 30795: [30796],                    // delta-froakie line
+    30797: [30798], 30798: [30799],                    // delta-pidgey line
+    30800: [30801],                                    // delta-diglett → dugtrio
+    30802: [30803],                                    // delta-growlithe → arcanine
+    30804: [30805], 30805: [30806],                    // delta-geodude line
+    30807: [30808],                                    // delta-tentacool → tentacruel
+    30809: [30810],                                    // delta-doduo → dodrio
+    30811: [30812],                                    // delta-tangela → tangrowth
+    30814: [30815],                                    // delta-kabuto → kabutops
+    30816: [30817], 30817: [30818],                    // delta-dratini line
+    30819: [30820],                                    // delta-hoothoot → noctowl
+    30821: [30822],                                    // delta-chinchou → lanturn
+    30823: [30824], 30824: [30825],                    // delta-pichu → pikachu → raichu
+    30826: [30827],                                    // delta-aipom → ambipom
+    30828: [30829],                                    // delta-yanma → yanmega
+    30833: [30834],                                    // delta-remoraid → octillery
+    30835: [30836], 30836: [30837],                    // delta-elekid → electabuzz → electivire
+    30838: [30839], 30839: [30840],                    // delta-magby → magmar → magmortar
+    30841: [30842], 30842: [30843],                    // delta-lotad line
+    30844: [30845], 30845: [30846],                    // delta-seedot line
+    30849: [30850], 30850: [30851],                    // delta-aron line
+    30852: [30853],                                    // delta-meditite → medicham
+    30854: [30855],                                    // delta-numel → camerupt
+    30858: [30859],                                    // delta-wailmer → wailord
+    30860: [30861],                                    // delta-feebas → milotic
+    30862: [30863, 30864],                             // delta-clamperl → huntail / gorebyss
+    30865: [30866], 30866: [30867],                    // delta-beldum-spider line
+    30868: [30869], 30869: [30870],                    // delta-beldum-ruin line
+    30871: [30872],                                    // delta-buneary → lopunny
+    30873: [30874],                                    // delta-riolu → lucario
+    30875: [30876],                                    // delta-croagunk → toxicroak
+    30877: [30878], 30878: [30879],                    // delta-venipede line
+    30880: [30881],                                    // delta-petilil-water → lilligant-water
+    30882: [30883],                                    // delta-petilil-fairy → lilligant-fairy
+    30884: [30885], 30885: [30886],                    // delta-solosis line
+    30887: [30888],                                    // delta-darumaka → darmanitan
+    30890: [30891],                                    // delta-dwebble-berry → crustle-berry
+    30892: [30893],                                    // delta-dwebble-cake → crustle-cake
+    30894: [30895],                                    // delta-yamask → cofagrigus
+    30897: [30898],                                    // delta-karrablast → escavalier
+    30899: [30900],                                    // delta-foongus → amoonguss
+    30901: [30902], 30902: [30903],                    // delta-litwick line
+    30904: [30905], 30905: [30906],                    // delta-axew line
+    30907: [30908],                                    // delta-golett → golurk
+    30910: [30911], 30911: [30912],                    // delta-deino line
+    30913: [30914],                                    // delta-larvesta → volcarona
+    30915: [30916],                                    // delta-amaura → aurorus
+    30917: [30918], 30918: [30919],                    // delta-goomy line
+});

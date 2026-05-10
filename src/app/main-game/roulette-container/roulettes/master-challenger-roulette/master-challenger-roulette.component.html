@@ -1,0 +1,17 @@
+<h1 class="title">{{ 'game.main.roulette.challenger.victory' | translate }}</h1>
+<app-wheel
+    #wheel
+    [items]="victoryOdds"
+    (selectedItemEvent)="onItemSelected($event)">
+</app-wheel>
+
+<ng-template #challengerPresentationModal let-modal>
+    <div class="modal-body">
+        <h1>{{ 'game.main.roulette.challenger.title' | translate }}</h1>
+        <p>{{ 'game.main.roulette.challenger.intro' | translate }}</p>
+        <p class="warning">{{ 'game.main.roulette.challenger.warning' | translate }}</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary" (click)="closeModal()">{{ 'game.main.roulette.challenger.go' | translate }}</button>
+    </div>
+</ng-template>

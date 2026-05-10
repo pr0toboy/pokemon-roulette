@@ -12,3 +12,14 @@ export const legendaryByGeneration: Record<number, number[]> = {
   9: [ 1001, 1002, 1003, 1004, 1007, 1008, 1014, 1015, 1016, 1017, 1024, 1025],
   100: [30920, 30921, 30922, 30923, 30924] // Insurgence — Delta Regirock, Regice, Registeel, Meloetta, Hoopa
 }
+
+// Insurgence (Torren) features canonical legendaries throughout its routes
+// alongside the Delta variants — merge gen 1-4 legendary pools so the wheel
+// reflects the real spread of legendary encounters in the game.
+legendaryByGeneration[100] = [
+    ...legendaryByGeneration[1],
+    ...legendaryByGeneration[2],
+    ...legendaryByGeneration[3],
+    ...legendaryByGeneration[4],
+    ...legendaryByGeneration[100],
+];

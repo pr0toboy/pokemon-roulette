@@ -106,6 +106,17 @@ export const badgesByGeneration: Record<number, (Badge | Badge[])[]> = {
   ],
 };
 
-// Insurgence (Torren) — fallback to Kalos badges
-badgesByGeneration[100] = badgesByGeneration[6];
+// Insurgence (Torren) — the eight Torren badges, in the canonical order
+// awarded by Orion → Xavier → East → Harmony → Anastasia → Diana → Calreath
+// → Adam. Sprites pulled from the Pokémon Insurgence wiki.
+badgesByGeneration[100] = [
+    { name: 'badges.thermal',   sprite: 'https://wiki.p-insurgence.com/images/3/34/Thermal_Badge.png' },
+    { name: 'badges.stinger',   sprite: 'https://wiki.p-insurgence.com/images/8/84/Stinger_Badge.png' },
+    { name: 'badges.summit',    sprite: 'https://wiki.p-insurgence.com/images/3/32/Summit_Badge.png' },
+    { name: 'badges.paragon',   sprite: 'https://wiki.p-insurgence.com/images/a/a3/Paragon_Badge.png' },
+    { name: 'badges.circuit',   sprite: 'https://wiki.p-insurgence.com/images/f/fe/Circuit_Badge.png' },
+    { name: 'badges.dreamland', sprite: 'https://wiki.p-insurgence.com/images/6/63/Dreamland_Badge.png' },
+    { name: 'badges.rainstorm', sprite: 'https://wiki.p-insurgence.com/images/c/c1/Rainstorm_Badge.png' },
+    { name: 'badges.tartarus',  sprite: 'https://wiki.p-insurgence.com/images/b/bb/Tartarus_Badge.png' },
+];
 

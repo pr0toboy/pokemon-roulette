@@ -74,6 +74,14 @@ export const rivalByGeneration: Record<number, GymLeader> = {
 
 };
 
-// Insurgence (Torren) — fallback to Kalos data
-rivalByGeneration[100] = rivalByGeneration[6];
+// Insurgence (Torren) — Damian, the player's childhood friend turned rival
+// throughout the Torren story.
+rivalByGeneration[100] = {
+    name: 'rival.damian.name',
+    sprite: 'https://wiki.p-insurgence.com/images/c/c5/Damian_1.png',
+    quotes: [
+        'rival.damian.quote1',
+        'rival.damian.quote2'
+    ]
+};
 

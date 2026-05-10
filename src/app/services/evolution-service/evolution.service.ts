@@ -40,8 +40,12 @@ export class EvolutionService {
   }
 
   private resolveEvolutionPokemon(evolutionId: number): PokemonItem | undefined {
-    if (evolutionId <= 10000) {
-      return this.pokemonService.getPokemonById(evolutionId);
+    // Insurgence Deltas (30000+) are real PokemonItems in the national dex,
+    // not form aliases — try the dex first so they resolve directly. Variant
+    // forms (10000–19999) live only in formAliasById and fall through.
+    const direct = this.pokemonService.getPokemonById(evolutionId);
+    if (direct) {
+      return direct;
     }
 
     const alias = formAliasById[evolutionId];

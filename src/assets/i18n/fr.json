@@ -95,7 +95,15 @@
         "rock": "Badge Roche",
         "ice_galar": "Badge Glace",
         "dark": "Badge Ténèbres",
-        "dragon": "Badge Dragon"
+        "dragon": "Badge Dragon",
+        "thermal": "Badge Thermique",
+        "stinger": "Badge Dard",
+        "summit": "Badge Sommet",
+        "paragon": "Badge Parangon",
+        "circuit": "Badge Circuit",
+        "dreamland": "Badge Onirique",
+        "rainstorm": "Badge Orage",
+        "tartarus": "Badge Tartare"
     },
     "credits": {
         "title": "Crédits et remerciements",
@@ -251,7 +259,8 @@
                         "findFossil": "Trouver un fossile",
                         "battleRival": "Combattre le rival",
                         "areaZero": "Explorer la Zone Zéro",
-                        "otherworld": "Rencontre d'un autre monde"
+                        "otherworld": "Autre monde",
+                        "challenger": "Challenger"
                     }
                 },
                 "areaZero": {
@@ -264,7 +273,8 @@
                     "ultraBeast": "Ultra-Chimère"
                 },
                 "ultraBeast": {
-                    "title": "Ultra-Chimère"
+                    "title": "Ultra-Chimère",
+                    "catch": "Attraper une Ultra-Chimère ?"
                 },
                 "cave": {
                     "explore": {
@@ -360,6 +370,21 @@
                     "found": "A trouvé un(e)",
                     "title": "Quel objet?"
                 },
+                "boss": {
+                    "which": "Quel boss légendaire apparaît ?",
+                    "victory": "Victoire ?",
+                    "yes": "Oui",
+                    "no": "Non",
+                    "appears": "Un boss légendaire apparaît :",
+                    "intro": "Il barre la route. Vaincs-le pour t'emparer de sa puissance !",
+                    "go": "C'est parti !",
+                    "use": "A utilisé un(e)",
+                    "catch": {
+                        "title": "Capturer le boss ?",
+                        "yes": "Oui",
+                        "no": "Non"
+                    }
+                },
                 "legendary": {
                     "catch": "Attraper le Légendaire?",
                     "which": "Quel Légendaire?",
@@ -381,10 +406,10 @@
                     "defeat": "Mis K.O. dans la Tour."
                 },
                 "postgame": {
-                    "title": "Que fait le Maître maintenant ?",
+                    "title": "Que fait le maître ?",
                     "hallOfFame": {
                         "title": "Panthéon",
-                        "message": "Tu as vaincu la Ligue ! Ton équipe entre au Panthéon. L'aventure continue — explore le post-game, gravis la Tour de Combat et traque les Pokémon Mythiques."
+                        "message": "Tu as vaincu la Ligue ! Ton équipe entre au Panthéon. L'aventure continue — gravis la Tour de Combat entre les actions du Maître."
                     },
                     "actions": {
                         "battleTower": "Tour de Combat",
@@ -436,10 +461,20 @@
                 "trade": {
                     "title": "Échanger contre?",
                     "which": "Quel Pokémon Échanger?"
+                },
+                "challenger": {
+                    "title": "Un Challenger te défie !",
+                    "intro": "Un dresseur de la trempe d'un Maître se dresse contre toi.",
+                    "warning": "Si tu perds, l'aventure prend fin.",
+                    "go": "Combattre",
+                    "victory": "Victoire ?",
+                    "yes": "Réussite",
+                    "no": "Perdant",
+                    "victoryMsg": "Challenger vaincu !"
                 }
             },
             "trade": {
-                "title": "Échange\u00a0!",
+                "title": "Échange !",
                 "received": "et reçu un(e)",
                 "sent": "Vous avez envoyé"
             }
@@ -2163,6 +2198,22 @@
             "name": "Hassel",
             "quote1": "Je suis Hassel, le dragon qui garde la dernière forteresse de l'Épreuve du Conseil 4.",
             "quote2": "Prépare-toi à découvrir par toi-même la brûlante haleine d'un combat féroce!"
+        },
+        "kayla": {
+            "name": "Kayla",
+            "quote1": "Mon équipe danse autour de la tienne. Goûte à la subtilité du Relais !"
+        },
+        "eduard": {
+            "name": "Eduard",
+            "quote1": "La tempête de sable est ma toile. Préparez-vous à être ensevelis."
+        },
+        "yuki": {
+            "name": "Yuki",
+            "quote1": "Que la grêle tombe et que ta défense se brise. Aucun écart ne sera toléré."
+        },
+        "london": {
+            "name": "London",
+            "quote1": "Distorsion ! Voilà comment les lents deviennent souverains."
         }
     },
     "gymLeaders": {
@@ -2527,6 +2578,38 @@
             "name": "Grusha",
             "quote1": "Bon, c'est mon travail maintenant... alors ne prends pas personnellement ce que je vais te faire.",
             "quote2": "Prépare-toi à sentir la morsure glaciale de la réalité."
+        },
+        "orion": {
+            "name": "Orion",
+            "quote1": "Bienvenue au Gymnase de Suntouched ! Mes Pokémon Feu vont t'embraser sans pitié."
+        },
+        "xavier": {
+            "name": "Xavier",
+            "quote1": "Vipik est le royaume des insectes — et moi, leur Augur. Tu ne passeras pas."
+        },
+        "east": {
+            "name": "East",
+            "quote1": "Helios voit haut. Mes oiseaux frappent du ciel — adapte-toi ou plonge."
+        },
+        "harmony": {
+            "name": "Harmony",
+            "quote1": "Sonata résonne en chaque cœur féerique. Sentiras-tu ses harmoniques ?"
+        },
+        "anastasia": {
+            "name": "Anastasia",
+            "quote1": "Le circuit de Kepler est sans faille. L'acier ne plie pas, il tranche."
+        },
+        "diana": {
+            "name": "Diana",
+            "quote1": "Selene s'éveille à minuit. Que tes pensées tiennent face aux miennes."
+        },
+        "calreath": {
+            "name": "Calreath",
+            "quote1": "Amphitrite veille sur les profondeurs. Je vais te noyer dans la marée."
+        },
+        "adam": {
+            "name": "Adam",
+            "quote1": "Le gymnase Erebus n'existe que dans le Royaume des Rêves. Bienvenue dans l'ombre."
         }
     },
     "rival": {
@@ -2567,6 +2650,11 @@
             "name": "Nemona",
             "quote1": "Hé! C'est moiii!",
             "quote2": "Faisons un combat bien intense!"
+        },
+        "damian": {
+            "name": "Damian",
+            "quote1": "Encore un combat ? Allez, montre-moi jusqu'où tu es allé depuis Telnor !",
+            "quote2": "On a grandi ensemble, mais sur le terrain je ne te ferai pas de cadeau."
         }
     },
     "champion": {
@@ -2613,6 +2701,11 @@
             "name": "Geeta",
             "quote1": "L'épreuve finale est un combat contre moi, la Maîtresse Suprême.",
             "quote2": "Es-tu prêt pour ton épreuve finale? Je veux voir la véritable mesure de ton talent!"
+        },
+        "reukra": {
+            "name": "Reukra",
+            "quote1": "Je suis Reukra, fondateur de Perfection. Je porte le titre de Champion par défaut.",
+            "quote2": "Mes Deltas sont la prochaine étape de l'évolution. Toi, tu es une donnée à recueillir."
         }
     },
     "pokedex": {

@@ -694,5 +694,55 @@ export const gymLeadersByGeneration: Record<number, GymLeader[]> = {
     ]
 };
 
-// Insurgence (Torren) — fallback to Kalos data
-gymLeadersByGeneration[100] = gymLeadersByGeneration[6];
+// Insurgence (Torren) — the eight canonical Augurs of the Torren League,
+// in the order the player faces them in Pokémon Insurgence.
+gymLeadersByGeneration[100] = [
+    {
+        name: 'gymLeaders.orion.name',
+        sprite: 'https://wiki.p-insurgence.com/images/0/0e/Orion.png',
+        quotes: ['gymLeaders.orion.quote1'],
+        types: ['fire']
+    },
+    {
+        name: 'gymLeaders.xavier.name',
+        sprite: 'https://wiki.p-insurgence.com/images/7/7d/Xavier.png',
+        quotes: ['gymLeaders.xavier.quote1'],
+        types: ['bug']
+    },
+    {
+        name: 'gymLeaders.east.name',
+        sprite: 'https://wiki.p-insurgence.com/images/c/ca/East.png',
+        quotes: ['gymLeaders.east.quote1'],
+        types: ['flying']
+    },
+    {
+        name: 'gymLeaders.harmony.name',
+        sprite: 'https://wiki.p-insurgence.com/images/9/98/Harmony.png',
+        quotes: ['gymLeaders.harmony.quote1'],
+        types: ['fairy']
+    },
+    {
+        name: 'gymLeaders.anastasia.name',
+        sprite: 'https://wiki.p-insurgence.com/images/7/70/Anastasia1.png',
+        quotes: ['gymLeaders.anastasia.quote1'],
+        types: ['steel']
+    },
+    {
+        name: 'gymLeaders.diana.name',
+        sprite: 'https://wiki.p-insurgence.com/images/5/5f/Diana.png',
+        quotes: ['gymLeaders.diana.quote1'],
+        types: ['psychic']
+    },
+    {
+        name: 'gymLeaders.calreath.name',
+        sprite: 'https://wiki.p-insurgence.com/images/0/0d/Calreath.png',
+        quotes: ['gymLeaders.calreath.quote1'],
+        types: ['water']
+    },
+    {
+        name: 'gymLeaders.adam.name',
+        sprite: 'https://wiki.p-insurgence.com/images/9/94/Adam.png',
+        quotes: ['gymLeaders.adam.quote1'],
+        types: ['dark']
+    }
+];

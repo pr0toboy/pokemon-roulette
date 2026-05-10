@@ -352,5 +352,33 @@ export const eliteFourByGeneration: Record<number, GymLeader[]> = {
     ],
 };
 
-// Insurgence (Torren) — fallback to Kalos data
-eliteFourByGeneration[100] = eliteFourByGeneration[6];
+// Insurgence (Torren) — the four Elite Four members of Torren. In canon they
+// specialise by *strategy* (Baton Pass, Sandstorm, Hail, Trick Room) rather
+// than by Pokémon type, so the type-advantage hint maps to the dominant typing
+// of their signature teams.
+eliteFourByGeneration[100] = [
+    {
+        name: 'elite4.kayla.name',
+        sprite: 'https://wiki.p-insurgence.com/images/7/76/Kayla.png',
+        quotes: ['elite4.kayla.quote1'],
+        types: ['fairy']
+    },
+    {
+        name: 'elite4.eduard.name',
+        sprite: 'https://wiki.p-insurgence.com/images/1/1e/Eduard.png',
+        quotes: ['elite4.eduard.quote1'],
+        types: ['ground']
+    },
+    {
+        name: 'elite4.yuki.name',
+        sprite: 'https://wiki.p-insurgence.com/images/d/d3/Yuki.png',
+        quotes: ['elite4.yuki.quote1'],
+        types: ['ice']
+    },
+    {
+        name: 'elite4.london.name',
+        sprite: 'https://wiki.p-insurgence.com/images/e/e0/London.png',
+        quotes: ['elite4.london.quote1'],
+        types: ['psychic']
+    }
+];

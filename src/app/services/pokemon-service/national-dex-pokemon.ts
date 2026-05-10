@@ -14369,7 +14369,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/9/9d/727.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -14383,7 +14383,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/f/f8/728.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -14411,7 +14411,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/a/ae/730.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -14425,7 +14425,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/b/b4/731.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -14453,7 +14453,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/e/e7/733.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -14467,7 +14467,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/c/c9/734.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -14495,7 +14495,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/4/47/736.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -14523,7 +14523,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/9/91/738.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -14537,7 +14537,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/a/a6/739.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -14579,7 +14579,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/d/dc/742.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -14593,7 +14593,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/3/3e/743.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -14606,7 +14606,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/b/bc/744.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -14661,7 +14661,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/f/f9/748.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -14688,7 +14688,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/3/33/750.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -14702,7 +14702,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/0/09/751.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -14716,7 +14716,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/c/cd/752.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -14744,7 +14744,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/7/7c/754.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -14758,7 +14758,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/5/5b/755.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -14771,7 +14771,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/1/13/756.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -14785,7 +14785,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/d/d1/757.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -14798,7 +14798,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/3/3e/758.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -14812,7 +14812,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/1/10/759.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -14825,7 +14825,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/d/d1/760.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -14839,7 +14839,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/9/97/761.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -14853,7 +14853,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/d/d7/762.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -14881,7 +14881,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/c/c9/764.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -14909,7 +14909,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/a/a6/766.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -14923,7 +14923,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/1/17/767.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -14951,7 +14951,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/0/06/769.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -14978,7 +14978,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/9/98/771.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15005,7 +15005,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/b/b9/773.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15019,7 +15019,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/2/21/774.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15032,7 +15032,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/f/f3/775.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15059,7 +15059,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/b/b8/777.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15086,7 +15086,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/8/85/779.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15100,7 +15100,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/6/6e/780.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15128,7 +15128,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/9/92/782.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15142,7 +15142,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/0/08/783.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15169,7 +15169,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/7/74/785.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15182,7 +15182,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/6/6e/786.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15210,7 +15210,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/8/8c/788.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15224,7 +15224,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/7/76/789.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15251,7 +15251,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/b/b0/791.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15264,7 +15264,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/7/7f/792.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15291,7 +15291,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/d/df/794.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15304,7 +15304,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/a/aa/795.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15332,7 +15332,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/b/bf/797.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15346,7 +15346,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/1/17/798.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15374,7 +15374,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/c/cf/800.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15388,7 +15388,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/6/61/801.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15402,7 +15402,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/e/e2/802.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15430,7 +15430,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/f/f9/804.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15444,7 +15444,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/b/b0/805.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15472,7 +15472,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/7/75/807.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15499,7 +15499,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/3/35/809.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15512,7 +15512,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/0/0a/810.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15525,7 +15525,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/d/df/811.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15552,7 +15552,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/a/aa/813.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15566,7 +15566,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/5/57/814.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15594,7 +15594,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/5/5e/816.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15608,7 +15608,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/3/37/817.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15622,7 +15622,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/5/5b/818.png"
         },
         shiny: false,
-        power: 3,
+        power: 4,
         weight: 1
     },
     {
@@ -15636,7 +15636,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/a/ad/819.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15650,7 +15650,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/2/22/820.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15664,7 +15664,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/1/15/821.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15678,7 +15678,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/c/c7/822.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15692,7 +15692,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/8/8a/823.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15706,7 +15706,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/7/7a/824.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15734,7 +15734,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/6/60/826.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15748,7 +15748,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/5/51/827.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15762,7 +15762,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/8/83/828.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15790,7 +15790,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/5/55/830.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15804,7 +15804,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/a/ad/831.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15831,7 +15831,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/c/c5/833.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15844,7 +15844,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/0/08/834.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15857,7 +15857,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/2/28/835.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15897,7 +15897,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/2/21/838.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15938,7 +15938,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/e/ea/841.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15952,7 +15952,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/5/59/842.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -15979,7 +15979,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/c/c3/844.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -15992,7 +15992,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/9/93/845.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16019,7 +16019,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/1/10/847.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16033,7 +16033,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/9/99/848.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16047,7 +16047,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/2/2d/849.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16061,7 +16061,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/7/79/850.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16088,7 +16088,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/e/e8/852.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16102,7 +16102,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/5/5b/853.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16115,7 +16115,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/9/94/854.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16128,7 +16128,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/b/bc/855.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16142,7 +16142,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/3/3a/856.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16156,7 +16156,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/e/e0/857.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16170,7 +16170,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/1/10/858.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16197,7 +16197,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/5/53/860.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16223,7 +16223,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/c/c7/862.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16237,7 +16237,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/6/6b/863.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16251,7 +16251,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/0/0e/864.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16265,7 +16265,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/0/0a/865.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16279,7 +16279,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/1/14/866.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16293,7 +16293,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/d/d5/867.png"
         },
         shiny: false,
-        power: 3,
+        power: 4,
         weight: 1
     },
     {
@@ -16307,7 +16307,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/c/c8/868.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16321,7 +16321,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/b/bd/869.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16335,7 +16335,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/1/15/870.png"
         },
         shiny: false,
-        power: 3,
+        power: 4,
         weight: 1
     },
     {
@@ -16348,7 +16348,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/2/21/871.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16361,7 +16361,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/7/7a/872.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16374,7 +16374,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/9/9a/873.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16401,7 +16401,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/d/d1/875.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16428,7 +16428,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/5/55/877.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16442,7 +16442,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/f/f4/878.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16470,7 +16470,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/7/76/880.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16484,7 +16484,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/6/6b/881.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16498,7 +16498,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/2/2d/882.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16512,7 +16512,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/7/78/883.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16526,7 +16526,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/3/36/884.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16540,7 +16540,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/4/4f/885.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16568,7 +16568,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/8/84/887.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16582,7 +16582,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/6/6a/888.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16595,7 +16595,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/6/68/889.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16609,7 +16609,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/9/97/890.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16623,7 +16623,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/8/80/891.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16637,7 +16637,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/a/a7/892.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16651,7 +16651,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/b/bd/893.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16665,7 +16665,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/0/07/894.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16679,7 +16679,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/7/74/895.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16693,7 +16693,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/7/71/896.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16706,7 +16706,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/6/64/897.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16733,7 +16733,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/e/ed/899.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16747,7 +16747,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/9/95/900.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16761,7 +16761,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/b/b0/901.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16775,7 +16775,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/9/99/902.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16802,7 +16802,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/8/86/904.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16815,7 +16815,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/6/6a/905.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16843,7 +16843,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/3/36/907.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16885,7 +16885,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/f/fc/910.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16899,7 +16899,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/2/27/911.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -16913,7 +16913,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/7/7b/912.png"
         },
         shiny: false,
-        power: 3,
+        power: 4,
         weight: 1
     },
     {
@@ -16927,7 +16927,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/c/cb/913.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16955,7 +16955,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/2/2e/915.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16983,7 +16983,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/f/f5/917.png"
         },
         shiny: false,
-        power: 3,
+        power: 1,
         weight: 1
     },
     {
@@ -16997,7 +16997,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/c/c6/918.png"
         },
         shiny: false,
-        power: 3,
+        power: 2,
         weight: 1
     },
     {
@@ -17011,7 +17011,7 @@ const insurgenceDeltas: PokemonItem[] = [
             front_shiny: "https://wiki.p-insurgence.com/images/4/40/919.png"
         },
         shiny: false,
-        power: 3,
+        power: 4,
         weight: 1
     },
     {
@@ -17101,8 +17101,8 @@ const insurgenceDeltas: PokemonItem[] = [
         fillStyle: "tan",
         type1: "normal",
         sprite: {
-            front_default: "https://wiki.p-insurgence.com/images/8/8a/486.png",
-            front_shiny: "https://wiki.p-insurgence.com/images/8/8a/486.png"
+            front_default: "https://wiki.p-insurgence.com/images/2/2b/486_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/2/2b/486_1.png"
         },
         shiny: false,
         power: 5,
@@ -17128,8 +17128,8 @@ const insurgenceDeltas: PokemonItem[] = [
         fillStyle: "tan",
         type1: "normal",
         sprite: {
-            front_default: "https://wiki.p-insurgence.com/images/e/e4/493.png",
-            front_shiny: "https://wiki.p-insurgence.com/images/e/e4/493.png"
+            front_default: "https://wiki.p-insurgence.com/images/a/ad/493_19.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/a/ad/493_19.png"
         },
         shiny: false,
         power: 5,

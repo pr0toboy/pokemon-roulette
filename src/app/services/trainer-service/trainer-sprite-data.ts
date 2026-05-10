@@ -34,5 +34,14 @@ export const trainerSpriteData: { [generation: number]: { [gender: string]: stri
         9: {
             male: 'https://raw.githubusercontent.com/zeroxm/pokemon-roulette-trainer-sprites/refs/heads/main/sprites/Spr_Masters_Florian.png',
             female: 'https://raw.githubusercontent.com/zeroxm/pokemon-roulette-trainer-sprites/refs/heads/main/sprites/Spr_Masters_Juliana.png'
+        },
+        // Insurgence (Torren). The wiki ships the player as a single GIF
+        // (`Player.gif`) cycling through 3 hairstyle/outfit pairs (boy + girl
+        // side-by-side). For a static character-select we extracted the
+        // purple-hair frame and split it into boy/girl halves, bundled as
+        // local assets so the asset isn't subject to wiki rate-limiting.
+        100: {
+            male: 'assets/insurgence/player-boy.png',
+            female: 'assets/insurgence/player-girl.png'
         }
     }

@@ -11,3 +11,11 @@ export const cavePokemonByGeneration: Record<number, number[]> = {
     9: [ 50, 51, 52, 58, 81, 82, 84, 85, 92, 100, 113, 125, 126, 194, 195, 197, 203, 206, 212, 215, 220, 221, 239, 240, 246, 296, 297, 302, 307, 311, 312, 324, 361, 371, 436, 443, 444, 461, 479, 522, 523, 529, 530, 552, 553, 595, 602, 607, 619, 627, 633, 634, 667, 668, 704, 714, 734, 735, 745, 757, 758, 774, 837, 838, 843, 878, 935, 946, 953, 965, 968, 969, 982],
     100: [30740, 30741, 30769, 30770, 30771, 30772, 30810, 30811, 30812, 30831, 30832, 30855, 30856] // Insurgence cave-dwelling Deltas
 }
+
+// Insurgence caves also house classic cave-dwellers (Zubat, Geodude, Onix...).
+// Merge with the gen 1 + 2 cave pools to mirror that variety.
+cavePokemonByGeneration[100] = [
+    ...cavePokemonByGeneration[1],
+    ...cavePokemonByGeneration[2],
+    ...cavePokemonByGeneration[100],
+];

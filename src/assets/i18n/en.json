@@ -95,7 +95,15 @@
         "rock": "Rock Badge",
         "ice_galar": "Ice Badge",
         "dark": "Dark Badge",
-        "dragon": "Dragon Badge"
+        "dragon": "Dragon Badge",
+        "thermal": "Thermal Badge",
+        "stinger": "Stinger Badge",
+        "summit": "Summit Badge",
+        "paragon": "Paragon Badge",
+        "circuit": "Circuit Badge",
+        "dreamland": "Dreamland Badge",
+        "rainstorm": "Rainstorm Badge",
+        "tartarus": "Tartarus Badge"
     },
     "credits": {
         "title": "Credits & Acknowledgments",
@@ -251,7 +259,8 @@
                         "findFossil": "Find a Fossil",
                         "battleRival": "Battle Rival",
                         "areaZero": "Explore Area Zero",
-                        "otherworld": "Otherworld Encounter"
+                        "otherworld": "Other world",
+                        "challenger": "Challenger"
                     }
                 },
                 "areaZero": {
@@ -264,7 +273,8 @@
                     "ultraBeast": "Ultra Beast"
                 },
                 "ultraBeast": {
-                    "title": "Ultra Beast"
+                    "title": "Ultra Beast",
+                    "catch": "Catch the Ultra Beast?"
                 },
                 "cave": {
                     "explore": {
@@ -360,6 +370,21 @@
                     "found": "Found a",
                     "title": "Which Item?"
                 },
+                "boss": {
+                    "which": "Which legendary boss appears?",
+                    "victory": "Victory?",
+                    "yes": "Yes",
+                    "no": "No",
+                    "appears": "A legendary boss appears:",
+                    "intro": "It blocks your path. Defeat it to claim its power!",
+                    "go": "Let's go!",
+                    "use": "Used a",
+                    "catch": {
+                        "title": "Catch the boss?",
+                        "yes": "Yes",
+                        "no": "No"
+                    }
+                },
                 "legendary": {
                     "catch": "Catch Legendary?",
                     "which": "Which Legendary?",
@@ -381,10 +406,10 @@
                     "defeat": "Knocked out of the tower."
                 },
                 "postgame": {
-                    "title": "What's next, Champion?",
+                    "title": "What does the master do?",
                     "hallOfFame": {
                         "title": "Hall of Fame",
-                        "message": "You defeated the League! Your team is enshrined in the Hall of Fame. The adventure continues — explore the postgame, climb the Battle Tower, and hunt Mythical Pokémon."
+                        "message": "You defeated the League! Your team enters the Hall of Fame. The adventure continues — climb the Battle Tower between Master actions."
                     },
                     "actions": {
                         "battleTower": "Battle Tower",
@@ -395,7 +420,7 @@
                         "findItem": "Find an Item",
                         "battleRival": "Rival Rematch",
                         "areaZero": "Explore Area Zero",
-                        "retire": "End the Adventure"
+                        "retire": "End the adventure"
                     }
                 },
                 "rival": {
@@ -436,6 +461,16 @@
                 "trade": {
                     "title": "Trade for?",
                     "which": "Which Pokemon to trade?"
+                },
+                "challenger": {
+                    "title": "A Challenger appears!",
+                    "intro": "A Master-tier trainer stands in your way.",
+                    "warning": "If you lose, your adventure ends.",
+                    "go": "Fight",
+                    "victory": "Victory?",
+                    "yes": "Win",
+                    "no": "Loss",
+                    "victoryMsg": "Challenger defeated!"
                 }
             },
             "trade": {
@@ -2163,6 +2198,22 @@
             "name": "Hassel",
             "quote1": "I am Hassel, the dragon guarding the final fortress of the Elite Test.",
             "quote2": "Prepare to learn firsthand how the fiery breath of ferocious battle feels!"
+        },
+        "kayla": {
+            "name": "Kayla",
+            "quote1": "My team dances around yours. Taste the elegance of Baton Pass."
+        },
+        "eduard": {
+            "name": "Eduard",
+            "quote1": "The sandstorm is my canvas. Prepare to be buried."
+        },
+        "yuki": {
+            "name": "Yuki",
+            "quote1": "Let the hail fall and your defences crack. No gap will be tolerated."
+        },
+        "london": {
+            "name": "London",
+            "quote1": "Trick Room. This is how the slow become sovereign."
         }
     },
     "gymLeaders": {
@@ -2527,6 +2578,38 @@
             "name": "Grusha",
             "quote1": "Well, this is my job now...so don't take what I'm about to do personally.",
             "quote2": "Get ready to feel the icy bite of reality."
+        },
+        "orion": {
+            "name": "Orion",
+            "quote1": "Welcome to the Suntouched Gym! My Fire-types will burn through your hopes."
+        },
+        "xavier": {
+            "name": "Xavier",
+            "quote1": "Vipik is the kingdom of insects — and I am their Augur. You shall not pass."
+        },
+        "east": {
+            "name": "East",
+            "quote1": "Helios sees the world from above. My birds strike from the sky — adapt or fall."
+        },
+        "harmony": {
+            "name": "Harmony",
+            "quote1": "Sonata resonates in every fairy heart. Will you feel its harmonics?"
+        },
+        "anastasia": {
+            "name": "Anastasia",
+            "quote1": "Kepler's circuit is flawless. Steel does not bend, it cuts."
+        },
+        "diana": {
+            "name": "Diana",
+            "quote1": "Selene wakes at midnight. Let your thoughts hold against mine."
+        },
+        "calreath": {
+            "name": "Calreath",
+            "quote1": "Amphitrite watches the depths. I will drown you in the tide."
+        },
+        "adam": {
+            "name": "Adam",
+            "quote1": "The Erebus Gym exists only in the Dream Realm. Welcome to the shadow."
         }
     },
     "rival": {
@@ -2567,6 +2650,11 @@
             "name": "Nemona",
             "quote1": "Hey! It's meee!",
             "quote2": "Let's have us a fruitful battle!"
+        },
+        "damian": {
+            "name": "Damian",
+            "quote1": "Another fight? Come on, show me how far you've come since Telnor!",
+            "quote2": "We grew up together — but on this field, I'm not going easy on you."
         }
     },
     "champion": {
@@ -2613,6 +2701,11 @@
             "name": "Geeta",
             "quote1": "The final test is a battle against me, the Top Champion.",
             "quote2": "Are you ready for your final test? I want to see the true measure of your talent!"
+        },
+        "reukra": {
+            "name": "Reukra",
+            "quote1": "I am Reukra, founder of Perfection. I hold the title of Champion by default.",
+            "quote2": "My Deltas are the next step in evolution. You are merely data to collect."
         }
     },
     "pokedex": {

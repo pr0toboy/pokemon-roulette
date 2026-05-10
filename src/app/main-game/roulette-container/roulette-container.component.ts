@@ -52,8 +52,14 @@ import { EliteFourBattleRouletteComponent } from "./roulettes/elite-four-battle-
 import { ChampionBattleRouletteComponent } from "./roulettes/champion-battle-roulette/champion-battle-roulette.component";
 import { PostgameAdventureRouletteComponent } from "./roulettes/postgame-adventure-roulette/postgame-adventure-roulette.component";
 import { BattleTowerRouletteComponent } from "./roulettes/battle-tower-roulette/battle-tower-roulette.component";
+import { MasterChallengerRouletteComponent } from "./roulettes/master-challenger-roulette/master-challenger-roulette.component";
 import { MythicalEncounterRouletteComponent } from "./roulettes/mythical-encounter-roulette/mythical-encounter-roulette.component";
 import { CatchMythicalRouletteComponent } from "./roulettes/catch-mythical-roulette/catch-mythical-roulette.component";
+import { BossEncounterRouletteComponent } from "./roulettes/boss-encounter-roulette/boss-encounter-roulette.component";
+import { BossBattleRouletteComponent } from "./roulettes/boss-battle-roulette/boss-battle-roulette.component";
+import { CatchBossRouletteComponent } from "./roulettes/catch-boss-roulette/catch-boss-roulette.component";
+import { bossByGeneration } from "./roulettes/boss-encounter-roulette/bosses-by-generation";
+import { GenerationService } from "../../services/generation-service/generation.service";
 import { EndGameComponent } from "../end-game/end-game.component";
 import { GameOverComponent } from "../game-over/game-over.component";
 import { ModalQueueService } from '../../services/modal-queue-service/modal-queue.service';
@@ -97,8 +103,12 @@ import { GameSaveService } from '../../services/game-save-service/game-save.serv
     ChampionBattleRouletteComponent,
     PostgameAdventureRouletteComponent,
     BattleTowerRouletteComponent,
+    MasterChallengerRouletteComponent,
     MythicalEncounterRouletteComponent,
     CatchMythicalRouletteComponent,
+    BossEncounterRouletteComponent,
+    BossBattleRouletteComponent,
+    CatchBossRouletteComponent,
     EndGameComponent,
     GameOverComponent
 ],
@@ -128,7 +138,8 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
       private pokemonFormsService: PokemonFormsService,
       private rareCandyService: RareCandyService,
       private megaEvolutionService: MegaEvolutionService,
-      private gameSaveService: GameSaveService) {
+      private gameSaveService: GameSaveService,
+      private generationService: GenerationService) {
       this.itemFoundAudio = this.soundFxService.createItemFoundSoundFx();
     }
 
@@ -282,6 +293,7 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
   runningShoesUsed: boolean = false;
   stolenPokemon!: PokemonItem | null;
   wheelSpinning: boolean = false;
+  currentBossPokemon!: PokemonItem;
 
   /**
    * Postgame Battle Tower floor counter. Persisted via GameSaveService so a
@@ -612,7 +624,17 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
     this.finishCurrentState();
   }
 
+  isUltraBeastCapture = false;
+
   paradoxCaptureChance(pokemon: PokemonItem): void {
+    this.isUltraBeastCapture = false;
+    this.currentContextPokemon = structuredClone(pokemon);
+    this.gameStateService.setNextState('catch-paradox');
+    this.finishCurrentState();
+  }
+
+  ultraBeastCaptureChance(pokemon: PokemonItem): void {
+    this.isUltraBeastCapture = true;
     this.currentContextPokemon = structuredClone(pokemon);
     this.gameStateService.setNextState('catch-paradox');
     this.finishCurrentState();
@@ -690,6 +712,14 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
   }
 
   performTrade(pokemon: PokemonItem): void {
+    // currentContextPokemon should always be set before reaching this state,
+    // but a missing reference would crash the modal template (and silently
+    // strand the player on the trade wheel). Bail to the next state instead.
+    if (!pokemon || !this.currentContextPokemon) {
+      this.finishCurrentState();
+      return;
+    }
+
     this.pkmnIn = structuredClone(pokemon);
     this.pkmnOut = this.currentContextPokemon;
     this.pkmnTradeTitle = "game.main.trade.title";
@@ -697,20 +727,18 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
     this.registerInPokedex(this.pkmnIn);
     this.auxPokemonList = [];
     this.playItemFoundAudio();
-    if (!this.settingsService.currentSettings.lessExplanations) {
-      this.modalQueueService.open(this.pkmnTradeModal, {
-        centered: true,
-        size: 'md'
-      }).then(modalRef => {
-        modalRef.result.then(() => {
-          this.finishCurrentState();
-        }, () => {
-          this.finishCurrentState();
-        });
-      });
-    } else {
+    if (this.settingsService.currentSettings.lessExplanations) {
       this.finishCurrentState();
+      return;
     }
+
+    this.modalQueueService.open(this.pkmnTradeModal, {
+      centered: true,
+      size: 'md'
+    }).then(
+      modalRef => modalRef.result.finally(() => this.finishCurrentState()),
+      () => this.finishCurrentState(),
+    );
   }
 
   receiveItem(item: ItemItem): void {
@@ -804,7 +832,7 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
       this.infoModalTitle = this.translateService.instant('game.main.roulette.postgame.hallOfFame.title');
       this.infoModalMessage = this.translateService.instant('game.main.roulette.postgame.hallOfFame.message');
       this.modalQueueService.open(this.infoModal, { centered: true, size: 'md' });
-      this.gameStateService.setNextState('postgame-adventure');
+      this.startBossEncounter();
     } else {
       this.gameStateService.setNextState('game-over');
     }
@@ -812,21 +840,46 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
     this.finishCurrentState();
   }
 
+  // Queues the boss legendary encounter on top of the postgame loop. After the
+  // boss is resolved the player lands on the Battle Tower (the headline
+  // postgame loop), with the "Que fait le maître ?" master roulette queued
+  // beneath so subsequent tower victories cycle through it.
+  private startBossEncounter(): void {
+    this.gameStateService.setNextState('postgame-adventure');
+    this.gameStateService.setNextState('battle-tower');
+    const gen = this.generationService.getCurrentGeneration();
+    if ((bossByGeneration[gen.id] ?? []).length > 0) {
+      this.gameStateService.setNextState('boss-encounter');
+    }
+  }
+
+  bossEncounterChosen(pokemon: PokemonItem): void {
+    this.currentBossPokemon = structuredClone(pokemon);
+    this.gameStateService.setNextState('boss-battle');
+    this.finishCurrentState();
+  }
+
+  bossBattleResult(result: boolean): void {
+    if (result) {
+      this.trainerService.levelUpTeam(3);
+      this.gameStateService.setNextState('catch-boss');
+    }
+    this.finishCurrentState();
+  }
+
+  bossCatchSuccess(): void {
+    this.preparePokemonCapture(this.currentBossPokemon);
+  }
+
   // ---------- POSTGAME ----------
 
   /**
-   * Re-queues the postgame hub. Called by every postgame activity handler
-   * before the activity itself, so finishCurrentState pops the activity first
-   * and lands back on `postgame-adventure` once it resolves.
+   * Queues a Battle Tower fight under the next master-roulette pick. After a
+   * master action resolves it pops back to the tower, then the tower pushes
+   * another `postgame-adventure` (master roulette) — this is the loop spine.
    */
-  private requeuePostgame(): void {
-    this.gameStateService.setNextState('postgame-adventure');
-  }
-
-  enterBattleTower(): void {
-    this.requeuePostgame();
+  private queueTowerAfterAction(): void {
     this.gameStateService.setNextState('battle-tower');
-    this.finishCurrentState();
   }
 
   battleTowerResult(result: boolean): void {
@@ -838,10 +891,55 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
       this.respinReason = 'game.main.roulette.tower.victory';
       this.playItemFoundAudio();
     } else {
-      // Losing in the tower kicks the player back to the postgame hub instead
-      // of triggering game-over: postgame is a sandbox, not a death-march.
+      // Losing in the tower kicks the player back to the master roulette
+      // instead of triggering game-over: postgame is a sandbox, not a
+      // death-march.
       this.respinReason = 'game.main.roulette.tower.defeat';
     }
+    this.gameStateService.setNextState('postgame-adventure');
+    this.finishCurrentState();
+  }
+
+  // Master-roulette handlers ("Que fait le maître ?"). Each wraps the matching
+  // main-game handler with a Battle Tower push so the cycle stays balanced:
+  // master → action → tower → master → … until the player picks Retire.
+  masterCatchPokemon(): void { this.queueTowerAfterAction(); this.catchPokemon(); }
+  masterChallenger(): void {
+    // Challenger is a duel-or-die: skip the tower re-queue. On victory we
+    // re-push battle-tower; on defeat we push game-over and the run ends.
+    this.gameStateService.setNextState('master-challenger');
+    this.finishCurrentState();
+  }
+  masterChallengerResult(result: boolean): void {
+    if (result) {
+      this.trainerService.levelUpTeam(3);
+      this.respinReason = 'game.main.roulette.challenger.victoryMsg';
+      this.playItemFoundAudio();
+      this.gameStateService.setNextState('battle-tower');
+    } else {
+      // Defeat ends the adventure entirely — postgame is no longer a sandbox
+      // once the Challenger is on the wheel.
+      this.gameStateService.setNextState('game-over');
+    }
+    this.finishCurrentState();
+  }
+  masterBuyPotions(): void { this.queueTowerAfterAction(); this.buyPotions(); }
+  masterDoNothing(): void { this.queueTowerAfterAction(); this.doNothing(); }
+  masterCatchTwoPokemon(): void { this.queueTowerAfterAction(); this.catchTwoPokemon(); }
+  masterVisitDaycare(source: EventSource): void { this.queueTowerAfterAction(); this.chooseWhoWillEvolve(source); }
+  masterTeamRocket(): void { this.queueTowerAfterAction(); this.teamRocketEncounter(); }
+  masterMysteriousEgg(): void { this.queueTowerAfterAction(); this.mysteriousEgg(); }
+  masterLegendaryEncounter(): void { this.queueTowerAfterAction(); this.legendaryEncounter(); }
+  masterTradePokemon(): void { this.queueTowerAfterAction(); this.tradePokemon(); }
+  masterFindItem(): void { this.queueTowerAfterAction(); this.findItem(); }
+  masterExploreCave(): void { this.queueTowerAfterAction(); this.exploreCave(); }
+  masterMultitask(): void { this.queueTowerAfterAction(); this.multitask(); }
+  masterGoFishing(): void { this.queueTowerAfterAction(); this.goFishing(); }
+  masterFindFossil(): void { this.queueTowerAfterAction(); this.findFossil(); }
+  masterBattleRival(): void { this.queueTowerAfterAction(); this.battleRival(); }
+  masterOtherworldEncounter(): void {
+    this.queueTowerAfterAction();
+    this.gameStateService.setNextState('otherworld-encounter');
     this.finishCurrentState();
   }
 
@@ -856,18 +954,6 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
     return 'hyper-potion';
   }
 
-  postgameLegendaryEncounter(): void {
-    this.requeuePostgame();
-    this.gameStateService.setNextState('legendary-encounter');
-    this.finishCurrentState();
-  }
-
-  mythicalEncounter(): void {
-    this.requeuePostgame();
-    this.gameStateService.setNextState('mythical-encounter');
-    this.finishCurrentState();
-  }
-
   mythicalCaptureChance(pokemon: PokemonItem): void {
     this.currentContextPokemon = structuredClone(pokemon);
     this.gameStateService.setNextState('catch-mythical');
@@ -878,15 +964,12 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
     this.preparePokemonCapture(this.currentContextPokemon);
   }
 
-  postgameAreaZero(): void {
-    this.requeuePostgame();
-    this.areaZero();
-  }
-
   retireFromPostgame(): void {
-    // Stack still has 'game-finish' on the bottom from initialization, so a
-    // plain finish lands on the credits screen.
+    // When the master roulette is showing, the stack is
+    // [game-finish, postgame-adventure] (the queued next cycle). Pop both to
+    // drain the postgame loop and land on the game-finish credits screen.
     this.respinReason = '';
+    this.finishCurrentState();
     this.finishCurrentState();
   }
 

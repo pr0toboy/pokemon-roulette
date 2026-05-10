@@ -1,0 +1,19 @@
+.title {
+    text-align: center;
+}
+
+.respin-reason {
+    text-align: center;
+    min-height: 1.5em;
+}
+
+.boss-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.boss-panel .quotes {
+    text-align: center;
+}

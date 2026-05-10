@@ -45,24 +45,16 @@ describe('MainAdventureRouletteComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should keep the base action list for non-gen-9 generations', () => {
+  it('should expose 17 main-game adventure actions (Area Zero now postgame-only)', () => {
     expect(component.actions.length).toBe(17);
     expect(component.actions.some(action => action.text === 'game.main.roulette.adventure.actions.areaZero')).toBeFalse();
   });
 
-  it('should append the Area Zero action for generation 9', () => {
-    generationSubject.next(createGeneration(9));
-    fixture.detectChanges();
+  it('should emit the otherworld event from the last action slot', () => {
+    spyOn(component.otherworldEncounterEvent, 'emit');
 
-    expect(component.actions.length).toBe(18);
-    expect(component.actions[17].text).toBe('game.main.roulette.adventure.actions.areaZero');
-  });
+    component.onItemSelected(16);
 
-  it('should emit the Area Zero event from the gen-9-only slot', () => {
-    spyOn(component.areaZeroEvent, 'emit');
-
-    component.onItemSelected(17);
-
-    expect(component.areaZeroEvent.emit).toHaveBeenCalled();
+    expect(component.otherworldEncounterEvent.emit).toHaveBeenCalled();
   });
 });

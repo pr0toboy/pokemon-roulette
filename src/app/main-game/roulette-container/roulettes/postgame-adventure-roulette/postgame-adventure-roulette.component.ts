@@ -1,19 +1,16 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
 import { WheelComponent } from '../../../../wheel/wheel.component';
 import { WheelItem } from '../../../../interfaces/wheel-item';
-import { GenerationService } from '../../../../services/generation-service/generation.service';
+import { EventSource } from '../../../EventSource';
 
 /**
- * Postgame hub roulette — what happens after the Champion is defeated.
+ * Postgame "Que fait le maître ?" roulette.
  *
- * Deliberately stripped down to *postgame-exclusive* content: the player
- * already had access to wild catches, item finds, trades and rival fights
- * during the main story. Repeating those options here just made the wheel
- * feel like a remix of the regular adventure. Now it's focused on what only
- * exists post-league: the Battle Tower, Legendary and Mythical hunts, the
- * Gen 9 Paradox sanctuary, and a way out.
+ * Plays between every Battle Tower floor. Mirrors the inter-gym main adventure
+ * wheel so the postgame feels like a free-roam continuation of the journey,
+ * but with the legendary encounter slice weighted heavier (it's the marquee
+ * postgame draw) and an explicit Retire slice so the player can end the run.
  */
 @Component({
   selector: 'app-postgame-adventure-roulette',
@@ -21,56 +18,73 @@ import { GenerationService } from '../../../../services/generation-service/gener
   templateUrl: './postgame-adventure-roulette.component.html',
   styleUrl: './postgame-adventure-roulette.component.css'
 })
-export class PostgameAdventureRouletteComponent implements OnInit, OnDestroy {
-
-  constructor(private generationService: GenerationService) {}
+export class PostgameAdventureRouletteComponent {
 
   @Input() respinReason!: string;
   @Input() currentFloor = 1;
 
-  @Output() battleTowerEvent = new EventEmitter<void>();
+  @Output() catchPokemonEvent = new EventEmitter<void>();
+  @Output() challengerEvent = new EventEmitter<void>();
+  @Output() buyPotionsEvent = new EventEmitter<void>();
+  @Output() doNothingEvent = new EventEmitter<void>();
+  @Output() catchTwoPokemonEvent = new EventEmitter<void>();
+  @Output() visitDaycareEvent = new EventEmitter<EventSource>();
+  @Output() teamRocketEncounterEvent = new EventEmitter<void>();
+  @Output() mysteriousEggEvent = new EventEmitter<void>();
   @Output() legendaryEncounterEvent = new EventEmitter<void>();
-  @Output() mythicalEncounterEvent = new EventEmitter<void>();
-  @Output() areaZeroEvent = new EventEmitter<void>();
+  @Output() tradePokemonEvent = new EventEmitter<void>();
+  @Output() findItemEvent = new EventEmitter<void>();
+  @Output() exploreCaveEvent = new EventEmitter<void>();
+  @Output() snorlaxEncounterEvent = new EventEmitter<void>();
+  @Output() multitaskEvent = new EventEmitter<void>();
+  @Output() goFishingEvent = new EventEmitter<void>();
+  @Output() findFossilEvent = new EventEmitter<void>();
+  @Output() battleRivalEvent = new EventEmitter<void>();
+  @Output() otherworldEncounterEvent = new EventEmitter<void>();
   @Output() retireEvent = new EventEmitter<void>();
 
-  // Order matters — `onItemSelected` switches on the index.
-  // Battle Tower has the heaviest weight: it's the headline postgame loop.
-  private readonly baseActions: WheelItem[] = [
-    { text: 'game.main.roulette.postgame.actions.battleTower',        fillStyle: 'gold',     weight: 3 }, // 0
-    { text: 'game.main.roulette.postgame.actions.legendaryEncounter', fillStyle: 'crimson',  weight: 1 }, // 1
-    { text: 'game.main.roulette.postgame.actions.mythicalEncounter',  fillStyle: 'deeppink', weight: 1 }, // 2
-    { text: 'game.main.roulette.postgame.actions.retire',             fillStyle: 'dimgray',  weight: 1 }, // 3
+  actions: WheelItem[] = [
+    { text: 'game.main.roulette.adventure.actions.catchPokemon',       fillStyle: 'crimson',        weight: 3 },
+    { text: 'game.main.roulette.adventure.actions.challenger',         fillStyle: 'maroon',         weight: 1 },
+    { text: 'game.main.roulette.adventure.actions.buyPotions',         fillStyle: 'darkgoldenrod',  weight: 1 },
+    { text: 'game.main.roulette.adventure.actions.goStraight',         fillStyle: 'green',          weight: 1 },
+    { text: 'game.main.roulette.adventure.actions.catchTwoPokemon',    fillStyle: 'darkcyan',       weight: 1 },
+    { text: 'game.main.roulette.adventure.actions.visitDaycare',       fillStyle: 'blue',           weight: 1 },
+    { text: 'game.main.roulette.adventure.actions.teamRocket',         fillStyle: 'purple',         weight: 1 },
+    { text: 'game.main.roulette.adventure.actions.mysteriousEgg',      fillStyle: 'deeppink',       weight: 1 },
+    // Boosted legendary slice — main postgame draw.
+    { text: 'game.main.roulette.adventure.actions.legendaryEncounter', fillStyle: 'crimson',        weight: 3 },
+    { text: 'game.main.roulette.adventure.actions.tradePokemon',       fillStyle: 'darkorange',     weight: 1 },
+    { text: 'game.main.roulette.adventure.actions.findItem',           fillStyle: 'darkgoldenrod',  weight: 1 },
+    { text: 'game.main.roulette.adventure.actions.exploreCave',        fillStyle: 'green',          weight: 1 },
+    { text: 'game.main.roulette.adventure.actions.multitask',          fillStyle: 'blue',           weight: 1 },
+    { text: 'game.main.roulette.adventure.actions.goFishing',          fillStyle: 'purple',         weight: 1 },
+    { text: 'game.main.roulette.adventure.actions.findFossil',         fillStyle: 'deeppink',       weight: 1 },
+    { text: 'game.main.roulette.adventure.actions.battleRival',        fillStyle: 'black',          weight: 1 },
+    { text: 'game.main.roulette.adventure.actions.otherworld',         fillStyle: 'darkslateblue',  weight: 1 },
+    { text: 'game.main.roulette.postgame.actions.retire',              fillStyle: 'dimgray',        weight: 1 },
   ];
-
-  private readonly areaZeroAction: WheelItem = {
-    text: 'game.main.roulette.postgame.actions.areaZero',
-    fillStyle: 'darkslateblue',
-    weight: 1
-  }; // 4 (only included on Gen 9 runs)
-
-  actions: WheelItem[] = [...this.baseActions];
-  private generationSubscription: Subscription | null = null;
-
-  ngOnInit(): void {
-    this.generationSubscription = this.generationService.getGeneration().subscribe(generation => {
-      this.actions = generation.id === 9
-        ? [...this.baseActions, this.areaZeroAction]
-        : [...this.baseActions];
-    });
-  }
-
-  ngOnDestroy(): void {
-    this.generationSubscription?.unsubscribe();
-  }
 
   onItemSelected(index: number): void {
     switch (index) {
-      case 0: this.battleTowerEvent.emit(); break;
-      case 1: this.legendaryEncounterEvent.emit(); break;
-      case 2: this.mythicalEncounterEvent.emit(); break;
-      case 3: this.retireEvent.emit(); break;
-      case 4: this.areaZeroEvent.emit(); break;
+      case 0:  this.catchPokemonEvent.emit(); break;
+      case 1:  this.challengerEvent.emit(); break;
+      case 2:  this.buyPotionsEvent.emit(); break;
+      case 3:  this.doNothingEvent.emit(); break;
+      case 4:  this.catchTwoPokemonEvent.emit(); break;
+      case 5:  this.visitDaycareEvent.emit('visit-daycare'); break;
+      case 6:  this.teamRocketEncounterEvent.emit(); break;
+      case 7:  this.mysteriousEggEvent.emit(); break;
+      case 8:  this.legendaryEncounterEvent.emit(); break;
+      case 9:  this.tradePokemonEvent.emit(); break;
+      case 10: this.findItemEvent.emit(); break;
+      case 11: this.exploreCaveEvent.emit(); break;
+      case 12: this.multitaskEvent.emit(); break;
+      case 13: this.goFishingEvent.emit(); break;
+      case 14: this.findFossilEvent.emit(); break;
+      case 15: this.battleRivalEvent.emit(); break;
+      case 16: this.otherworldEncounterEvent.emit(); break;
+      case 17: this.retireEvent.emit(); break;
     }
   }
 }

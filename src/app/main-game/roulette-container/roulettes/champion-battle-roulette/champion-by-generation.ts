@@ -95,5 +95,15 @@ export const championByGeneration: Record<number, GymLeader[]> = {
     ]
 };
 
-// Insurgence (Torren) — fallback to Kalos data
-championByGeneration[100] = championByGeneration[6];
+// Insurgence (Torren) — Reukra, leader of the Perfection cult, sits as the
+// acting Champion when the player first reaches the Elite Four.
+championByGeneration[100] = [
+    {
+        name: 'champion.reukra.name',
+        sprite: 'https://wiki.p-insurgence.com/images/1/19/Reukra.png',
+        quotes: [
+            'champion.reukra.quote1',
+            'champion.reukra.quote2'
+        ]
+    }
+];

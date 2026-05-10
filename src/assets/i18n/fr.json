@@ -405,7 +405,18 @@
                     "victory": "Étage de la Tour franchi !",
                     "defeat": "Mis K.O. dans la Tour.",
                     "use": "A utilisé un(e)",
-                    "reward": "Victoire — Récompense :"
+                    "reward": "Victoire — Récompense :",
+                    "bagFull": "Sac plein — récompense ignorée",
+                    "milestone": {
+                        "porygon": {
+                            "title": "Étage 10 conquis !",
+                            "message": "Un Porygon surgit du système de combat — il rejoint ton équipe !"
+                        },
+                        "shinyCharm": {
+                            "title": "Étage 20 conquis !",
+                            "message": "On te remet le Charme Chroma — tes prochaines captures auront 4 fois plus de chances de chromatique."
+                        }
+                    }
                 },
                 "postgame": {
                     "title": "Que fait le maître ?",
@@ -422,7 +433,8 @@
                         "findItem": "Trouver un objet",
                         "battleRival": "Revanche du Rival",
                         "areaZero": "Explorer la Zone Zéro",
-                        "retire": "Terminer l'aventure"
+                        "retire": "Terminer l'aventure",
+                        "shop": "Magasin"
                     }
                 },
                 "rival": {
@@ -430,7 +442,8 @@
                     "go": "C'est parti!",
                     "victory": "Victoire?",
                     "yes": "Oui",
-                    "no": "Non"
+                    "no": "Non",
+                    "use": "A utilisé un(e)"
                 },
                 "snorlax": {
                     "outcome": "Résultat",
@@ -473,6 +486,24 @@
                     "yes": "Réussite",
                     "no": "Perdant",
                     "victoryMsg": "Challenger vaincu !"
+                },
+                "shop": {
+                    "give": "Quel objet échanger ?",
+                    "get": "Quel objet recevoir ?",
+                    "received": "Échange réussi — nouvel objet :",
+                    "discard": "Sac plein ! Quel objet jeter ?"
+                },
+                "villain": {
+                    "title": "Antagoniste",
+                    "against": "Tu affrontes",
+                    "go": "Combattre",
+                    "warning": "Vaincre ce dresseur t'accorde une Master Ball. Perdre met fin à l'aventure.",
+                    "victory": "Vaincre l'antagoniste ?",
+                    "victoryMsg": "Antagoniste vaincu !",
+                    "yes": "Réussite",
+                    "no": "Perdant",
+                    "reward": "Récompense : Master Ball",
+                    "use": "A utilisé un(e)"
                 }
             },
             "trade": {
@@ -543,6 +574,14 @@
         "mega-stone": {
             "name": "Méga-Gemme",
             "description": "La Méga-Gemme permet à un Pokémon de l'équipe de Méga-évoluer (1 Méga maximum). Clique sur l'objet pour l'utiliser."
+        },
+        "shiny-charm": {
+            "name": "Charme Chroma",
+            "description": "Augmente la chance de capturer un Pokémon chromatique (1/16 au lieu de 1/64)."
+        },
+        "master-ball": {
+            "name": "Master Ball",
+            "description": "Capture garantie sur ta prochaine rencontre légendaire, mythique, paradoxe, ultra-chimère ou boss. Consommée à l'usage."
         }
     },
     "trainer": {
@@ -2726,6 +2765,48 @@
         "shiny": {
             "on": "✨ Chromatique",
             "off": "Normal"
+        }
+    },
+    "villain": {
+        "giovanni": {
+            "name": "Giovanni",
+            "quote1": "Tu pensais en avoir fini avec la Team Rocket ?"
+        },
+        "archer": {
+            "name": "Archer",
+            "quote1": "La Team Rocket renaît sous mon commandement."
+        },
+        "maxie-archie": {
+            "name": "Max & Arthur",
+            "quote1": "Pour l'avenir de Hoenn, nous t'écraserons !"
+        },
+        "cyrus": {
+            "name": "Hélio",
+            "quote1": "Un monde sans émotion m'attend — tu n'es qu'un dernier obstacle."
+        },
+        "ghetsis": {
+            "name": "Ghetis",
+            "quote1": "Tu vas regretter d'avoir libéré ces Pokémon !"
+        },
+        "lysandre": {
+            "name": "Lysandre",
+            "quote1": "Seul un monde épuré mérite de subsister."
+        },
+        "lusamine": {
+            "name": "Lusamine",
+            "quote1": "Mes magnifiques bestioles vont t'engloutir."
+        },
+        "rose": {
+            "name": "Roy",
+            "quote1": "Le Cauchemar Eternel approche — tu ne m'arrêteras pas."
+        },
+        "ai-turo-sada": {
+            "name": "IA Turo/Sada",
+            "quote1": "Le Paradoxe absorbera ce monde."
+        },
+        "jaern": {
+            "name": "Jaern",
+            "quote1": "Darkrai mérite l'éveil. Tu ne comprends pas son don."
         }
     }
 }

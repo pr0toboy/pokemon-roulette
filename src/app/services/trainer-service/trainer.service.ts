@@ -24,6 +24,12 @@ export class TrainerService implements OnDestroy {
   /** Level assigned to a freshly-caught Pokémon. */
   static readonly STARTING_LEVEL = 5;
 
+  /** Cap mirroring the mainline games — no Pokémon goes past level 100. */
+  static readonly MAX_LEVEL = 100;
+
+  /** Maximum number of items the trainer can carry — matches the 12-slot UI. */
+  static readonly MAX_INVENTORY = 12;
+
   /** Bonus level granted on top of the inherited one when a Pokémon evolves. */
   private static readonly EVOLUTION_LEVEL_BONUS = 1;
 
@@ -117,7 +123,8 @@ export class TrainerService implements OnDestroy {
       return;
     }
     this.trainerTeam.forEach(pokemon => {
-      pokemon.level = (pokemon.level ?? TrainerService.STARTING_LEVEL) + amount;
+      const current = pokemon.level ?? TrainerService.STARTING_LEVEL;
+      pokemon.level = Math.min(TrainerService.MAX_LEVEL, current + amount);
     });
     this.trainerTeamObservable.next(this.getTeam());
   }
@@ -196,7 +203,10 @@ export class TrainerService implements OnDestroy {
     // Carry the evolution chain's training: keep the level and add a small bonus
     // so evolution feels rewarding without distorting the curve.
     const inheritedLevel = pokemonOut.level ?? TrainerService.STARTING_LEVEL;
-    pokemonIn.level = inheritedLevel + TrainerService.EVOLUTION_LEVEL_BONUS;
+    pokemonIn.level = Math.min(
+      TrainerService.MAX_LEVEL,
+      inheritedLevel + TrainerService.EVOLUTION_LEVEL_BONUS,
+    );
     this.loadPokemonSpriteIfMissing(pokemonIn);
 
     let index = this.trainerTeam.indexOf(pokemonOut);
@@ -247,7 +257,30 @@ export class TrainerService implements OnDestroy {
     return this.trainerItems.find(item => item.name === itemName);
   }
 
-  addToItems(item: ItemItem): void {
+  /** Maximum copies the bag accepts for each potion tier — keeps the player
+   *  from hoarding 12 hyper-potions and trivialising every battle wheel. */
+  private static readonly POTION_TIER_CAP = 5;
+  private static readonly POTION_TIERS: ReadonlySet<string> = new Set([
+    'potion', 'super-potion', 'hyper-potion',
+  ]);
+
+  /**
+   * Adds an item to the trainer's bag. Returns false when the bag is already
+   * full (12 slots) or when the per-tier cap (5) is reached for potions —
+   * callers should treat this as "the drop didn't land" and skip downstream
+   * UI like reward popups so the postgame loop doesn't trick the player into
+   * thinking they got something they didn't.
+   */
+  addToItems(item: ItemItem): boolean {
+    if (this.trainerItems.length >= TrainerService.MAX_INVENTORY) {
+      return false;
+    }
+    if (TrainerService.POTION_TIERS.has(item.name)) {
+      const owned = this.trainerItems.filter(i => i.name === item.name).length;
+      if (owned >= TrainerService.POTION_TIER_CAP) {
+        return false;
+      }
+    }
 
     item = structuredClone(item);
 
@@ -258,6 +291,7 @@ export class TrainerService implements OnDestroy {
     }
     this.trainerItems.push(item);
     this.trainerItemsObservable.next(this.trainerItems);
+    return true;
   }
 
   removeItem(item: ItemItem): void {

@@ -396,7 +396,8 @@
                     "go": "¡Vamos!",
                     "victory": "¿Victoria?",
                     "yes": "Sí",
-                    "no": "No"
+                    "no": "No",
+                    "use": "Usó un(a)"
                 },
                 "snorlax": {
                     "outcome": "Resultado",
@@ -437,7 +438,8 @@
                         "message": "¡Has vencido a la Liga! Tu equipo entra en el Salón de la Fama. La aventura continúa — sube la Torre Batalla entre cada acción del Maestro."
                     },
                     "actions": {
-                        "retire": "Terminar la aventura"
+                        "retire": "Terminar la aventura",
+                        "shop": "Tienda"
                     }
                 },
                 "tower": {
@@ -448,7 +450,18 @@
                     "victory": "¡Siguiente piso!",
                     "defeat": "Abandonas la torre.",
                     "use": "Usó un(a)",
-                    "reward": "Victoria — Recompensa:"
+                    "reward": "Victoria — Recompensa:",
+                    "bagFull": "Mochila llena — recompensa omitida",
+                    "milestone": {
+                        "porygon": {
+                            "title": "¡Piso 10 conquistado!",
+                            "message": "¡Un Porygon emerge del sistema de combate y se une a tu equipo!"
+                        },
+                        "shinyCharm": {
+                            "title": "¡Piso 20 conquistado!",
+                            "message": "Recibes el Amuleto Iris — tus próximas capturas tienen 4 veces más probabilidad de ser variocolor."
+                        }
+                    }
                 },
                 "challenger": {
                     "title": "¡Un Retador aparece!",
@@ -459,6 +472,24 @@
                     "yes": "Victoria",
                     "no": "Derrota",
                     "victoryMsg": "¡Retador derrotado!"
+                },
+                "shop": {
+                    "give": "¿Qué objeto cambiar?",
+                    "get": "¿Qué objeto recibir?",
+                    "received": "Intercambio completado — nuevo objeto:",
+                    "discard": "¡Mochila llena! ¿Qué objeto desechar?"
+                },
+                "villain": {
+                    "title": "Antagonista",
+                    "against": "Te enfrentas a",
+                    "go": "Combatir",
+                    "warning": "Vencer otorga una Master Ball. Perder termina la aventura.",
+                    "victory": "¿Vencer al antagonista?",
+                    "victoryMsg": "¡Antagonista derrotado!",
+                    "yes": "Victoria",
+                    "no": "Derrota",
+                    "reward": "Recompensa: Master Ball",
+                    "use": "Usó un(a)"
                 }
             },
             "trade": {
@@ -529,6 +560,14 @@
         "mega-stone": {
             "name": "Mega Piedra",
             "description": "La Mega Piedra permite que un Pokémon de tu equipo Mega Evolucione (1 Mega máximo). Haz clic en el objeto para usarlo."
+        },
+        "shiny-charm": {
+            "name": "Amuleto Iris",
+            "description": "Aumenta la probabilidad de capturar un Pokémon variocolor (1/16 en lugar de 1/64)."
+        },
+        "master-ball": {
+            "name": "Master Ball",
+            "description": "Captura garantizada en tu próximo encuentro legendario, mítico, paradoja, ultraente o jefe. Se consume al usarla."
         }
     },
     "trainer": {
@@ -2712,6 +2751,48 @@
         "shiny": {
             "on": "✨ Shiny",
             "off": "Normal"
+        }
+    },
+    "villain": {
+        "giovanni": {
+            "name": "Giovanni",
+            "quote1": "¿Creías que el Team Rocket había terminado?"
+        },
+        "archer": {
+            "name": "Atlas",
+            "quote1": "El Team Rocket renace bajo mi mando."
+        },
+        "maxie-archie": {
+            "name": "Magno y Aquiles",
+            "quote1": "¡Por el futuro de Hoenn, te aplastaremos!"
+        },
+        "cyrus": {
+            "name": "Helio",
+            "quote1": "Un mundo sin emociones me espera — eres el último obstáculo."
+        },
+        "ghetsis": {
+            "name": "N. Granate",
+            "quote1": "¡Lamentarás haber liberado a esos Pokémon!"
+        },
+        "lysandre": {
+            "name": "Lysson",
+            "quote1": "Solo un mundo purificado merece permanecer."
+        },
+        "lusamine": {
+            "name": "Samina",
+            "quote1": "Mis criaturas hermosas te devorarán."
+        },
+        "rose": {
+            "name": "Presidente Rose",
+            "quote1": "El Día Oscurísimo se acerca — no me detendrás."
+        },
+        "ai-turo-sada": {
+            "name": "IA Turo/Sada",
+            "quote1": "La Paradoja consumirá este mundo."
+        },
+        "jaern": {
+            "name": "Jaern",
+            "quote1": "Darkrai merece despertar. No entiendes su don."
         }
     }
 }

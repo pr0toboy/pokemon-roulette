@@ -81,5 +81,21 @@ export const itemsData: Record<ItemName, ItemItem> = {
         fillStyle: 'orchid',
         weight: 0,
         description: 'items.mega-stone.description'
+    },
+    "shiny-charm": {
+        text: 'items.shiny-charm.name',
+        name: 'shiny-charm',
+        sprite: '',
+        fillStyle: 'gold',
+        weight: 0,
+        description: 'items.shiny-charm.description'
+    },
+    "master-ball": {
+        text: 'items.master-ball.name',
+        name: 'master-ball',
+        sprite: '',
+        fillStyle: 'darkviolet',
+        weight: 0,
+        description: 'items.master-ball.description'
     }
 }

@@ -8,4 +8,6 @@ export type ItemName =
   | 'hyper-potion'
   | 'escape-rope'
   | 'hyperball'
-  | 'mega-stone';
+  | 'mega-stone'
+  | 'shiny-charm'
+  | 'master-ball';

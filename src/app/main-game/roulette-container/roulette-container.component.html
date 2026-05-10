@@ -16,6 +16,7 @@
   }
   @case ('check-shininess') {
     <app-shiny-roulette
+        [hasShinyCharm]="hasShinyCharm"
         (isShinyEvent)="setShininess($event)">
     </app-shiny-roulette>
   }
@@ -233,7 +234,6 @@
         [currentFloor]="towerFloor"
         (catchPokemonEvent)="masterCatchPokemon()"
         (challengerEvent)="masterChallenger()"
-        (buyPotionsEvent)="masterBuyPotions()"
         (doNothingEvent)="masterDoNothing()"
         (catchTwoPokemonEvent)="masterCatchTwoPokemon()"
         (visitDaycareEvent)="masterVisitDaycare($event)"
@@ -248,6 +248,7 @@
         (findFossilEvent)="masterFindFossil()"
         (battleRivalEvent)="masterBattleRival()"
         (otherworldEncounterEvent)="masterOtherworldEncounter()"
+        (shopEvent)="masterShop()"
         (retireEvent)="retireFromPostgame()">
     </app-postgame-adventure-roulette>
   }
@@ -256,6 +257,27 @@
         [currentRound]="leadersDefeatedAmount"
         (battleResultEvent)="masterChallengerResult($event)">
     </app-master-challenger-roulette>
+  }
+  @case ('shop-give') {
+    <app-shop-give-roulette
+        (selectedItemEvent)="shopItemGiven($event)">
+    </app-shop-give-roulette>
+  }
+  @case ('discard-item') {
+    <app-shop-give-roulette
+        [titleKey]="'game.main.roulette.shop.discard'"
+        (selectedItemEvent)="discardItemSelected($event)">
+    </app-shop-give-roulette>
+  }
+  @case ('shop-get') {
+    <app-shop-get-roulette
+        (selectedItemEvent)="shopItemReceived($event)">
+    </app-shop-get-roulette>
+  }
+  @case ('villain-battle') {
+    <app-villain-battle-roulette
+        (battleResultEvent)="villainBattleResult($event)">
+    </app-villain-battle-roulette>
   }
   @case ('battle-tower') {
     <app-battle-tower-roulette

@@ -3,11 +3,9 @@ import { CommonModule } from '@angular/common';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { WheelComponent } from '../../../../wheel/wheel.component';
-import { WheelItem } from '../../../../interfaces/wheel-item';
 import { GameStateService } from '../../../../services/game-state-service/game-state.service';
 import { GenerationService } from '../../../../services/generation-service/generation.service';
 import { TrainerService } from '../../../../services/trainer-service/trainer.service';
-import { interleaveOdds } from '../../../../utils/odd-utils';
 import { BaseBattleRouletteComponent } from '../base-battle-roulette/base-battle-roulette.component';
 
 /**
@@ -65,35 +63,27 @@ export class BattleTowerRouletteComponent extends BaseBattleRouletteComponent {
   }
 
   protected override calcVictoryOdds(): void {
-    const yesOdds: WheelItem[] = [];
-    const noOdds: WheelItem[] = [];
+    // Tower fights mid-postgame can pile up 150+ unit slices when written
+    // with the gym-wheel pattern (`push(weight: 1)` N times). That makes the
+    // wheel a blur of micro-segments. We keep the exact same odds maths but
+    // collapse each side into a single weighted slice — the win/loss split
+    // stays mathematically identical, just rendered as two big arcs the
+    // player can actually read.
+    let yesWeight = 1;
+    this.trainerTeam.forEach(pokemon => { yesWeight += pokemon.power; });
+    yesWeight += this.plusModifiers();
+    yesWeight += this.calcLevelBonus();
 
-    // Always at least one win slice so the run is never literally impossible
-    // even with a brand-new postgame team.
-    yesOdds.push({ text: 'game.main.roulette.tower.yes', fillStyle: 'gold', weight: 1 });
+    // Floor difficulty: 4 baseline no-weight + 5 per floor reached. The level
+    // cap (100) caps the yes side around 38 even with a full power-5 team, so
+    // the no-weight has to climb steeply to keep the deeper floors meaningful
+    // — by floor 20 the wheel is squarely on the unfavourable side and the
+    // player must lean on potions / x-attacks to break through.
+    const noWeight = 4 + 5 * this.currentFloor;
 
-    this.trainerTeam.forEach(pokemon => {
-      for (let i = 0; i < pokemon.power; i++) {
-        yesOdds.push({ text: 'game.main.roulette.tower.yes', fillStyle: 'gold', weight: 1 });
-      }
-    });
-
-    const powerModifier = this.plusModifiers();
-    for (let i = 0; i < powerModifier; i++) {
-      yesOdds.push({ text: 'game.main.roulette.tower.yes', fillStyle: 'gold', weight: 1 });
-    }
-
-    const levelBonus = this.calcLevelBonus();
-    for (let i = 0; i < levelBonus; i++) {
-      yesOdds.push({ text: 'game.main.roulette.tower.yes', fillStyle: 'gold', weight: 1 });
-    }
-
-    // Floor difficulty: starts at 2 no-slices, +1 per floor cleared.
-    const noSlices = 1 + this.currentFloor;
-    for (let i = 0; i < noSlices; i++) {
-      noOdds.push({ text: 'game.main.roulette.tower.no', fillStyle: 'crimson', weight: 1 });
-    }
-
-    this.victoryOdds = interleaveOdds(yesOdds, noOdds);
+    this.victoryOdds = [
+      { text: 'game.main.roulette.tower.yes', fillStyle: 'gold',    weight: yesWeight },
+      { text: 'game.main.roulette.tower.no',  fillStyle: 'crimson', weight: noWeight },
+    ];
   }
 }

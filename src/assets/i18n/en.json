@@ -405,7 +405,18 @@
                     "victory": "Tower floor cleared!",
                     "defeat": "Knocked out of the tower.",
                     "use": "Used",
-                    "reward": "Victory — Reward:"
+                    "reward": "Victory — Reward:",
+                    "bagFull": "Bag full — reward skipped",
+                    "milestone": {
+                        "porygon": {
+                            "title": "Floor 10 cleared!",
+                            "message": "A Porygon materialises out of the tower's combat system — it joins your team!"
+                        },
+                        "shinyCharm": {
+                            "title": "Floor 20 cleared!",
+                            "message": "You receive the Shiny Charm — your next captures are 4× more likely to be shiny."
+                        }
+                    }
                 },
                 "postgame": {
                     "title": "What does the master do?",
@@ -422,7 +433,8 @@
                         "findItem": "Find an Item",
                         "battleRival": "Rival Rematch",
                         "areaZero": "Explore Area Zero",
-                        "retire": "End the adventure"
+                        "retire": "End the adventure",
+                        "shop": "Shop"
                     }
                 },
                 "rival": {
@@ -430,7 +442,8 @@
                     "go": "Let's Go!",
                     "victory": "Victory?",
                     "yes": "Yes",
-                    "no": "No"
+                    "no": "No",
+                    "use": "Used"
                 },
                 "snorlax": {
                     "outcome": "Outcome",
@@ -473,6 +486,24 @@
                     "yes": "Win",
                     "no": "Loss",
                     "victoryMsg": "Challenger defeated!"
+                },
+                "shop": {
+                    "give": "Which item to trade?",
+                    "get": "Which item in return?",
+                    "received": "Trade complete — new item:",
+                    "discard": "Bag full! Which item to throw away?"
+                },
+                "villain": {
+                    "title": "Antagonist",
+                    "against": "You face",
+                    "go": "Fight",
+                    "warning": "Beat them to earn a Master Ball. Lose and your adventure ends.",
+                    "victory": "Defeat the antagonist?",
+                    "victoryMsg": "Antagonist defeated!",
+                    "yes": "Win",
+                    "no": "Loss",
+                    "reward": "Reward: Master Ball",
+                    "use": "Used"
                 }
             },
             "trade": {
@@ -543,6 +574,14 @@
         "mega-stone": {
             "name": "Mega Stone",
             "description": "The Mega Stone lets one of your team Pokémon permanently Mega Evolve (1 Mega max). Click the item to use it."
+        },
+        "shiny-charm": {
+            "name": "Shiny Charm",
+            "description": "Boosts the chance of catching a shiny Pokémon (1/16 instead of 1/64)."
+        },
+        "master-ball": {
+            "name": "Master Ball",
+            "description": "Guaranteed catch on your next legendary, mythical, paradox, Ultra Beast or boss encounter. Consumed on use."
         }
     },
     "trainer": {
@@ -2726,6 +2765,48 @@
         "shiny": {
             "on": "✨ Shiny",
             "off": "Normal"
+        }
+    },
+    "villain": {
+        "giovanni": {
+            "name": "Giovanni",
+            "quote1": "You thought Team Rocket was finished?"
+        },
+        "archer": {
+            "name": "Archer",
+            "quote1": "Team Rocket rises again under my command."
+        },
+        "maxie-archie": {
+            "name": "Maxie & Archie",
+            "quote1": "For Hoenn's future, we will crush you!"
+        },
+        "cyrus": {
+            "name": "Cyrus",
+            "quote1": "A world without emotion awaits — you are the last obstacle."
+        },
+        "ghetsis": {
+            "name": "Ghetsis",
+            "quote1": "You'll regret freeing those Pokémon!"
+        },
+        "lysandre": {
+            "name": "Lysandre",
+            "quote1": "Only a purified world deserves to remain."
+        },
+        "lusamine": {
+            "name": "Lusamine",
+            "quote1": "My beautiful creatures will swallow you whole."
+        },
+        "rose": {
+            "name": "Chairman Rose",
+            "quote1": "The Darkest Day looms — you will not stop me."
+        },
+        "ai-turo-sada": {
+            "name": "AI Turo/Sada",
+            "quote1": "Paradox shall consume this world."
+        },
+        "jaern": {
+            "name": "Jaern",
+            "quote1": "Darkrai deserves to awaken. You don't understand his gift."
         }
     }
 }

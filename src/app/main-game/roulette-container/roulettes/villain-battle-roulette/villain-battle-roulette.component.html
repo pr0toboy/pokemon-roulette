@@ -1,4 +1,4 @@
-<h1 class="title">{{ 'game.main.roulette.rival.victory' | translate }}</h1>
+<h1 class="title">{{ 'game.main.roulette.villain.victory' | translate }}</h1>
 <p class="respin-reason">{{ (retries > 0) ? (currentItem.text | translate) + " x" + retries : "" }}</p>
 <app-wheel
     #wheel
@@ -6,26 +6,27 @@
     (selectedItemEvent)="onItemSelected($event)">
 </app-wheel>
 
-<ng-template #rivalPresentationModal let-modal>
+<ng-template #villainPresentationModal let-modal>
     <div class="modal-body">
-        <h1>{{ 'game.main.roulette.rival.against' | translate }} {{ currentRival.name | translate }}!</h1>
-        <div class="rival-panel">
-            <img [src]="currentRival.sprite" alt="{{currentRival.name}}" height="128">
+        <h1>{{ 'game.main.roulette.villain.against' | translate }} {{ currentVillain.name | translate }} !</h1>
+        <div class="villain-panel">
+            <img [src]="currentVillain.sprite" alt="{{ currentVillain.name }}" height="160">
             <div class="quotes">
-                @for (quote of currentRival.quotes; track $index) {
-                    <p>{{quote | translate}}</p>
+                @for (quote of currentVillain.quotes; track $index) {
+                    <p>{{ quote | translate }}</p>
                 }
+                <p class="warning">{{ 'game.main.roulette.villain.warning' | translate }}</p>
             </div>
         </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-outline-primary" (click)="closeModal()">{{ 'game.main.roulette.rival.go' | translate }}</button>
+        <button type="button" class="btn btn-outline-primary" (click)="closeModal()">{{ 'game.main.roulette.villain.go' | translate }}</button>
     </div>
 </ng-template>
 
 <ng-template #itemUsedModal let-modal>
     <div class="modal-body">
-        <h1>{{ 'game.main.roulette.rival.use' | translate }} {{ currentItem.text | translate }}!</h1>
+        <h1>{{ 'game.main.roulette.villain.use' | translate }} {{ currentItem.text | translate }} !</h1>
         <div class="item-panel">
             <img [src]="currentItem.sprite" height="128">
             <div class="quotes">

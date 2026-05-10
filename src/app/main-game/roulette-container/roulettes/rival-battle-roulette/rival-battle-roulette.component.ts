@@ -1,4 +1,7 @@
 import { Component, EventEmitter, Input, Output, TemplateRef, ViewChild } from '@angular/core';
+// Implementation note: rival now consumes potions like the other battle
+// wheels (gym, E4, Champion, Boss, Tower) instead of emitting an immediate
+// loss — see onItemSelected below.
 import { rivalByGeneration } from './rival-by-generation';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { take } from 'rxjs';
@@ -28,6 +31,7 @@ export class RivalBattleRouletteComponent extends BaseBattleRouletteComponent {
   rivalByGeneration = rivalByGeneration;
 
   @ViewChild('rivalPresentationModal', { static: true }) rivalPresentationModal!: TemplateRef<any>;
+  @ViewChild('itemUsedModal', { static: true }) itemUsedModal!: TemplateRef<any>;
 
   @Input() currentRound!: number;
   @Output() battleResultEvent = new EventEmitter<boolean>();
@@ -46,10 +50,16 @@ export class RivalBattleRouletteComponent extends BaseBattleRouletteComponent {
   }
 
   onItemSelected(index: number): void {
+    this.retries--;
     if (this.victoryOdds[index].text === 'game.main.roulette.rival.yes') {
       this.battleResultEvent.emit(true);
-    } else {
-      this.battleResultEvent.emit(false);
+    } else if (this.retries <= 0) {
+      const potion = this.hasPotions();
+      if (potion) {
+        this.usePotion(potion, () => this.modalService.open(this.itemUsedModal, { centered: true, size: 'md' }));
+      } else {
+        this.battleResultEvent.emit(false);
+      }
     }
   }
 

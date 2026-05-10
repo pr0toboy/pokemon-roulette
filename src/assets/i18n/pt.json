@@ -396,7 +396,8 @@
                     "go": "Vamos lá!",
                     "victory": "Vitória?",
                     "yes": "Sim",
-                    "no": "Não"
+                    "no": "Não",
+                    "use": "Usou"
                 },
                 "snorlax": {
                     "outcome": "Resultado",
@@ -437,7 +438,8 @@
                         "message": "Você venceu a Liga! Seu time entra no Hall da Fama. A aventura continua — escale a Torre de Batalha entre as ações do Mestre."
                     },
                     "actions": {
-                        "retire": "Terminar a aventura"
+                        "retire": "Terminar a aventura",
+                        "shop": "Loja"
                     }
                 },
                 "tower": {
@@ -448,7 +450,18 @@
                     "victory": "Próximo piso!",
                     "defeat": "Você sai da torre.",
                     "use": "Usou",
-                    "reward": "Vitória — Recompensa:"
+                    "reward": "Vitória — Recompensa:",
+                    "bagFull": "Mochila cheia — recompensa ignorada",
+                    "milestone": {
+                        "porygon": {
+                            "title": "Piso 10 conquistado!",
+                            "message": "Um Porygon surge do sistema de batalha — ele se junta à sua equipe!"
+                        },
+                        "shinyCharm": {
+                            "title": "Piso 20 conquistado!",
+                            "message": "Você recebe o Amuleto Brilho — suas próximas capturas têm 4 vezes mais chance de serem brilhantes."
+                        }
+                    }
                 },
                 "challenger": {
                     "title": "Um Desafiante aparece!",
@@ -459,6 +472,24 @@
                     "yes": "Vitória",
                     "no": "Derrota",
                     "victoryMsg": "Desafiante derrotado!"
+                },
+                "shop": {
+                    "give": "Qual item trocar?",
+                    "get": "Qual item receber?",
+                    "received": "Troca concluída — novo item:",
+                    "discard": "Mochila cheia! Qual item descartar?"
+                },
+                "villain": {
+                    "title": "Antagonista",
+                    "against": "Você enfrenta",
+                    "go": "Lutar",
+                    "warning": "A vitória concede uma Master Ball. A derrota termina a aventura.",
+                    "victory": "Derrotar o antagonista?",
+                    "victoryMsg": "Antagonista derrotado!",
+                    "yes": "Vitória",
+                    "no": "Derrota",
+                    "reward": "Recompensa: Master Ball",
+                    "use": "Usou"
                 }
             },
             "trade": {
@@ -529,6 +560,14 @@
         "mega-stone": {
             "name": "Mega Pedra",
             "description": "A Mega Pedra permite que um Pokémon da equipe Mega Evolua (máx. 1 Mega). Clique no item para usar."
+        },
+        "shiny-charm": {
+            "name": "Amuleto Brilho",
+            "description": "Aumenta a chance de capturar um Pokémon brilhante (1/16 em vez de 1/64)."
+        },
+        "master-ball": {
+            "name": "Master Ball",
+            "description": "Captura garantida no próximo encontro lendário, mítico, paradoxo, ultracriatura ou chefe. Consumida ao usar."
         }
     },
     "trainer": {
@@ -2712,6 +2751,48 @@
         "shiny": {
             "on": "✨ Shiny",
             "off": "Normal"
+        }
+    },
+    "villain": {
+        "giovanni": {
+            "name": "Giovanni",
+            "quote1": "Achou que a Equipe Rocket tinha acabado?"
+        },
+        "archer": {
+            "name": "Archer",
+            "quote1": "A Equipe Rocket renasce sob meu comando."
+        },
+        "maxie-archie": {
+            "name": "Maxie & Archie",
+            "quote1": "Pelo futuro de Hoenn, vamos esmagar você!"
+        },
+        "cyrus": {
+            "name": "Cyrus",
+            "quote1": "Um mundo sem emoções me aguarda — você é o último obstáculo."
+        },
+        "ghetsis": {
+            "name": "Ghetsis",
+            "quote1": "Vai se arrepender de ter libertado aqueles Pokémon!"
+        },
+        "lysandre": {
+            "name": "Lysandre",
+            "quote1": "Só um mundo purificado merece permanecer."
+        },
+        "lusamine": {
+            "name": "Lusamine",
+            "quote1": "Minhas belas criaturas vão engolir você."
+        },
+        "rose": {
+            "name": "Presidente Rose",
+            "quote1": "O Dia Mais Sombrio se aproxima — você não vai me parar."
+        },
+        "ai-turo-sada": {
+            "name": "IA Turo/Sada",
+            "quote1": "O Paradoxo consumirá este mundo."
+        },
+        "jaern": {
+            "name": "Jaern",
+            "quote1": "Darkrai merece despertar. Você não entende seu dom."
         }
     }
 }

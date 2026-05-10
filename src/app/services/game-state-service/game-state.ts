@@ -40,7 +40,11 @@ export type GameState =
   | 'catch-boss'
   | 'postgame-adventure'
   | 'master-challenger'
+  | 'shop-give'
+  | 'shop-get'
+  | 'discard-item'
   | 'battle-tower'
+  | 'villain-battle'
   | 'mythical-encounter'
   | 'catch-mythical'
   | 'game-finish';

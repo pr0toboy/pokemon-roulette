@@ -396,7 +396,8 @@
                     "go": "Los geht's!",
                     "victory": "Erfolg?",
                     "yes": "Ja",
-                    "no": "Nein"
+                    "no": "Nein",
+                    "use": "Verwendet"
                 },
                 "snorlax": {
                     "outcome": "Ergebnis",
@@ -437,7 +438,8 @@
                         "message": "Du hast die Liga besiegt! Dein Team kommt in die Ruhmeshalle. Das Abenteuer geht weiter — erklimme zwischen den Aktionen des Meisters den Kampfturm."
                     },
                     "actions": {
-                        "retire": "Abenteuer beenden"
+                        "retire": "Abenteuer beenden",
+                        "shop": "Geschäft"
                     }
                 },
                 "tower": {
@@ -448,7 +450,18 @@
                     "victory": "Nächste Etage!",
                     "defeat": "Du verlässt den Turm.",
                     "use": "Verwendet",
-                    "reward": "Sieg — Belohnung:"
+                    "reward": "Sieg — Belohnung:",
+                    "bagFull": "Tasche voll — Belohnung übersprungen",
+                    "milestone": {
+                        "porygon": {
+                            "title": "Etage 10 erobert!",
+                            "message": "Ein Porygon erscheint aus dem Kampfsystem — es schließt sich deinem Team an!"
+                        },
+                        "shinyCharm": {
+                            "title": "Etage 20 erobert!",
+                            "message": "Du erhältst den Schillerpin — deine nächsten Fänge sind viermal so oft schillernd."
+                        }
+                    }
                 },
                 "challenger": {
                     "title": "Ein Herausforderer erscheint!",
@@ -459,6 +472,24 @@
                     "yes": "Sieg",
                     "no": "Niederlage",
                     "victoryMsg": "Herausforderer besiegt!"
+                },
+                "shop": {
+                    "give": "Welches Objekt tauschen?",
+                    "get": "Welches Objekt erhalten?",
+                    "received": "Tausch erfolgreich — neues Objekt:",
+                    "discard": "Tasche voll! Welches Objekt wegwerfen?"
+                },
+                "villain": {
+                    "title": "Antagonist",
+                    "against": "Du stellst dich",
+                    "go": "Kämpfen",
+                    "warning": "Sieg gewährt dir einen Meisterball. Eine Niederlage beendet das Abenteuer.",
+                    "victory": "Den Antagonisten besiegen?",
+                    "victoryMsg": "Antagonist besiegt!",
+                    "yes": "Sieg",
+                    "no": "Niederlage",
+                    "reward": "Belohnung: Meisterball",
+                    "use": "Verwendet"
                 }
             },
             "trade": {
@@ -529,6 +560,14 @@
         "mega-stone": {
             "name": "Mega-Stein",
             "description": "Der Mega-Stein lässt eines deiner Pokémon dauerhaft Mega-entwickeln (max. 1 Mega). Klicke das Item zum Verwenden."
+        },
+        "shiny-charm": {
+            "name": "Schillerpin",
+            "description": "Erhöht die Chance, ein schillerndes Pokémon zu fangen (1/16 statt 1/64)."
+        },
+        "master-ball": {
+            "name": "Meisterball",
+            "description": "Garantierter Fang beim nächsten legendären, mysteriösen, Paradox-, Ultrabestie- oder Boss-Pokémon. Wird verbraucht."
         }
     },
     "trainer": {
@@ -2712,6 +2751,48 @@
         "shiny": {
             "on": "✨ Shiny",
             "off": "Normal"
+        }
+    },
+    "villain": {
+        "giovanni": {
+            "name": "Giovanni",
+            "quote1": "Du dachtest, Team Rocket sei am Ende?"
+        },
+        "archer": {
+            "name": "Apollo",
+            "quote1": "Team Rocket steigt unter meinem Kommando wieder auf."
+        },
+        "maxie-archie": {
+            "name": "Marc & Adrian",
+            "quote1": "Für Hoenns Zukunft zermalmen wir dich!"
+        },
+        "cyrus": {
+            "name": "Zyrus",
+            "quote1": "Eine Welt ohne Emotionen erwartet mich — du bist das letzte Hindernis."
+        },
+        "ghetsis": {
+            "name": "G-Cis",
+            "quote1": "Du wirst es bereuen, diese Pokémon befreit zu haben!"
+        },
+        "lysandre": {
+            "name": "Flordelis",
+            "quote1": "Nur eine gereinigte Welt verdient zu bestehen."
+        },
+        "lusamine": {
+            "name": "Samantha",
+            "quote1": "Meine herrlichen Geschöpfe werden dich verschlingen."
+        },
+        "rose": {
+            "name": "Vorsitzender Rose",
+            "quote1": "Der Dunkelste Tag naht — du wirst mich nicht aufhalten."
+        },
+        "ai-turo-sada": {
+            "name": "KI Turo/Sada",
+            "quote1": "Das Paradox wird diese Welt verschlingen."
+        },
+        "jaern": {
+            "name": "Jaern",
+            "quote1": "Darkrai verdient es zu erwachen. Du verstehst seine Gabe nicht."
         }
     }
 }

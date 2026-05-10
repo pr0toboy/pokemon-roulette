@@ -53,6 +53,9 @@ import { ChampionBattleRouletteComponent } from "./roulettes/champion-battle-rou
 import { PostgameAdventureRouletteComponent } from "./roulettes/postgame-adventure-roulette/postgame-adventure-roulette.component";
 import { BattleTowerRouletteComponent } from "./roulettes/battle-tower-roulette/battle-tower-roulette.component";
 import { MasterChallengerRouletteComponent } from "./roulettes/master-challenger-roulette/master-challenger-roulette.component";
+import { ShopGiveRouletteComponent } from "./roulettes/shop-roulette/shop-give-roulette.component";
+import { ShopGetRouletteComponent } from "./roulettes/shop-roulette/shop-get-roulette.component";
+import { VillainBattleRouletteComponent } from "./roulettes/villain-battle-roulette/villain-battle-roulette.component";
 import { MythicalEncounterRouletteComponent } from "./roulettes/mythical-encounter-roulette/mythical-encounter-roulette.component";
 import { CatchMythicalRouletteComponent } from "./roulettes/catch-mythical-roulette/catch-mythical-roulette.component";
 import { BossEncounterRouletteComponent } from "./roulettes/boss-encounter-roulette/boss-encounter-roulette.component";
@@ -104,6 +107,9 @@ import { GameSaveService } from '../../services/game-save-service/game-save.serv
     PostgameAdventureRouletteComponent,
     BattleTowerRouletteComponent,
     MasterChallengerRouletteComponent,
+    ShopGiveRouletteComponent,
+    ShopGetRouletteComponent,
+    VillainBattleRouletteComponent,
     MythicalEncounterRouletteComponent,
     CatchMythicalRouletteComponent,
     BossEncounterRouletteComponent,
@@ -658,7 +664,11 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
       this.trainerService.levelUpTeam(1);
       this.chooseWhoWillEvolve('battle-rival');
     } else {
-      this.doNothing();
+      // Rival is now a real trainer fight: losing ends the run, mirroring
+      // gym / E4 / Champion / Challenger. The potion-retry mechanic on the
+      // rival wheel gives the player the same out-clause those battles have.
+      this.gameStateService.setNextState('game-over');
+      this.finishCurrentState();
     }
   }
 
@@ -757,10 +767,19 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
 
   findMegaStone(): void {
     const megaStone = this.itemService.getItem('mega-stone');
-    this.trainerService.addToItems(megaStone);
-    this.currentContextItem = this.trainerService.getItem('mega-stone') ?? megaStone;
     this.playItemFoundAudio();
+    const outcome = this.tryAddItemWithPriority(megaStone);
 
+    if (outcome !== 'accepted') {
+      // 'deferred' → the discard wheel handles the swap + reward popup;
+      // 'skipped' → can't actually happen for mega-stone (priority), but
+      // bail safely either way. The activate-now prompt is reserved for
+      // direct drops; the discard path uses the regular reward modal.
+      this.finishCurrentState();
+      return;
+    }
+
+    this.currentContextItem = this.trainerService.getItem('mega-stone') ?? megaStone;
     if (!this.settingsService.currentSettings.lessExplanations) {
       this.modalQueueService.open(this.itemActivateModal, {
         centered: true,
@@ -867,23 +886,67 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
     if (result) {
       this.trainerService.levelUpTeam(3);
       this.gameStateService.setNextState('catch-boss');
+    } else if (this.isTowerBoss) {
+      // Floor 15 tower rematch: defeat ends the run, same rule as the
+      // villain fight / regular tower defeat.
+      this.isTowerBoss = false;
+      this.gameStateService.setNextState('game-over');
     }
     this.finishCurrentState();
   }
 
   bossCatchSuccess(): void {
+    if (this.isTowerBoss) {
+      // Tower rematch counts as clearing a tower floor — bump the counter so
+      // the loop resumes at floor 16 next time the player hits the tower.
+      this.towerFloor++;
+      this.isTowerBoss = false;
+    }
     this.preparePokemonCapture(this.currentBossPokemon);
   }
 
   // ---------- POSTGAME ----------
 
   /**
-   * Queues a Battle Tower fight under the next master-roulette pick. After a
-   * master action resolves it pops back to the tower, then the tower pushes
-   * another `postgame-adventure` (master roulette) — this is the loop spine.
+   * Queues the next "tower step" under the master-roulette pick. Floor 5 swaps
+   * to the villain fight, floor 15 to the boss rematch, every other floor is
+   * the regular tower wheel. After the step resolves it pops back to the
+   * master roulette (which battleTowerResult re-pushes on victory).
    */
   private queueTowerAfterAction(): void {
-    this.gameStateService.setNextState('battle-tower');
+    if (this.towerFloor === RouletteContainerComponent.TOWER_VILLAIN_FLOOR) {
+      this.gameStateService.setNextState('villain-battle');
+    } else if (this.towerFloor === RouletteContainerComponent.TOWER_BOSS_REMATCH_FLOOR) {
+      this.isTowerBoss = true;
+      this.gameStateService.setNextState('boss-encounter');
+    } else {
+      this.gameStateService.setNextState('battle-tower');
+    }
+  }
+
+  villainBattleResult(result: boolean): void {
+    this.runningShoesUsed = false;
+    if (result) {
+      this.trainerService.levelUpTeam(3);
+      this.towerFloor++;
+      this.respinReason = 'game.main.roulette.villain.victoryMsg';
+      this.playItemFoundAudio();
+      const masterBall = this.itemService.getItem('master-ball');
+      this.gameStateService.setNextState('postgame-adventure');
+      const outcome = this.tryAddItemWithPriority(masterBall);
+      if (outcome === 'accepted') {
+        this.altPrizeText = 'game.main.roulette.villain.reward';
+        this.altPrizeSprite = masterBall.sprite;
+        this.altPrizeDescription = masterBall.description;
+        this.modalQueueService.open(this.altPrizeModal, { centered: true, size: 'md' });
+      }
+      this.finishCurrentState();
+    } else {
+      // Defeat to the gen's villain ends the run — mirrors the Challenger /
+      // tower-defeat rules so the milestone fight has real weight.
+      this.gameStateService.setNextState('game-over');
+      this.finishCurrentState();
+    }
   }
 
   /** Tower floor that hands out Porygon (with a shiny roll) in place of the
@@ -891,7 +954,32 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
   private static readonly TOWER_PORYGON_FLOOR = 10;
   private static readonly PORYGON_ID = 137;
 
+  /** Tower floor that hands out the Shiny Charm — triples the shiny rate
+   *  (1/64 → 1/16) for every capture afterwards. */
+  private static readonly TOWER_SHINY_CHARM_FLOOR = 20;
+
+  /** Tower floor that swaps the regular fight for the gen's marquee villain
+   *  (Cyrus, Lysandre…) — a ~30% win rate fight rewarding a Master Ball. */
+  private static readonly TOWER_VILLAIN_FLOOR = 5;
+
+  /** Tower floor that runs the post-league boss flow a second time. */
+  private static readonly TOWER_BOSS_REMATCH_FLOOR = 15;
+
+  /** Flag set while the post-league boss flow is being re-triggered from the
+   *  tower (floor 15). Lets bossBattleResult / bossCatchSuccess apply
+   *  tower-specific consequences (towerFloor++, game-over on defeat). */
+  private isTowerBoss = false;
+
+  get hasShinyCharm(): boolean {
+    return this.trainerService.hasItem('shiny-charm');
+  }
+
   battleTowerResult(result: boolean): void {
+    // Reset the running-shoes flag the same way every other battle handler
+    // does (gym / E4 / champion). Without this the shoes only ever fire once
+    // per run instead of giving the player a free respin on every master
+    // roulette between tower floors.
+    this.runningShoesUsed = false;
     if (result) {
       this.trainerService.levelUpTeam(3);
       this.respinReason = 'game.main.roulette.tower.victory';
@@ -904,6 +992,10 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
         // (and shiny roll) resolves.
         this.towerFloor++;
         this.gameStateService.setNextState('postgame-adventure');
+        this.showTowerMilestoneModal(
+          'game.main.roulette.tower.milestone.porygon.title',
+          'game.main.roulette.tower.milestone.porygon.message',
+        );
         const porygon = this.pokemonService.getPokemonById(RouletteContainerComponent.PORYGON_ID);
         if (porygon) {
           this.preparePokemonCapture(porygon);
@@ -913,24 +1005,63 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
         return;
       }
 
+      if (this.towerFloor === RouletteContainerComponent.TOWER_SHINY_CHARM_FLOOR) {
+        // Floor 20 milestone: Shiny Charm. Priority item → if the bag is full
+        // the player gets the discard wheel instead of losing the drop.
+        const charm = this.itemService.getItem('shiny-charm');
+        this.towerFloor++;
+        this.gameStateService.setNextState('postgame-adventure');
+        this.showTowerMilestoneModal(
+          'game.main.roulette.tower.milestone.shinyCharm.title',
+          'game.main.roulette.tower.milestone.shinyCharm.message',
+        );
+        const outcome = this.tryAddItemWithPriority(charm);
+        if (outcome === 'accepted') {
+          this.altPrizeText = 'game.main.roulette.tower.reward';
+          this.altPrizeSprite = charm.sprite;
+          this.altPrizeDescription = charm.description;
+          this.modalQueueService.open(this.altPrizeModal, { centered: true, size: 'md' });
+        }
+        this.finishCurrentState();
+        return;
+      }
+
       const rewardName = this.battleTowerReward(this.towerFloor);
       const reward = this.itemService.getItem(rewardName);
-      this.trainerService.addToItems(reward);
       this.towerFloor++;
-      // Show the reward like a regular item drop so the player sees what they
-      // earned for the floor.
-      this.altPrizeText = 'game.main.roulette.tower.reward';
-      this.altPrizeSprite = reward.sprite;
-      this.altPrizeDescription = reward.description;
-      this.modalQueueService.open(this.altPrizeModal, { centered: true, size: 'md' });
+      this.gameStateService.setNextState('postgame-adventure');
+      const outcome = this.tryAddItemWithPriority(reward);
+      if (outcome === 'accepted') {
+        // Show the reward like a regular item drop so the player sees what
+        // they earned for the floor.
+        this.altPrizeText = 'game.main.roulette.tower.reward';
+        this.altPrizeSprite = reward.sprite;
+        this.altPrizeDescription = reward.description;
+        this.modalQueueService.open(this.altPrizeModal, { centered: true, size: 'md' });
+      } else if (outcome === 'skipped') {
+        // Non-priority item, bag was full — the postgame loop shouldn't trick
+        // the player with a "reward" popup that doesn't land in the bag.
+        this.respinReason = 'game.main.roulette.tower.bagFull';
+      }
+      // 'deferred' → the discard wheel will run before the next master spin
+      // and the discard handler will show the reward modal once it lands.
+      this.finishCurrentState();
+      return;
     } else {
-      // Losing in the tower kicks the player back to the master roulette
-      // instead of triggering game-over: postgame is a sandbox, not a
-      // death-march.
+      // Losing in the tower now ends the run — postgame is no longer a
+      // sandbox once the player chose to keep climbing.
       this.respinReason = 'game.main.roulette.tower.defeat';
+      this.gameStateService.setNextState('game-over');
     }
-    this.gameStateService.setNextState('postgame-adventure');
     this.finishCurrentState();
+  }
+
+  /** Opens the celebratory infoModal for tower milestones (Porygon, Shiny
+   *  Charm…). Title and message are translation keys. */
+  private showTowerMilestoneModal(titleKey: string, messageKey: string): void {
+    this.infoModalTitle = this.translateService.instant(titleKey);
+    this.infoModalMessage = this.translateService.instant(messageKey);
+    this.modalQueueService.open(this.infoModal, { centered: true, size: 'md' });
   }
 
   // Master-roulette handlers ("Que fait le maître ?"). Each wraps the matching
@@ -948,7 +1079,9 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
       this.trainerService.levelUpTeam(3);
       this.respinReason = 'game.main.roulette.challenger.victoryMsg';
       this.playItemFoundAudio();
-      this.gameStateService.setNextState('battle-tower');
+      // Route via the same helper as every master action so the floor-5 /
+      // floor-15 milestones still trigger when reached through the Challenger.
+      this.queueTowerAfterAction();
     } else {
       // Defeat ends the adventure entirely — postgame is no longer a sandbox
       // once the Challenger is on the wheel.
@@ -975,6 +1108,97 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
     this.gameStateService.setNextState('otherworld-encounter');
     this.finishCurrentState();
   }
+  masterShop(): void {
+    // Shop trades one bag item for a fresh one. We queue the master roulette
+    // under the shop chain instead of the tower, so the player goes back to
+    // the master wheel after the swap and the postgame loop stays intact.
+    this.gameStateService.setNextState('battle-tower');
+    this.gameStateService.setNextState('shop-get');
+    this.gameStateService.setNextState('shop-give');
+    this.finishCurrentState();
+  }
+
+  private shopItemToReplace: ItemItem | null = null;
+
+  /**
+   * Items that always make it into the bag — if the bag is full when one
+   * drops, the player picks something to discard via the wheel.
+   *
+   * Anything that isn't a healing potion is treated as priority: those drops
+   * are either uniques (shiny-charm, exp-share, running-shoes), rare event
+   * rewards (master-ball, mega-stone, rare-candy), or limited consumables
+   * the player relies on (hyperball, x-attack, escape-rope). Potions are
+   * deliberately excluded — they're already cap-limited (5 per tier) so a
+   * "full bag" silent skip is acceptable for them.
+   */
+  private static readonly PRIORITY_ITEMS: ReadonlySet<string> = new Set([
+    'shiny-charm',
+    'master-ball',
+    'mega-stone',
+    'exp-share',
+    'running-shoes',
+    'rare-candy',
+    'hyperball',
+    'x-attack',
+    'escape-rope',
+  ]);
+
+  private pendingPriorityItem: ItemItem | null = null;
+
+  /**
+   * Adds an item, falling back to the discard wheel when the bag is full and
+   * the item is on the priority list. Returns one of:
+   *   - 'accepted': landed in the bag, caller can show its reward modal.
+   *   - 'deferred': bag was full; 'discard-item' state pushed on top. The
+   *     caller must NOT show its reward modal — the discard handler will.
+   *     Caller should still finishCurrentState as usual; the next pop yields
+   *     the discard wheel.
+   *   - 'skipped': bag was full and the item isn't priority — silently lost.
+   */
+  private tryAddItemWithPriority(item: ItemItem): 'accepted' | 'deferred' | 'skipped' {
+    const accepted = this.trainerService.addToItems(item);
+    if (accepted) {
+      return 'accepted';
+    }
+    if (RouletteContainerComponent.PRIORITY_ITEMS.has(item.name)) {
+      this.pendingPriorityItem = item;
+      this.gameStateService.setNextState('discard-item');
+      return 'deferred';
+    }
+    return 'skipped';
+  }
+
+  discardItemSelected(item: ItemItem): void {
+    const pending = this.pendingPriorityItem;
+    this.pendingPriorityItem = null;
+    if (pending) {
+      this.trainerService.removeItem(item);
+      this.trainerService.addToItems(pending);
+      this.altPrizeText = 'game.main.roulette.shop.received';
+      this.altPrizeSprite = pending.sprite;
+      this.altPrizeDescription = pending.description;
+      this.modalQueueService.open(this.altPrizeModal, { centered: true, size: 'md' });
+    }
+    this.finishCurrentState();
+  }
+
+  shopItemGiven(item: ItemItem): void {
+    this.shopItemToReplace = item;
+    this.finishCurrentState();
+  }
+
+  shopItemReceived(item: ItemItem): void {
+    if (this.shopItemToReplace) {
+      this.trainerService.removeItem(this.shopItemToReplace);
+      this.trainerService.addToItems(item);
+      this.altPrizeText = 'game.main.roulette.shop.received';
+      this.altPrizeSprite = item.sprite;
+      this.altPrizeDescription = item.description;
+      this.modalQueueService.open(this.altPrizeModal, { centered: true, size: 'md' });
+      this.shopItemToReplace = null;
+    }
+    this.finishCurrentState();
+  }
 
   // Tower floor rewards: every 5th floor grants a Hyper Ball (rare legendary
   // catch boost), every 3rd floor a Rare Candy, otherwise a healing potion that
@@ -999,11 +1223,13 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
 
   retireFromPostgame(): void {
     // When the master roulette is showing, the stack is
-    // [game-finish, postgame-adventure] (the queued next cycle). Pop both to
-    // drain the postgame loop and land on the game-finish credits screen.
+    // [game-finish, postgame-adventure] (the queued next cycle). We use the
+    // raw GameStateService.finishCurrentState here (not the container wrapper)
+    // so the running-shoes auto-respin doesn't re-queue the master roulette
+    // and trap the player on retire.
     this.respinReason = '';
-    this.finishCurrentState();
-    this.finishCurrentState();
+    this.gameStateService.finishCurrentState();
+    this.gameStateService.finishCurrentState();
   }
 
   closeModal(): void {
@@ -1056,7 +1282,8 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
     this.registerInPokedex(pokemon);
 
     if (this.settingsService.currentSettings.skipShinyRolls) {
-      const isShiny = Math.random() < (1 / 64);
+      const shinyRate = this.hasShinyCharm ? 1 / 16 : 1 / 64;
+      const isShiny = Math.random() < shinyRate;
       this.setShininess(isShiny);
       return;
     }

@@ -25,7 +25,6 @@ export class PostgameAdventureRouletteComponent {
 
   @Output() catchPokemonEvent = new EventEmitter<void>();
   @Output() challengerEvent = new EventEmitter<void>();
-  @Output() buyPotionsEvent = new EventEmitter<void>();
   @Output() doNothingEvent = new EventEmitter<void>();
   @Output() catchTwoPokemonEvent = new EventEmitter<void>();
   @Output() visitDaycareEvent = new EventEmitter<EventSource>();
@@ -41,12 +40,13 @@ export class PostgameAdventureRouletteComponent {
   @Output() findFossilEvent = new EventEmitter<void>();
   @Output() battleRivalEvent = new EventEmitter<void>();
   @Output() otherworldEncounterEvent = new EventEmitter<void>();
+  @Output() shopEvent = new EventEmitter<void>();
   @Output() retireEvent = new EventEmitter<void>();
 
   actions: WheelItem[] = [
     { text: 'game.main.roulette.adventure.actions.catchPokemon',       fillStyle: 'crimson',        weight: 3 },
     { text: 'game.main.roulette.adventure.actions.challenger',         fillStyle: 'maroon',         weight: 1 },
-    { text: 'game.main.roulette.adventure.actions.buyPotions',         fillStyle: 'darkgoldenrod',  weight: 1 },
+    { text: 'game.main.roulette.postgame.actions.shop',                fillStyle: 'darkviolet',     weight: 1 },
     { text: 'game.main.roulette.adventure.actions.goStraight',         fillStyle: 'green',          weight: 1 },
     { text: 'game.main.roulette.adventure.actions.catchTwoPokemon',    fillStyle: 'darkcyan',       weight: 1 },
     { text: 'game.main.roulette.adventure.actions.visitDaycare',       fillStyle: 'blue',           weight: 1 },
@@ -69,7 +69,7 @@ export class PostgameAdventureRouletteComponent {
     switch (index) {
       case 0:  this.catchPokemonEvent.emit(); break;
       case 1:  this.challengerEvent.emit(); break;
-      case 2:  this.buyPotionsEvent.emit(); break;
+      case 2:  this.shopEvent.emit(); break;
       case 3:  this.doNothingEvent.emit(); break;
       case 4:  this.catchTwoPokemonEvent.emit(); break;
       case 5:  this.visitDaycareEvent.emit('visit-daycare'); break;

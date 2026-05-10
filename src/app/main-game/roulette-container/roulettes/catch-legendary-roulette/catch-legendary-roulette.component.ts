@@ -21,8 +21,19 @@ export class CatchLegendaryRouletteComponent implements OnInit {
   ];
 
   private hyperballUsed = false;
+  private masterBallUsed = false;
 
   ngOnInit(): void {
+    // Master Ball trumps every other catch booster — guarantees the catch and
+    // is consumed on the spin.
+    if (this.trainerService.hasItem('master-ball')) {
+      this.catchRate = [
+        { text: 'game.main.roulette.legendary.yes', fillStyle: 'darkviolet', weight: 1 },
+        { text: 'game.main.roulette.legendary.no',  fillStyle: 'crimson',    weight: 0 }
+      ];
+      this.masterBallUsed = true;
+      return;
+    }
     // Hyper Ball: when held, boosts catch odds for this attempt and is consumed on spin.
     if (this.trainerService.hasItem('hyperball')) {
       this.catchRate = [
@@ -38,6 +49,13 @@ export class CatchLegendaryRouletteComponent implements OnInit {
   @Output() nothingHappensEvent = new EventEmitter<void>();
 
   onItemSelected(index: number): void {
+    if (this.masterBallUsed) {
+      const masterBall = this.trainerService.getItem('master-ball');
+      if (masterBall) {
+        this.trainerService.removeItem(masterBall);
+      }
+      this.masterBallUsed = false;
+    }
     if (this.hyperballUsed) {
       const hyperball = this.trainerService.getItem('hyperball');
       if (hyperball) {

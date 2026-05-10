@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, map, Observable, retry, throwError } from 'rxjs';
 import { PokemonItem } from '../../interfaces/pokemon-item';
 import { nationalDexPokemon } from './national-dex-pokemon';
+import { pokedexByGeneration } from '../../pokedex/pokedex-by-generation';
 
 @Injectable({
   providedIn: 'root'
@@ -57,15 +58,28 @@ export class PokemonService {
   }
 
   /**
-   * Returns the dex slice appropriate for a generation's roulettes (trade,
-   * mysterious egg, etc.). Insurgence-only entries (Deltas, Primals, Insurgence
-   * Megas — all IDs ≥ 30000) are filtered out unless the run is the
-   * Insurgence (Gen 100) campaign.
+   * Returns the dex slice appropriate for a generation's open-pool roulettes
+   * (trade, mysterious egg, etc.). Scoped to the generation's *regional*
+   * Pokédex so a Gen 4 run can't trade for or hatch a Gen 9 species. For the
+   * Insurgence (Gen 100) campaign the pool is the full Torren coverage —
+   * gens 1-6 + the Insurgence dex — matching what the wild encounter wheel
+   * already surfaces.
    */
   getDexForGeneration(generationId: number): PokemonItem[] {
+    let ids: number[];
     if (generationId === 100) {
-      return this.nationalDexPokemon;
+      ids = [
+        ...(pokedexByGeneration[1] ?? []),
+        ...(pokedexByGeneration[2] ?? []),
+        ...(pokedexByGeneration[3] ?? []),
+        ...(pokedexByGeneration[4] ?? []),
+        ...(pokedexByGeneration[5] ?? []),
+        ...(pokedexByGeneration[6] ?? []),
+        ...(pokedexByGeneration[100] ?? []),
+      ];
+    } else {
+      ids = pokedexByGeneration[generationId] ?? [];
     }
-    return this.nationalDexPokemon.filter(p => p.pokemonId < 30000);
+    return this.getPokemonByIdArray(ids);
   }
 }

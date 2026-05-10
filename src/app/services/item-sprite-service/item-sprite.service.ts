@@ -19,7 +19,9 @@ export class ItemSpriteService {
     "hyper-potion": { sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/hyper-potion.png' },
     "escape-rope": { sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/escape-rope.png' },
     "hyperball": { sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/ultra-ball.png' },
-    "mega-stone": { sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/mewtwonite-x.png' }
+    "mega-stone": { sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/mewtwonite-x.png' },
+    "shiny-charm": { sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shiny-charm.png' },
+    "master-ball": { sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png' }
   };
 
   getItemSprite(itemName: ItemName): Observable<{ sprite: string }> {

@@ -21,11 +21,20 @@ export class CatchBossRouletteComponent implements OnInit {
   ];
 
   private hyperballUsed = false;
+  private masterBallUsed = false;
 
   @Output() catchBossEvent = new EventEmitter<void>();
   @Output() nothingHappensEvent = new EventEmitter<void>();
 
   ngOnInit(): void {
+    if (this.trainerService.hasItem('master-ball')) {
+      this.catchRate = [
+        { text: 'game.main.roulette.boss.catch.yes', fillStyle: 'darkviolet', weight: 1 },
+        { text: 'game.main.roulette.boss.catch.no',  fillStyle: 'crimson',    weight: 0 }
+      ];
+      this.masterBallUsed = true;
+      return;
+    }
     if (this.trainerService.hasItem('hyperball')) {
       this.catchRate = [
         { text: 'game.main.roulette.boss.catch.yes', fillStyle: 'green', weight: 2 },
@@ -36,6 +45,13 @@ export class CatchBossRouletteComponent implements OnInit {
   }
 
   onItemSelected(index: number): void {
+    if (this.masterBallUsed) {
+      const masterBall = this.trainerService.getItem('master-ball');
+      if (masterBall) {
+        this.trainerService.removeItem(masterBall);
+      }
+      this.masterBallUsed = false;
+    }
     if (this.hyperballUsed) {
       const hyperball = this.trainerService.getItem('hyperball');
       if (hyperball) {

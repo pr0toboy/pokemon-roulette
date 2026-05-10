@@ -146,7 +146,7 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
       this.gameStateService.currentState.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(state => {
         this.currentGameState = state;
-        if (this.currentGameState === 'adventure-continues') {
+        if (this.currentGameState === 'adventure-continues' || this.currentGameState === 'postgame-adventure') {
           if (this.multitaskCounter > 0) {
             this.respinReason = 'Multitask x' + this.multitaskCounter;
             this.multitaskCounter--;
@@ -314,10 +314,14 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
 
     this.gameStateService.finishCurrentState();
 
-    if (this.currentGameState === 'adventure-continues') {
+    // Running shoes grant one free respin on the open-ended adventure wheels —
+    // adventure-continues during the main run, and the postgame master
+    // roulette (Que fait le maître ?) between tower floors. The flag resets
+    // when a new round starts elsewhere.
+    if (this.currentGameState === 'adventure-continues' || this.currentGameState === 'postgame-adventure') {
       if (this.trainerService.hasItem('running-shoes') && !this.runningShoesUsed) {
         this.runningShoesUsed = true;
-        this.gameStateService.setNextState('adventure-continues');
+        this.gameStateService.setNextState(this.currentGameState);
       }
     }
   }
@@ -882,14 +886,43 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
     this.gameStateService.setNextState('battle-tower');
   }
 
+  /** Tower floor that hands out Porygon (with a shiny roll) in place of the
+   *  regular item drop — a milestone reward for clearing the first 10 floors. */
+  private static readonly TOWER_PORYGON_FLOOR = 10;
+  private static readonly PORYGON_ID = 137;
+
   battleTowerResult(result: boolean): void {
     if (result) {
-      const rewardName = this.battleTowerReward(this.towerFloor);
-      this.trainerService.addToItems(this.itemService.getItem(rewardName));
       this.trainerService.levelUpTeam(3);
-      this.towerFloor++;
       this.respinReason = 'game.main.roulette.tower.victory';
       this.playItemFoundAudio();
+
+      if (this.towerFloor === RouletteContainerComponent.TOWER_PORYGON_FLOOR) {
+        // Floor 10 milestone: instead of an item, hand the player Porygon and
+        // route through the check-shininess wheel. We queue the master
+        // roulette underneath so the postgame loop resumes once the capture
+        // (and shiny roll) resolves.
+        this.towerFloor++;
+        this.gameStateService.setNextState('postgame-adventure');
+        const porygon = this.pokemonService.getPokemonById(RouletteContainerComponent.PORYGON_ID);
+        if (porygon) {
+          this.preparePokemonCapture(porygon);
+        } else {
+          this.finishCurrentState();
+        }
+        return;
+      }
+
+      const rewardName = this.battleTowerReward(this.towerFloor);
+      const reward = this.itemService.getItem(rewardName);
+      this.trainerService.addToItems(reward);
+      this.towerFloor++;
+      // Show the reward like a regular item drop so the player sees what they
+      // earned for the floor.
+      this.altPrizeText = 'game.main.roulette.tower.reward';
+      this.altPrizeSprite = reward.sprite;
+      this.altPrizeDescription = reward.description;
+      this.modalQueueService.open(this.altPrizeModal, { centered: true, size: 'md' });
     } else {
       // Losing in the tower kicks the player back to the master roulette
       // instead of triggering game-over: postgame is a sandbox, not a

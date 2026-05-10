@@ -403,7 +403,9 @@
                     "yes": "Victoire",
                     "no": "Défaite",
                     "victory": "Étage de la Tour franchi !",
-                    "defeat": "Mis K.O. dans la Tour."
+                    "defeat": "Mis K.O. dans la Tour.",
+                    "use": "A utilisé un(e)",
+                    "reward": "Victoire — Récompense :"
                 },
                 "postgame": {
                     "title": "Que fait le maître ?",

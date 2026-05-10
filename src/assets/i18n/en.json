@@ -403,7 +403,9 @@
                     "yes": "Win",
                     "no": "Lose",
                     "victory": "Tower floor cleared!",
-                    "defeat": "Knocked out of the tower."
+                    "defeat": "Knocked out of the tower.",
+                    "use": "Used",
+                    "reward": "Victory — Reward:"
                 },
                 "postgame": {
                     "title": "What does the master do?",

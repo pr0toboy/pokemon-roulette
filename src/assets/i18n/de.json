@@ -446,7 +446,9 @@
                     "yes": "Sieg",
                     "no": "Niederlage",
                     "victory": "Nächste Etage!",
-                    "defeat": "Du verlässt den Turm."
+                    "defeat": "Du verlässt den Turm.",
+                    "use": "Verwendet",
+                    "reward": "Sieg — Belohnung:"
                 },
                 "challenger": {
                     "title": "Ein Herausforderer erscheint!",

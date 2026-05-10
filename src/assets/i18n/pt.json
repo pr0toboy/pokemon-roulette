@@ -446,7 +446,9 @@
                     "yes": "Vitória",
                     "no": "Derrota",
                     "victory": "Próximo piso!",
-                    "defeat": "Você sai da torre."
+                    "defeat": "Você sai da torre.",
+                    "use": "Usou",
+                    "reward": "Vitória — Recompensa:"
                 },
                 "challenger": {
                     "title": "Um Desafiante aparece!",

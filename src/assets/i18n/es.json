@@ -446,7 +446,9 @@
                     "yes": "Victoria",
                     "no": "Derrota",
                     "victory": "¡Siguiente piso!",
-                    "defeat": "Abandonas la torre."
+                    "defeat": "Abandonas la torre.",
+                    "use": "Usó un(a)",
+                    "reward": "Victoria — Recompensa:"
                 },
                 "challenger": {
                     "title": "¡Un Retador aparece!",

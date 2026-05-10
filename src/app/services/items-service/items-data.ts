@@ -65,5 +65,21 @@ export const itemsData: Record<ItemName, ItemItem> = {
         fillStyle: 'maroon',
         weight: 1,
         description: 'items.escape-rope.description'
+    },
+    "hyperball": {
+        text: 'items.hyperball.name',
+        name: 'hyperball',
+        sprite: '',
+        fillStyle: 'goldenrod',
+        weight: 0.3,
+        description: 'items.hyperball.description'
+    },
+    "mega-stone": {
+        text: 'items.mega-stone.name',
+        name: 'mega-stone',
+        sprite: '',
+        fillStyle: 'orchid',
+        weight: 0,
+        description: 'items.mega-stone.description'
     }
 }

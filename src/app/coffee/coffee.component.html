@@ -19,19 +19,13 @@
             <h1 class="mt-sm-5"><ng-icon name="bootstrapCupHotFill"></ng-icon></h1>
             <div>
                 <h3>{{ 'coffee.support' | translate }}</h3>
-                <div class="row">
-                    <div class="col-md-6">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center">
                         <p>🇧🇷 É do Brasil? 🇧🇷 Manda um PIX! 🇧🇷</p>
                         <img src="qr_code.jpeg" alt="PIX QR Code" style="height: 225px;" class="img-fluid" (click)="copyPixCode()">
                         <br>
                         <a href="javascript:void(0)" class="link-primary" (click)="copyPixCode()">
                             {{pixCodeCopied ? 'PIX copiado!' : 'Clique para copiar!'}}
-                        </a>
-                    </div>
-                    <div class="col-md-6 mt-md-0 mt-3">
-                        <p>🌐 Want an international option? 🌐</p><p>Try Ko-fi:</p>
-                        <a href="https://ko-fi.com/zeroxm" target="_blank" class="btn btn-danger">
-                            <ng-icon name="bootstrapCupHotFill"></ng-icon> Buy me a Coffee
                         </a>
                     </div>
                 </div>

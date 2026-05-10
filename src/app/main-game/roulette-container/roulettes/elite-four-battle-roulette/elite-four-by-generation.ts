@@ -350,4 +350,7 @@ export const eliteFourByGeneration: Record<number, GymLeader[]> = {
             types: ['dragon']
         }
     ],
-}
+};
+
+// Insurgence (Torren) — fallback to Kalos data
+eliteFourByGeneration[100] = eliteFourByGeneration[6];

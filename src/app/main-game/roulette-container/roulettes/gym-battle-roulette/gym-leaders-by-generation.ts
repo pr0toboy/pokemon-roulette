@@ -692,4 +692,7 @@ export const gymLeadersByGeneration: Record<number, GymLeader[]> = {
         types: ['ice']
       }
     ]
-}
+};
+
+// Insurgence (Torren) — fallback to Kalos data
+gymLeadersByGeneration[100] = gymLeadersByGeneration[6];

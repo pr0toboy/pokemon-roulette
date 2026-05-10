@@ -20,6 +20,7 @@ export class GenerationService {
     { text: 'Gen 7', region: 'Alola', fillStyle: 'indigo', id: 7, weight: 1 },
     { text: 'Gen 8', region: 'Galar', fillStyle: 'purple', id: 8, weight: 1 },
     { text: 'Gen 9', region: 'Paldea', fillStyle: 'darkviolet', id: 9, weight: 1 },
+    { text: 'Insurgence', region: 'Torren', fillStyle: 'mediumvioletred', id: 100, weight: 1 },
   ];
 
   private generation = new BehaviorSubject<GenerationItem>(this.generations[0]);

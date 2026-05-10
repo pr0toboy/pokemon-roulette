@@ -1,0 +1,5 @@
+<h1 class="title">{{ 'game.main.roulette.otherworld.title' | translate }}</h1>
+<app-wheel  #wheel
+            [items]="paths"
+            (selectedItemEvent)="onItemSelected($event)">
+</app-wheel>

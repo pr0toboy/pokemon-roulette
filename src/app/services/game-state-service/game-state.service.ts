@@ -14,6 +14,7 @@ const GENERATION_GAME_CONFIG: Record<number, { gymCount: number; eliteFourCount:
   7: { gymCount: 8, eliteFourCount: 4 },
   8: { gymCount: 8, eliteFourCount: 4 },
   9: { gymCount: 8, eliteFourCount: 4 },
+  100: { gymCount: 8, eliteFourCount: 4 }, // Insurgence (Torren)
 };
 
 @Injectable({

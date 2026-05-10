@@ -104,4 +104,8 @@ export const badgesByGeneration: Record<number, (Badge | Badge[])[]> = {
     { name: 'badges.psychic_paldea', sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/badges/76.png' },
     { name: 'badges.ice_paldea', sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/refs/heads/master/sprites/badges/77.png' },
   ],
-}
+};
+
+// Insurgence (Torren) — fallback to Kalos badges
+badgesByGeneration[100] = badgesByGeneration[6];
+

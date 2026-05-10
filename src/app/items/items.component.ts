@@ -28,6 +28,7 @@ export class ItemsComponent implements OnInit, OnDestroy {
 
   trainerItems!: ItemItem[];
   @Output() rareCandyInterrupt = new EventEmitter<ItemItem>();
+  @Output() megaStoneInterrupt = new EventEmitter<ItemItem>();
 
   darkMode!: Observable<boolean>;
   private itemsSubscription!: Subscription;
@@ -46,6 +47,8 @@ export class ItemsComponent implements OnInit, OnDestroy {
     if(item) {
       if (item.name === 'rare-candy') {
         this.rareCandyInterrupt.emit(item);
+      } else if (item.name === 'mega-stone') {
+        this.megaStoneInterrupt.emit(item);
       }
     }
   }

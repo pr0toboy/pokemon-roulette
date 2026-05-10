@@ -93,4 +93,7 @@ export const championByGeneration: Record<number, GymLeader[]> = {
             ]
         }
     ]
-}
+};
+
+// Insurgence (Torren) — fallback to Kalos data
+championByGeneration[100] = championByGeneration[6];

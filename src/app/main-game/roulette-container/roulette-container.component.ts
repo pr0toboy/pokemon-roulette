@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
 import { SoundFxHandle, SoundFxService } from '../../services/sound-fx-service/sound-fx.service';
 import { SettingsService } from '../../services/settings-service/settings.service';
 import { RareCandyService } from '../../services/rare-candy-service/rare-candy.service';
+import { MegaEvolutionService, MegaForm } from '../../services/mega-evolution-service/mega-evolution.service';
 import { Subscription } from 'rxjs';
 import { CharacterSelectComponent } from "./roulettes/character-select/character-select.component";
 import { StarterRouletteComponent } from "./roulettes/starter-roulette/starter-roulette.component";
@@ -41,6 +42,8 @@ import { CavePokemonRouletteComponent } from "./roulettes/cave-pokemon-roulette/
 import { FossilRouletteComponent } from "./roulettes/fossil-roulette/fossil-roulette.component";
 import { AreaZeroRoulette } from "./roulettes/area-zero-roulette/area-zero-roulette";
 import { CatchParadoxRouletteComponent } from "./roulettes/catch-paradox-roulette/catch-paradox-roulette.component";
+import { OtherworldRouletteComponent } from "./roulettes/otherworld-roulette/otherworld-roulette.component";
+import { UltraBeastRouletteComponent } from "./roulettes/ultra-beast-roulette/ultra-beast-roulette.component";
 import { SnorlaxRouletteComponent } from "./roulettes/snorlax-roulette/snorlax-roulette.component";
 import { FishingRouletteComponent } from "./roulettes/fishing-roulette/fishing-roulette.component";
 import { RivalBattleRouletteComponent } from "./roulettes/rival-battle-roulette/rival-battle-roulette.component";
@@ -84,6 +87,8 @@ import { GameSaveService } from '../../services/game-save-service/game-save.serv
     FossilRouletteComponent,
     AreaZeroRoulette,
     CatchParadoxRouletteComponent,
+    OtherworldRouletteComponent,
+    UltraBeastRouletteComponent,
     SnorlaxRouletteComponent,
     FishingRouletteComponent,
     RivalBattleRouletteComponent,
@@ -106,6 +111,7 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
 
     private destroyRef = inject(DestroyRef);
     private rareCandySubscription?: Subscription;
+    private megaStoneSubscription?: Subscription;
 
     constructor(
       private evolutionService: EvolutionService,
@@ -121,6 +127,7 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
       private settingsService: SettingsService,
       private pokemonFormsService: PokemonFormsService,
       private rareCandyService: RareCandyService,
+      private megaEvolutionService: MegaEvolutionService,
       private gameSaveService: GameSaveService) {
       this.itemFoundAudio = this.soundFxService.createItemFoundSoundFx();
     }
@@ -151,10 +158,15 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
     this.rareCandySubscription = this.rareCandyService.rareCandyTrigger$.subscribe((rareCandy) => {
       this.handleRareCandyEvolution(rareCandy);
     });
+
+    this.megaStoneSubscription = this.megaEvolutionService.megaStoneTrigger$.subscribe((megaStone) => {
+      this.handleMegaStoneEvolution(megaStone);
+    });
   }
 
   ngOnDestroy(): void {
     this.rareCandySubscription?.unsubscribe();
+    this.megaStoneSubscription?.unsubscribe();
   }
 
   handleRareCandyEvolution(rareCandy: ItemItem): void {
@@ -165,6 +177,76 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
       this.trainerService.removeItem(rareCandy);
       this.chooseWhoWillEvolve('rare-candy');
     }
+  }
+
+  /**
+   * Tracks which item was used in the current transformation flow so that
+   * `select-mega-form` (after the player picks a Pokémon from the wheel)
+   * can re-filter the available forms by that item.
+   */
+  private activeTransformItem: string = 'mega-stone';
+
+  handleMegaStoneEvolution(megaStone: ItemItem): void {
+    const itemName = megaStone.name;
+    this.activeTransformItem = itemName;
+    const team = this.trainerService.getTeam();
+    const alreadyHasMega = team.some(p => this.megaEvolutionService.isMegaForm(p.pokemonId));
+
+    if (alreadyHasMega) {
+      this.infoModalTitle = this.translateService.instant('game.main.megaStone.alreadyMega.title');
+      this.infoModalMessage = this.translateService.instant('game.main.megaStone.alreadyMega.message');
+      this.modalQueueService.open(this.infoModal, { centered: true, size: 'md' });
+      return;
+    }
+
+    const candidates = team.filter(p => this.megaEvolutionService.canMegaEvolve(p, itemName));
+    if (candidates.length === 0) {
+      this.infoModalTitle = this.translateService.instant('game.main.megaStone.noCandidates.title');
+      this.infoModalMessage = this.translateService.instant('game.main.megaStone.noCandidates.message');
+      this.modalQueueService.open(this.infoModal, { centered: true, size: 'md' });
+      return;
+    }
+
+    this.gameStateService.repeatCurrentState();
+    this.trainerService.removeItem(megaStone);
+
+    if (candidates.length === 1) {
+      this.startMegaEvolution(candidates[0]);
+      return;
+    }
+
+    this.auxPokemonList = candidates;
+    this.customWheelTitle = 'game.main.roulette.megaEvolve.who';
+    this.gameStateService.setNextState('mega-evolve');
+    this.gameStateService.setNextState('select-from-pokemon-list');
+    this.gameStateService.finishCurrentState();
+  }
+
+  private startMegaEvolution(pokemon: PokemonItem): void {
+    const forms = this.megaEvolutionService.getMegaForms(pokemon, this.activeTransformItem);
+    if (forms.length === 0) {
+      return;
+    }
+    if (forms.length === 1) {
+      this.applyMegaEvolution(pokemon, forms[0]);
+      return;
+    }
+    this.currentContextPokemon = pokemon;
+    this.auxPokemonList = forms.map(form => this.megaEvolutionService.applyMegaForm(pokemon, form));
+    this.customWheelTitle = 'game.main.roulette.megaEvolve.which';
+    this.gameStateService.setNextState('select-mega-form');
+    this.gameStateService.setNextState('select-from-pokemon-list');
+    this.gameStateService.finishCurrentState();
+  }
+
+  private applyMegaEvolution(pokemonOut: PokemonItem, form: MegaForm): void {
+    const pokemonIn = this.megaEvolutionService.applyMegaForm(pokemonOut, form);
+    this.pkmnOut = pokemonOut;
+    this.pkmnIn = pokemonIn;
+    this.pkmnEvoTitle = 'game.main.roulette.megaEvolve.modal.title';
+    this.registerInPokedex(pokemonIn);
+    this.trainerService.replaceForEvolution(pokemonOut, pokemonIn);
+    this.showpkmnEvoModal();
   }
 
   @ViewChild('altPrizeModal', { static: true }) altPrizeModal!: TemplateRef<any>;
@@ -378,6 +460,18 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
       case 'trade-pokemon':
         this.currentContextPokemon = pokemon;
         break;
+      case 'mega-evolve':
+        this.startMegaEvolution(pokemon);
+        break;
+      case 'select-mega-form': {
+        const form = this.megaEvolutionService
+          .getMegaForms(this.currentContextPokemon, this.activeTransformItem)
+          .find(f => f.pokemonId === pokemon.pokemonId);
+        if (form) {
+          this.applyMegaEvolution(this.currentContextPokemon, form);
+        }
+        break;
+      }
       default:
         break;
     }
@@ -503,6 +597,21 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
     this.finishCurrentState();
   }
 
+  otherworldEncounter(): void {
+    this.gameStateService.setNextState('otherworld-encounter');
+    this.finishCurrentState();
+  }
+
+  otherworldParadoxPath(): void {
+    this.gameStateService.setNextState('area-zero');
+    this.finishCurrentState();
+  }
+
+  otherworldUltraBeastPath(): void {
+    this.gameStateService.setNextState('ultra-beast-encounter');
+    this.finishCurrentState();
+  }
+
   paradoxCaptureChance(pokemon: PokemonItem): void {
     this.currentContextPokemon = structuredClone(pokemon);
     this.gameStateService.setNextState('catch-paradox');
@@ -614,6 +723,24 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
     this.finishCurrentState();
   }
 
+  findMegaStone(): void {
+    const megaStone = this.itemService.getItem('mega-stone');
+    this.trainerService.addToItems(megaStone);
+    this.currentContextItem = this.trainerService.getItem('mega-stone') ?? megaStone;
+    this.playItemFoundAudio();
+
+    if (!this.settingsService.currentSettings.lessExplanations) {
+      this.modalQueueService.open(this.itemActivateModal, {
+        centered: true,
+        size: 'md'
+      }).then(modalRef => {
+        modalRef.result.then(() => this.finishCurrentState(), () => this.finishCurrentState());
+      });
+    } else {
+      this.finishCurrentState();
+    }
+  }
+
   getLost(): void {
     if (this.trainerService.hasItem('escape-rope')) {
       this.useEscapeRope();
@@ -704,6 +831,8 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
 
   battleTowerResult(result: boolean): void {
     if (result) {
+      const rewardName = this.battleTowerReward(this.towerFloor);
+      this.trainerService.addToItems(this.itemService.getItem(rewardName));
       this.trainerService.levelUpTeam(3);
       this.towerFloor++;
       this.respinReason = 'game.main.roulette.tower.victory';
@@ -714,6 +843,17 @@ export class RouletteContainerComponent implements OnInit, OnDestroy {
       this.respinReason = 'game.main.roulette.tower.defeat';
     }
     this.finishCurrentState();
+  }
+
+  // Tower floor rewards: every 5th floor grants a Hyper Ball (rare legendary
+  // catch boost), every 3rd floor a Rare Candy, otherwise a healing potion that
+  // scales with depth — same escalation idea as buyPotions().
+  private battleTowerReward(floor: number): ItemName {
+    if (floor % 5 === 0) return 'hyperball';
+    if (floor % 3 === 0) return 'rare-candy';
+    if (floor < 4) return 'potion';
+    if (floor < 8) return 'super-potion';
+    return 'hyper-potion';
   }
 
   postgameLegendaryEncounter(): void {

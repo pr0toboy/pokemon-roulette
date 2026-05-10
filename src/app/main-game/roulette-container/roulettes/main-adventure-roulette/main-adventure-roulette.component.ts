@@ -1,10 +1,8 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {TranslatePipe} from '@ngx-translate/core';
 import { WheelComponent } from '../../../../wheel/wheel.component';
 import { WheelItem } from '../../../../interfaces/wheel-item';
 import { EventSource } from '../../../EventSource';
-import { GenerationService } from '../../../../services/generation-service/generation.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-main-adventure-roulette',
@@ -12,10 +10,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './main-adventure-roulette.component.html',
   styleUrl: './main-adventure-roulette.component.css'
 })
-export class MainAdventureRouletteComponent implements OnInit, OnDestroy {
-
-  constructor(private generationService: GenerationService) {
-  }
+export class MainAdventureRouletteComponent {
 
   @Input() respinReason!: string;
   @Output() catchPokemonEvent = new EventEmitter<void>();
@@ -35,9 +30,9 @@ export class MainAdventureRouletteComponent implements OnInit, OnDestroy {
   @Output() goFishingEvent = new EventEmitter<void>();
   @Output() findFossilEvent = new EventEmitter<void>();
   @Output() battleRivalEvent = new EventEmitter<void>();
-  @Output() areaZeroEvent = new EventEmitter<void>();
+  @Output() otherworldEncounterEvent = new EventEmitter<void>();
 
-  private readonly baseActions: WheelItem[] = [
+  actions: WheelItem[] = [
     { text: 'game.main.roulette.adventure.actions.catchPokemon', fillStyle: 'crimson', weight: 3 },
     { text: 'game.main.roulette.adventure.actions.battleTrainer', fillStyle: 'darkorange', weight: 1 },
     { text: 'game.main.roulette.adventure.actions.buyPotions', fillStyle: 'darkgoldenrod', weight: 1 },
@@ -50,33 +45,12 @@ export class MainAdventureRouletteComponent implements OnInit, OnDestroy {
     { text: 'game.main.roulette.adventure.actions.tradePokemon', fillStyle: 'darkorange', weight: 1 },
     { text: 'game.main.roulette.adventure.actions.findItem', fillStyle: 'darkgoldenrod', weight: 1 },
     { text: 'game.main.roulette.adventure.actions.exploreCave', fillStyle: 'green', weight: 1 },
-    { text: 'game.main.roulette.adventure.actions.snorlaxEncounter', fillStyle: 'darkcyan', weight: 1 },
     { text: 'game.main.roulette.adventure.actions.multitask', fillStyle: 'blue', weight: 1 },
     { text: 'game.main.roulette.adventure.actions.goFishing', fillStyle: 'purple', weight: 1 },
     { text: 'game.main.roulette.adventure.actions.findFossil', fillStyle: 'deeppink', weight: 1 },
     { text: 'game.main.roulette.adventure.actions.battleRival', fillStyle: 'black', weight: 1 },
+    { text: 'game.main.roulette.adventure.actions.otherworld', fillStyle: 'darkslateblue', weight: 1 },
   ];
-
-  private readonly areaZeroAction: WheelItem = {
-    text: 'game.main.roulette.adventure.actions.areaZero',
-    fillStyle: 'darkslateblue',
-    weight: 1
-  };
-
-  actions: WheelItem[] = [...this.baseActions];
-  private generationSubscription: Subscription | null = null;
-
-  ngOnInit(): void {
-    this.generationSubscription = this.generationService.getGeneration().subscribe(generation => {
-      this.actions = generation.id === 9
-        ? [...this.baseActions, this.areaZeroAction]
-        : [...this.baseActions];
-    });
-  }
-
-  ngOnDestroy(): void {
-    this.generationSubscription?.unsubscribe();
-  }
 
   onItemSelected(index: number): void {
     switch (index) {
@@ -117,24 +91,20 @@ export class MainAdventureRouletteComponent implements OnInit, OnDestroy {
         this.exploreCaveEvent.emit();
         break;
       case 12:
-        this.snorlaxEncounterEvent.emit();
-        break;
-      case 13:
         this.multitaskEvent.emit();
         break;
-      case 14:
+      case 13:
         this.goFishingEvent.emit();
         break;
-      case 15:
+      case 14:
         this.findFossilEvent.emit();
         break;
-      case 16:
+      case 15:
         this.battleRivalEvent.emit();
         break;
-      case 17:
-        this.areaZeroEvent.emit();
+      case 16:
+        this.otherworldEncounterEvent.emit();
         break;
     }
   }
 }
-

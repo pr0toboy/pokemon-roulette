@@ -81,7 +81,7 @@
         (goFishingEvent)="goFishing()"
         (findFossilEvent)="findFossil()"
         (battleRivalEvent)="battleRival()"
-        (areaZeroEvent)="areaZero()">
+        (otherworldEncounterEvent)="otherworldEncounter()">
     </app-main-adventure-roulette>
   }
   @case ('team-rocket-encounter') {
@@ -124,6 +124,17 @@
         (selectedPokemonEvent)="paradoxCaptureChance($event)">
     </app-area-zero-roulette>
   }
+  @case ('otherworld-encounter') {
+    <app-otherworld-roulette
+        (paradoxPathEvent)="otherworldParadoxPath()"
+        (ultraBeastPathEvent)="otherworldUltraBeastPath()">
+    </app-otherworld-roulette>
+  }
+  @case ('ultra-beast-encounter') {
+    <app-ultra-beast-roulette
+        (selectedPokemonEvent)="paradoxCaptureChance($event)">
+    </app-ultra-beast-roulette>
+  }
   @case ('catch-paradox') {
     <app-catch-paradox-roulette
         [currentRound]="leadersDefeatedAmount"
@@ -139,7 +150,8 @@
         (getLostEvent)="getLost()"
         (catchZubatEvent)="catchZubat()"
         (findFossilEvent)="findFossil()"
-        (teamRocketEncounterEvent)="teamRocketEncounter()">
+        (teamRocketEncounterEvent)="teamRocketEncounter()"
+        (findMegaStoneEvent)="findMegaStone()">
     </app-explore-cave-roulette>
   }
   @case ('catch-cave-pokemon') {

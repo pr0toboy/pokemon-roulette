@@ -6,4 +6,6 @@ export type ItemName =
   | 'x-attack'
   | 'exp-share'
   | 'hyper-potion'
-  | 'escape-rope';
+  | 'escape-rope'
+  | 'hyperball'
+  | 'mega-stone';

@@ -19,4 +19,10 @@ export class ItemsService {
   getAllItems(): ItemItem[] {
     return Object.values(this.itemsData);
   }
+
+  // Items eligible for the generic "find item" wheel. Items with weight 0 are
+  // reserved for dedicated rewards (e.g. mega-stone is cave-only).
+  getDiscoverableItems(): ItemItem[] {
+    return Object.values(this.itemsData).filter(item => item.weight > 0);
+  }
 }

@@ -1,6 +1,6 @@
 import { PokemonItem } from "../../interfaces/pokemon-item";
 
-export const nationalDexPokemon: PokemonItem[] = [
+const baseDexPokemon: PokemonItem[] = [
     {
         text: "pokemon.bulbasaur",
         pokemonId: 1,
@@ -14352,3 +14352,3480 @@ export const nationalDexPokemon: PokemonItem[] = [
         weight: 1
     }
 ];
+
+// ─── Pokémon Insurgence — Delta Pokémon (Torren region, fan game) ───
+// 198 Delta forms parsed from wiki.p-insurgence.com/Delta_Pokémon
+// pokemonId = 30000 + Insurgence dex number (range 30727–30924)
+// Split into a separate array to keep TS union inference manageable (TS2590).
+const insurgenceDeltas: PokemonItem[] = [
+    {
+        text: "pokemon.delta-bulbasaur",
+        pokemonId: 30727,
+        fillStyle: "pink",
+        type1: "fairy",
+        type2: "psychic",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/9/9d/727.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/9/9d/727.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-ivysaur",
+        pokemonId: 30728,
+        fillStyle: "pink",
+        type1: "fairy",
+        type2: "psychic",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/f/f8/728.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/f/f8/728.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-venusaur",
+        pokemonId: 30729,
+        fillStyle: "pink",
+        type1: "fairy",
+        type2: "psychic",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/6/6b/729.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/6/6b/729.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-charmander",
+        pokemonId: 30730,
+        fillStyle: "indigo",
+        type1: "ghost",
+        type2: "dragon",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/a/ae/730.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/a/ae/730.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-charmeleon",
+        pokemonId: 30731,
+        fillStyle: "indigo",
+        type1: "ghost",
+        type2: "dragon",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/b/b4/731.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/b/b4/731.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-charizard",
+        pokemonId: 30732,
+        fillStyle: "indigo",
+        type1: "ghost",
+        type2: "dragon",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/4/46/732.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/4/46/732.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-squirtle",
+        pokemonId: 30733,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        type2: "fighting",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/e/e7/733.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/e/e7/733.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-wartortle",
+        pokemonId: 30734,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        type2: "fighting",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/c/c9/734.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/c/c9/734.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-blastoise",
+        pokemonId: 30735,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        type2: "fighting",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/d/d8/735.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/d/d8/735.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-pawniard",
+        pokemonId: 30736,
+        fillStyle: "skyblue",
+        type1: "flying",
+        type2: "fighting",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/4/47/736.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/4/47/736.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-bisharp",
+        pokemonId: 30737,
+        fillStyle: "skyblue",
+        type1: "flying",
+        type2: "fighting",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/5/54/737.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/5/54/737.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-ralts",
+        pokemonId: 30738,
+        fillStyle: "goldenrod",
+        type1: "electric",
+        type2: "ice",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/9/91/738.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/9/91/738.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-kirlia",
+        pokemonId: 30739,
+        fillStyle: "goldenrod",
+        type1: "electric",
+        type2: "ice",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/a/a6/739.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/a/a6/739.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-gardevoir",
+        pokemonId: 30740,
+        fillStyle: "goldenrod",
+        type1: "electric",
+        type2: "ice",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/c/c7/740.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/c/c7/740.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-gallade",
+        pokemonId: 30741,
+        fillStyle: "goldenrod",
+        type1: "electric",
+        type2: "ice",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/1/1b/741.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/1/1b/741.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-sunkern",
+        pokemonId: 30742,
+        fillStyle: "firebrick",
+        type1: "fire",
+        type2: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/d/dc/742.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/d/dc/742.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-sunflora",
+        pokemonId: 30743,
+        fillStyle: "firebrick",
+        type1: "fire",
+        type2: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/3/3e/743.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/3/3e/743.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-bergmite",
+        pokemonId: 30744,
+        fillStyle: "darkgray",
+        type1: "rock",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/b/bc/744.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/b/bc/744.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-avalugg",
+        pokemonId: 30745,
+        fillStyle: "darkgray",
+        type1: "rock",
+        type2: "dragon",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/f/f0/745.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/f/f0/745.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-scyther",
+        pokemonId: 30746,
+        fillStyle: "lightblue",
+        type1: "ice",
+        type2: "fighting",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/e/ec/746.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/e/ec/746.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-scizor",
+        pokemonId: 30747,
+        fillStyle: "lightblue",
+        type1: "ice",
+        type2: "fighting",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/6/6c/747.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/6/6c/747.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-scraggy",
+        pokemonId: 30748,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/f/f9/748.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/f/f9/748.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-scrafty",
+        pokemonId: 30749,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/9/9a/749.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/9/9a/749.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-combee",
+        pokemonId: 30750,
+        fillStyle: "slategray",
+        type1: "steel",
+        type2: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/3/33/750.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/3/33/750.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-vespiquen",
+        pokemonId: 30751,
+        fillStyle: "slategray",
+        type1: "steel",
+        type2: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/0/09/751.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/0/09/751.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-koffing",
+        pokemonId: 30752,
+        fillStyle: "goldenrod",
+        type1: "electric",
+        type2: "flying",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/c/cd/752.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/c/cd/752.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-weezing",
+        pokemonId: 30753,
+        fillStyle: "goldenrod",
+        type1: "electric",
+        type2: "flying",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/f/f5/753.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/f/f5/753.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-purrloin",
+        pokemonId: 30754,
+        fillStyle: "indigo",
+        type1: "ghost",
+        type2: "fairy",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/7/7c/754.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/7/7c/754.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-liepard",
+        pokemonId: 30755,
+        fillStyle: "indigo",
+        type1: "ghost",
+        type2: "fairy",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/5/5b/755.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/5/5b/755.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-phantump",
+        pokemonId: 30756,
+        fillStyle: "pink",
+        type1: "fairy",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/1/13/756.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/1/13/756.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-trevenant",
+        pokemonId: 30757,
+        fillStyle: "pink",
+        type1: "fairy",
+        type2: "fighting",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/d/d1/757.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/d/d1/757.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-snorunt",
+        pokemonId: 30758,
+        fillStyle: "firebrick",
+        type1: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/3/3e/758.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/3/3e/758.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-glalie",
+        pokemonId: 30759,
+        fillStyle: "firebrick",
+        type1: "fire",
+        type2: "rock",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/1/10/759.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/1/10/759.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-froslass",
+        pokemonId: 30760,
+        fillStyle: "firebrick",
+        type1: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/d/d1/760.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/d/d1/760.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-shinx",
+        pokemonId: 30761,
+        fillStyle: "slategray",
+        type1: "steel",
+        type2: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/9/97/761.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/9/97/761.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-luxio",
+        pokemonId: 30762,
+        fillStyle: "slategray",
+        type1: "steel",
+        type2: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/d/d7/762.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/d/d7/762.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-luxray",
+        pokemonId: 30763,
+        fillStyle: "slategray",
+        type1: "steel",
+        type2: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/f/fc/763.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/f/fc/763.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-noibat",
+        pokemonId: 30764,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "steel",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/c/c9/764.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/c/c9/764.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-noivern",
+        pokemonId: 30765,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "steel",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/e/e3/765.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/e/e3/765.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-budew",
+        pokemonId: 30766,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        type2: "fairy",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/a/a6/766.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/a/a6/766.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-roselia",
+        pokemonId: 30767,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        type2: "fairy",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/1/17/767.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/1/17/767.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-roserade",
+        pokemonId: 30768,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        type2: "fairy",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/8/84/768.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/8/84/768.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-drifloon",
+        pokemonId: 30769,
+        fillStyle: "firebrick",
+        type1: "fire",
+        type2: "flying",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/0/06/769.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/0/06/769.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-drifblim",
+        pokemonId: 30770,
+        fillStyle: "firebrick",
+        type1: "fire",
+        type2: "flying",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/0/00/770.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/0/00/770.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-grimer",
+        pokemonId: 30771,
+        fillStyle: "saddlebrown",
+        type1: "ground",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/9/98/771.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/9/98/771.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-muk",
+        pokemonId: 30772,
+        fillStyle: "saddlebrown",
+        type1: "ground",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/c/c6/772.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/c/c6/772.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-wooper",
+        pokemonId: 30773,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/b/b9/773.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/b/b9/773.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-quagsire",
+        pokemonId: 30774,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/2/21/774.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/2/21/774.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-munchlax",
+        pokemonId: 30775,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/f/f3/775.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/f/f3/775.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-snorlax",
+        pokemonId: 30776,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/2/2d/776.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/2/2d/776.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-misdreavus",
+        pokemonId: 30777,
+        fillStyle: "lightblue",
+        type1: "ice",
+        type2: "fairy",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/b/b8/777.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/b/b8/777.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-mismagius",
+        pokemonId: 30778,
+        fillStyle: "lightblue",
+        type1: "ice",
+        type2: "fairy",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/f/f9/778.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/f/f9/778.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-cyndaquil",
+        pokemonId: 30779,
+        fillStyle: "goldenrod",
+        type1: "electric",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/8/85/779.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/8/85/779.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-quilava",
+        pokemonId: 30780,
+        fillStyle: "goldenrod",
+        type1: "electric",
+        type2: "steel",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/6/6e/780.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/6/6e/780.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-typhlosion",
+        pokemonId: 30781,
+        fillStyle: "goldenrod",
+        type1: "electric",
+        type2: "steel",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/3/31/781.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/3/31/781.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-treecko",
+        pokemonId: 30782,
+        fillStyle: "tan",
+        type1: "normal",
+        type2: "fighting",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/9/92/782.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/9/92/782.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-grovyle",
+        pokemonId: 30783,
+        fillStyle: "tan",
+        type1: "normal",
+        type2: "fighting",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/0/08/783.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/0/08/783.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-sceptile",
+        pokemonId: 30784,
+        fillStyle: "mediumpurple",
+        type1: "dragon",
+        type2: "fighting",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/a/a5/784.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/a/a5/784.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-torchic",
+        pokemonId: 30785,
+        fillStyle: "hotpink",
+        type1: "psychic",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/7/74/785.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/7/74/785.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-combusken",
+        pokemonId: 30786,
+        fillStyle: "hotpink",
+        type1: "psychic",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/6/6e/786.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/6/6e/786.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-blaziken",
+        pokemonId: 30787,
+        fillStyle: "hotpink",
+        type1: "psychic",
+        type2: "flying",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/f/fe/787.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/f/fe/787.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-turtwig",
+        pokemonId: 30788,
+        fillStyle: "royalblue",
+        type1: "water",
+        type2: "ground",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/8/8c/788.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/8/8c/788.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-grotle",
+        pokemonId: 30789,
+        fillStyle: "royalblue",
+        type1: "water",
+        type2: "ground",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/7/76/789.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/7/76/789.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-torterra",
+        pokemonId: 30790,
+        fillStyle: "royalblue",
+        type1: "water",
+        type2: "ground",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/3/3d/790.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/3/3d/790.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-snivy",
+        pokemonId: 30791,
+        fillStyle: "royalblue",
+        type1: "water",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/b/b0/791.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/b/b0/791.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-servine",
+        pokemonId: 30792,
+        fillStyle: "royalblue",
+        type1: "water",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/7/7f/792.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/7/7f/792.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-serperior",
+        pokemonId: 30793,
+        fillStyle: "royalblue",
+        type1: "water",
+        type2: "dragon",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/e/e4/793.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/e/e4/793.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-froakie",
+        pokemonId: 30794,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/d/df/794.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/d/df/794.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-frogadier",
+        pokemonId: 30795,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/a/aa/795.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/a/aa/795.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-greninja",
+        pokemonId: 30796,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/7/7d/796.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/7/7d/796.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-pidgey",
+        pokemonId: 30797,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        type2: "dragon",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/b/bf/797.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/b/bf/797.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-pidgeotto",
+        pokemonId: 30798,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        type2: "dragon",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/1/17/798.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/1/17/798.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-pidgeot",
+        pokemonId: 30799,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        type2: "dragon",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/a/ad/799.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/a/ad/799.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-diglett",
+        pokemonId: 30800,
+        fillStyle: "lightblue",
+        type1: "ice",
+        type2: "normal",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/c/cf/800.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/c/cf/800.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-dugtrio",
+        pokemonId: 30801,
+        fillStyle: "lightblue",
+        type1: "ice",
+        type2: "normal",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/6/61/801.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/6/61/801.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-growlithe",
+        pokemonId: 30802,
+        fillStyle: "tan",
+        type1: "normal",
+        type2: "dragon",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/e/e2/802.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/e/e2/802.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-arcanine",
+        pokemonId: 30803,
+        fillStyle: "tan",
+        type1: "normal",
+        type2: "dragon",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/4/45/803.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/4/45/803.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-geodude",
+        pokemonId: 30804,
+        fillStyle: "hotpink",
+        type1: "psychic",
+        type2: "rock",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/f/f9/804.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/f/f9/804.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-graveler",
+        pokemonId: 30805,
+        fillStyle: "hotpink",
+        type1: "psychic",
+        type2: "rock",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/b/b0/805.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/b/b0/805.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-golem",
+        pokemonId: 30806,
+        fillStyle: "hotpink",
+        type1: "psychic",
+        type2: "rock",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/0/03/806.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/0/03/806.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-tentacool",
+        pokemonId: 30807,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/7/75/807.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/7/75/807.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-tentacruel",
+        pokemonId: 30808,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/b/ba/808.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/b/ba/808.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-doduo",
+        pokemonId: 30809,
+        fillStyle: "hotpink",
+        type1: "psychic",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/3/35/809.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/3/35/809.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-dodrio",
+        pokemonId: 30810,
+        fillStyle: "hotpink",
+        type1: "psychic",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/0/0a/810.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/0/0a/810.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-tangela",
+        pokemonId: 30811,
+        fillStyle: "saddlebrown",
+        type1: "ground",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/d/df/811.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/d/df/811.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-tangrowth",
+        pokemonId: 30812,
+        fillStyle: "saddlebrown",
+        type1: "ground",
+        type2: "fighting",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/5/54/812.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/5/54/812.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-ditto",
+        pokemonId: 30813,
+        fillStyle: "royalblue",
+        type1: "water",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/a/aa/813.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/a/aa/813.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-kabuto",
+        pokemonId: 30814,
+        fillStyle: "olivedrab",
+        type1: "bug",
+        type2: "dark",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/5/57/814.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/5/57/814.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-kabutops",
+        pokemonId: 30815,
+        fillStyle: "olivedrab",
+        type1: "bug",
+        type2: "dark",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/4/4d/815.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/4/4d/815.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-dratini",
+        pokemonId: 30816,
+        fillStyle: "royalblue",
+        type1: "water",
+        type2: "electric",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/5/5e/816.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/5/5e/816.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-dragonair",
+        pokemonId: 30817,
+        fillStyle: "royalblue",
+        type1: "water",
+        type2: "electric",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/3/37/817.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/3/37/817.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-dragonite",
+        pokemonId: 30818,
+        fillStyle: "royalblue",
+        type1: "water",
+        type2: "electric",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/5/5b/818.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/5/5b/818.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-hoothoot",
+        pokemonId: 30819,
+        fillStyle: "lightblue",
+        type1: "ice",
+        type2: "flying",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/a/ad/819.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/a/ad/819.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-noctowl",
+        pokemonId: 30820,
+        fillStyle: "lightblue",
+        type1: "ice",
+        type2: "flying",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/2/22/820.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/2/22/820.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-chinchou",
+        pokemonId: 30821,
+        fillStyle: "indigo",
+        type1: "ghost",
+        type2: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/1/15/821.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/1/15/821.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-lanturn",
+        pokemonId: 30822,
+        fillStyle: "indigo",
+        type1: "ghost",
+        type2: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/c/c7/822.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/c/c7/822.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-pichu",
+        pokemonId: 30823,
+        fillStyle: "skyblue",
+        type1: "flying",
+        type2: "fairy",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/8/8a/823.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/8/8a/823.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-pikachu",
+        pokemonId: 30824,
+        fillStyle: "skyblue",
+        type1: "flying",
+        type2: "fairy",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/7/7a/824.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/7/7a/824.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-raichu",
+        pokemonId: 30825,
+        fillStyle: "skyblue",
+        type1: "flying",
+        type2: "fairy",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/7/77/825.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/7/77/825.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-aipom",
+        pokemonId: 30826,
+        fillStyle: "indigo",
+        type1: "ghost",
+        type2: "normal",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/6/60/826.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/6/60/826.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-ambipom",
+        pokemonId: 30827,
+        fillStyle: "indigo",
+        type1: "ghost",
+        type2: "normal",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/5/51/827.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/5/51/827.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-yanma",
+        pokemonId: 30828,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "flying",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/8/83/828.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/8/83/828.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-yanmega",
+        pokemonId: 30829,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "flying",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/3/3a/829.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/3/3a/829.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-girafarig",
+        pokemonId: 30830,
+        fillStyle: "slategray",
+        type1: "steel",
+        type2: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/5/55/830.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/5/55/830.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-dunsparce",
+        pokemonId: 30831,
+        fillStyle: "olivedrab",
+        type1: "bug",
+        type2: "water",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/a/ad/831.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/a/ad/831.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-shuckle",
+        pokemonId: 30832,
+        fillStyle: "maroon",
+        type1: "fighting",
+        type2: "steel",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/9/92/832.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/9/92/832.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-remoraid",
+        pokemonId: 30833,
+        fillStyle: "firebrick",
+        type1: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/c/c5/833.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/c/c5/833.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-octillery",
+        pokemonId: 30834,
+        fillStyle: "firebrick",
+        type1: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/0/08/834.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/0/08/834.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-elekid",
+        pokemonId: 30835,
+        fillStyle: "darkgray",
+        type1: "rock",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/2/28/835.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/2/28/835.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-electabuzz",
+        pokemonId: 30836,
+        fillStyle: "darkgray",
+        type1: "rock",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/5/5c/836.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/5/5c/836.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-electivire",
+        pokemonId: 30837,
+        fillStyle: "darkgray",
+        type1: "rock",
+        type2: "dragon",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/b/be/837.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/b/be/837.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-magby",
+        pokemonId: 30838,
+        fillStyle: "royalblue",
+        type1: "water",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/2/21/838.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/2/21/838.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-magmar",
+        pokemonId: 30839,
+        fillStyle: "royalblue",
+        type1: "water",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/5/55/839.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/5/55/839.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-magmortar",
+        pokemonId: 30840,
+        fillStyle: "royalblue",
+        type1: "water",
+        type2: "steel",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/1/15/840.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/1/15/840.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-lotad",
+        pokemonId: 30841,
+        fillStyle: "hotpink",
+        type1: "psychic",
+        type2: "water",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/e/ea/841.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/e/ea/841.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-lombre",
+        pokemonId: 30842,
+        fillStyle: "hotpink",
+        type1: "psychic",
+        type2: "water",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/5/59/842.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/5/59/842.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-ludicolo",
+        pokemonId: 30843,
+        fillStyle: "hotpink",
+        type1: "psychic",
+        type2: "water",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/b/bf/843.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/b/bf/843.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-seedot",
+        pokemonId: 30844,
+        fillStyle: "goldenrod",
+        type1: "electric",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/c/c3/844.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/c/c3/844.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-nuzleaf",
+        pokemonId: 30845,
+        fillStyle: "goldenrod",
+        type1: "electric",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/9/93/845.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/9/93/845.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-shiftry",
+        pokemonId: 30846,
+        fillStyle: "goldenrod",
+        type1: "electric",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/6/69/846.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/6/69/846.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-sableye",
+        pokemonId: 30847,
+        fillStyle: "firebrick",
+        type1: "fire",
+        type2: "rock",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/1/10/847.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/1/10/847.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-mawile",
+        pokemonId: 30848,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "dark",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/9/99/848.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/9/99/848.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-aron",
+        pokemonId: 30849,
+        fillStyle: "firebrick",
+        type1: "fire",
+        type2: "steel",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/2/2d/849.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/2/2d/849.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-lairon",
+        pokemonId: 30850,
+        fillStyle: "firebrick",
+        type1: "fire",
+        type2: "steel",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/7/79/850.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/7/79/850.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-aggron",
+        pokemonId: 30851,
+        fillStyle: "firebrick",
+        type1: "fire",
+        type2: "steel",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/6/6d/851.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/6/6d/851.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-meditite",
+        pokemonId: 30852,
+        fillStyle: "pink",
+        type1: "fairy",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/e/e8/852.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/e/e8/852.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-medicham",
+        pokemonId: 30853,
+        fillStyle: "pink",
+        type1: "fairy",
+        type2: "ground",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/5/5b/853.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/5/5b/853.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-numel",
+        pokemonId: 30854,
+        fillStyle: "purple",
+        type1: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/9/94/854.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/9/94/854.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-camerupt",
+        pokemonId: 30855,
+        fillStyle: "purple",
+        type1: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/b/bc/855.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/b/bc/855.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-plusle",
+        pokemonId: 30856,
+        fillStyle: "firebrick",
+        type1: "fire",
+        type2: "fairy",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/3/3a/856.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/3/3a/856.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-minun",
+        pokemonId: 30857,
+        fillStyle: "lightblue",
+        type1: "ice",
+        type2: "fairy",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/e/e0/857.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/e/e0/857.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-wailmer",
+        pokemonId: 30858,
+        fillStyle: "lightblue",
+        type1: "ice",
+        type2: "flying",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/1/10/858.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/1/10/858.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-wailord",
+        pokemonId: 30859,
+        fillStyle: "lightblue",
+        type1: "ice",
+        type2: "flying",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/6/64/859.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/6/64/859.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-feebas",
+        pokemonId: 30860,
+        fillStyle: "indigo",
+        type1: "ghost",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/5/53/860.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/5/53/860.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-milotic",
+        pokemonId: 30861,
+        fillStyle: "indigo",
+        type1: "ghost",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/8/82/861.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/8/82/861.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-clamperl",
+        pokemonId: 30862,
+        fillStyle: "mediumpurple",
+        type1: "dragon",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/c/c7/862.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/c/c7/862.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-huntail",
+        pokemonId: 30863,
+        fillStyle: "mediumpurple",
+        type1: "dragon",
+        type2: "dark",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/6/6b/863.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/6/6b/863.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-gorebyss",
+        pokemonId: 30864,
+        fillStyle: "mediumpurple",
+        type1: "dragon",
+        type2: "fairy",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/0/0e/864.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/0/0e/864.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-beldum-spider",
+        pokemonId: 30865,
+        fillStyle: "saddlebrown",
+        type1: "ground",
+        type2: "bug",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/0/0a/865.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/0/0a/865.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-metang-spider",
+        pokemonId: 30866,
+        fillStyle: "saddlebrown",
+        type1: "ground",
+        type2: "bug",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/1/14/866.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/1/14/866.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-metagross-spider",
+        pokemonId: 30867,
+        fillStyle: "saddlebrown",
+        type1: "ground",
+        type2: "bug",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/d/d5/867.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/d/d5/867.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-beldum-ruin",
+        pokemonId: 30868,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "rock",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/c/c8/868.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/c/c8/868.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-metang-ruin",
+        pokemonId: 30869,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "rock",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/b/bd/869.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/b/bd/869.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-metagross-ruin",
+        pokemonId: 30870,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "rock",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/1/15/870.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/1/15/870.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-buneary",
+        pokemonId: 30871,
+        fillStyle: "maroon",
+        type1: "fighting",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/2/21/871.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/2/21/871.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-lopunny",
+        pokemonId: 30872,
+        fillStyle: "maroon",
+        type1: "fighting",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/7/7a/872.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/7/7a/872.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-riolu",
+        pokemonId: 30873,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/9/9a/873.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/9/9a/873.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-lucario",
+        pokemonId: 30874,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        type2: "ground",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/d/d4/874.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/d/d4/874.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-croagunk",
+        pokemonId: 30875,
+        fillStyle: "firebrick",
+        type1: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/d/d1/875.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/d/d1/875.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-toxicroak",
+        pokemonId: 30876,
+        fillStyle: "firebrick",
+        type1: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/5/5d/876.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/5/5d/876.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-venipede",
+        pokemonId: 30877,
+        fillStyle: "darkgray",
+        type1: "rock",
+        type2: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/5/55/877.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/5/55/877.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-whirlipede",
+        pokemonId: 30878,
+        fillStyle: "darkgray",
+        type1: "rock",
+        type2: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/f/f4/878.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/f/f4/878.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-scolipede",
+        pokemonId: 30879,
+        fillStyle: "darkgray",
+        type1: "rock",
+        type2: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/0/02/879.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/0/02/879.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-petilil-water",
+        pokemonId: 30880,
+        fillStyle: "royalblue",
+        type1: "water",
+        type2: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/7/76/880.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/7/76/880.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-lilligant-water",
+        pokemonId: 30881,
+        fillStyle: "royalblue",
+        type1: "water",
+        type2: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/6/6b/881.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/6/6b/881.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-petilil-fairy",
+        pokemonId: 30882,
+        fillStyle: "pink",
+        type1: "fairy",
+        type2: "flying",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/2/2d/882.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/2/2d/882.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-lilligant-fairy",
+        pokemonId: 30883,
+        fillStyle: "pink",
+        type1: "fairy",
+        type2: "flying",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/7/78/883.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/7/78/883.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-solosis",
+        pokemonId: 30884,
+        fillStyle: "indigo",
+        type1: "ghost",
+        type2: "rock",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/3/36/884.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/3/36/884.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-duosion",
+        pokemonId: 30885,
+        fillStyle: "indigo",
+        type1: "ghost",
+        type2: "rock",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/4/4f/885.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/4/4f/885.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-reuniclus",
+        pokemonId: 30886,
+        fillStyle: "indigo",
+        type1: "ghost",
+        type2: "rock",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/b/b2/886.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/b/b2/886.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-darumaka",
+        pokemonId: 30887,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        type2: "ghost",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/8/84/887.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/8/84/887.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-darmanitan",
+        pokemonId: 30888,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        type2: "ghost",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/6/6a/888.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/6/6a/888.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-maractus",
+        pokemonId: 30889,
+        fillStyle: "slategray",
+        type1: "steel",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/6/68/889.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/6/68/889.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-dwebble-berry",
+        pokemonId: 30890,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/9/97/890.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/9/97/890.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-crustle-berry",
+        pokemonId: 30891,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/8/80/891.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/8/80/891.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-dwebble-cake",
+        pokemonId: 30892,
+        fillStyle: "pink",
+        type1: "fairy",
+        type2: "normal",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/a/a7/892.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/a/a7/892.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-crustle-cake",
+        pokemonId: 30893,
+        fillStyle: "pink",
+        type1: "fairy",
+        type2: "normal",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/b/bd/893.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/b/bd/893.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-yamask",
+        pokemonId: 30894,
+        fillStyle: "slategray",
+        type1: "steel",
+        type2: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/0/07/894.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/0/07/894.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-cofagrigus",
+        pokemonId: 30895,
+        fillStyle: "slategray",
+        type1: "steel",
+        type2: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/7/74/895.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/7/74/895.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-emolga",
+        pokemonId: 30896,
+        fillStyle: "firebrick",
+        type1: "fire",
+        type2: "dark",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/7/71/896.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/7/71/896.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-karrablast",
+        pokemonId: 30897,
+        fillStyle: "pink",
+        type1: "fairy",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/6/64/897.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/6/64/897.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-escavalier",
+        pokemonId: 30898,
+        fillStyle: "pink",
+        type1: "fairy",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/9/91/898.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/9/91/898.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-foongus",
+        pokemonId: 30899,
+        fillStyle: "indigo",
+        type1: "ghost",
+        type2: "dark",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/e/ed/899.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/e/ed/899.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-amoonguss",
+        pokemonId: 30900,
+        fillStyle: "indigo",
+        type1: "ghost",
+        type2: "dark",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/9/95/900.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/9/95/900.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-litwick",
+        pokemonId: 30901,
+        fillStyle: "pink",
+        type1: "fairy",
+        type2: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/b/b0/901.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/b/b0/901.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-lampent",
+        pokemonId: 30902,
+        fillStyle: "pink",
+        type1: "fairy",
+        type2: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/9/99/902.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/9/99/902.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-chandelure",
+        pokemonId: 30903,
+        fillStyle: "pink",
+        type1: "fairy",
+        type2: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/a/a3/903.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/a/a3/903.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-axew",
+        pokemonId: 30904,
+        fillStyle: "royalblue",
+        type1: "water",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/8/86/904.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/8/86/904.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-fraxure",
+        pokemonId: 30905,
+        fillStyle: "royalblue",
+        type1: "water",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/6/6a/905.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/6/6a/905.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-haxorus",
+        pokemonId: 30906,
+        fillStyle: "royalblue",
+        type1: "water",
+        type2: "steel",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/d/d1/906.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/d/d1/906.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-golett",
+        pokemonId: 30907,
+        fillStyle: "maroon",
+        type1: "fighting",
+        type2: "steel",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/3/36/907.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/3/36/907.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-golurk",
+        pokemonId: 30908,
+        fillStyle: "maroon",
+        type1: "fighting",
+        type2: "steel",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/a/aa/908.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/a/aa/908.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-heatmor",
+        pokemonId: 30909,
+        fillStyle: "slategray",
+        type1: "steel",
+        type2: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/9/94/909.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/9/94/909.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-deino",
+        pokemonId: 30910,
+        fillStyle: "saddlebrown",
+        type1: "ground",
+        type2: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/f/fc/910.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/f/fc/910.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-zweilous",
+        pokemonId: 30911,
+        fillStyle: "saddlebrown",
+        type1: "ground",
+        type2: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/2/27/911.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/2/27/911.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-hydreigon",
+        pokemonId: 30912,
+        fillStyle: "saddlebrown",
+        type1: "ground",
+        type2: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/7/7b/912.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/7/7b/912.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-larvesta",
+        pokemonId: 30913,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        type2: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/c/cb/913.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/c/cb/913.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-volcarona",
+        pokemonId: 30914,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        type2: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/9/96/914.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/9/96/914.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-amaura",
+        pokemonId: 30915,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "water",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/2/2e/915.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/2/2e/915.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-aurorus",
+        pokemonId: 30916,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "water",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/6/66/916.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/6/66/916.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-goomy",
+        pokemonId: 30917,
+        fillStyle: "saddlebrown",
+        type1: "ground",
+        type2: "water",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/f/f5/917.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/f/f5/917.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-sliggoo",
+        pokemonId: 30918,
+        fillStyle: "saddlebrown",
+        type1: "ground",
+        type2: "water",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/c/c6/918.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/c/c6/918.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-goodra",
+        pokemonId: 30919,
+        fillStyle: "saddlebrown",
+        type1: "ground",
+        type2: "water",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/4/40/919.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/4/40/919.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-regirock",
+        pokemonId: 30920,
+        fillStyle: "saddlebrown",
+        type1: "ground",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/d/dd/920.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/d/dd/920.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-regice",
+        pokemonId: 30921,
+        fillStyle: "royalblue",
+        type1: "water",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/3/36/921.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/3/36/921.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-registeel",
+        pokemonId: 30922,
+        fillStyle: "firebrick",
+        type1: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/c/cb/922.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/c/cb/922.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-meloetta",
+        pokemonId: 30923,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        type2: "fairy",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/e/e7/923.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/e/e7/923.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-hoopa",
+        pokemonId: 30924,
+        fillStyle: "skyblue",
+        type1: "flying",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/4/4a/924.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/4/4a/924.png"
+        },
+        shiny: false,
+        power: 3,
+        weight: 1
+    },
+    // Insurgence transformations triggered by Crystal Fragment / Crystal Piece items
+    {
+        text: "pokemon.delta-metagross-ruin-crystal",
+        pokemonId: 31870,
+        fillStyle: "lightblue",
+        type1: "crystal",
+        type2: "grass",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/f/fb/870_2.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/f/fb/870_2.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.regigigas-primal",
+        pokemonId: 31486,
+        fillStyle: "tan",
+        type1: "normal",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/8/8a/486.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/8/8a/486.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.giratina-primal",
+        pokemonId: 31487,
+        fillStyle: "indigo",
+        type1: "ghost",
+        type2: "dragon",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/4/48/487_2.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/4/48/487_2.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.arceus-primal",
+        pokemonId: 31493,
+        fillStyle: "tan",
+        type1: "normal",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/e/e4/493.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/e/e4/493.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    }
+,
+    // ─── Insurgence Mega Evolutions (28 vanilla + 22 Delta) ───
+    {
+        text: "pokemon.poliwrath-mega",
+        pokemonId: 32062,
+        fillStyle: "royalblue",
+        type1: "water",
+        type2: "fighting",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/e/e7/062_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/e/e7/062_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.marowak-mega",
+        pokemonId: 32105,
+        fillStyle: "saddlebrown",
+        type1: "ground",
+        type2: "ghost",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/0/08/105_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/0/08/105_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.eevee-mega",
+        pokemonId: 32133,
+        fillStyle: "tan",
+        type1: "normal",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/0/0c/133_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/0/0c/133_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.typhlosion-mega",
+        pokemonId: 32157,
+        fillStyle: "firebrick",
+        type1: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/a/a2/157_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/a/a2/157_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.sudowoodo-mega",
+        pokemonId: 32185,
+        fillStyle: "darkgray",
+        type1: "rock",
+        type2: "grass",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/4/42/185_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/4/42/185_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.politoed-mega",
+        pokemonId: 32186,
+        fillStyle: "royalblue",
+        type1: "water",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/3/3e/186_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/3/3e/186_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.sunflora-mega",
+        pokemonId: 32192,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/0/06/192_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/0/06/192_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.girafarig-mega",
+        pokemonId: 32203,
+        fillStyle: "tan",
+        type1: "normal",
+        type2: "psychic",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/f/fa/203_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/f/fa/203_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.magcargo-mega",
+        pokemonId: 32219,
+        fillStyle: "firebrick",
+        type1: "fire",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/1/12/219_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/1/12/219_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.donphan-mega",
+        pokemonId: 32232,
+        fillStyle: "saddlebrown",
+        type1: "ground",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/b/b1/232_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/b/b1/232_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.miltank-mega",
+        pokemonId: 32241,
+        fillStyle: "tan",
+        type1: "normal",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/d/da/241_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/d/da/241_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.shiftry-mega",
+        pokemonId: 32275,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "dark",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/0/07/275_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/0/07/275_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.flygon-mega",
+        pokemonId: 32330,
+        fillStyle: "olivedrab",
+        type1: "bug",
+        type2: "dragon",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/0/05/330_2.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/0/05/330_2.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.cacturne-mega",
+        pokemonId: 32332,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "dark",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/2/26/332_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/2/26/332_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.crawdaunt-mega",
+        pokemonId: 32342,
+        fillStyle: "royalblue",
+        type1: "water",
+        type2: "dark",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/9/96/342_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/9/96/342_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.milotic-mega",
+        pokemonId: 32350,
+        fillStyle: "royalblue",
+        type1: "water",
+        type2: "fairy",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/4/40/350_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/4/40/350_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.jirachi-mega",
+        pokemonId: 32385,
+        fillStyle: "slategray",
+        type1: "steel",
+        type2: "psychic",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/8/84/385_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/8/84/385_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.chatot-mega",
+        pokemonId: 32441,
+        fillStyle: "tan",
+        type1: "normal",
+        type2: "flying",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/2/27/441_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/2/27/441_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.spiritomb-mega",
+        pokemonId: 32442,
+        fillStyle: "indigo",
+        type1: "ghost",
+        type2: "dark",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/7/7e/442_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/7/7e/442_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.zebstrika-mega",
+        pokemonId: 32523,
+        fillStyle: "goldenrod",
+        type1: "electric",
+        type2: "fairy",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/d/d8/523_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/d/d8/523_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.zoroark-mega",
+        pokemonId: 32571,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/f/f2/571_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/f/f2/571_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.gothitelle-mega",
+        pokemonId: 32576,
+        fillStyle: "hotpink",
+        type1: "psychic",
+        type2: "dark",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/0/07/576_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/0/07/576_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.reuniclus-mega",
+        pokemonId: 32579,
+        fillStyle: "hotpink",
+        type1: "psychic",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/9/94/579_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/9/94/579_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.cryogonal-mega",
+        pokemonId: 32615,
+        fillStyle: "lightblue",
+        type1: "ice",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/8/82/615_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/8/82/615_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.haxorus-mega",
+        pokemonId: 32612,
+        fillStyle: "mediumpurple",
+        type1: "dragon",
+        type2: "steel",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/b/b5/612_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/b/b5/612_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.stunfisk-mega",
+        pokemonId: 32618,
+        fillStyle: "saddlebrown",
+        type1: "ground",
+        type2: "electric",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/6/61/618_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/6/61/618_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.bisharp-mega",
+        pokemonId: 32625,
+        fillStyle: "slategray",
+        type1: "steel",
+        type2: "dark",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/1/16/625_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/1/16/625_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.hydreigon-mega",
+        pokemonId: 32635,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        type2: "dragon",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/6/65/635_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/6/65/635_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-venusaur-mega",
+        pokemonId: 33729,
+        fillStyle: "pink",
+        type1: "fairy",
+        type2: "psychic",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/2/24/729_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/2/24/729_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-charizard-mega",
+        pokemonId: 33732,
+        fillStyle: "indigo",
+        type1: "ghost",
+        type2: "dragon",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/0/0b/732_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/0/0b/732_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-blastoise-mega",
+        pokemonId: 33735,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        type2: "fighting",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/8/88/735_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/8/88/735_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-bisharp-mega",
+        pokemonId: 33737,
+        fillStyle: "skyblue",
+        type1: "flying",
+        type2: "fighting",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/5/5b/737_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/5/5b/737_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-gardevoir-mega",
+        pokemonId: 33740,
+        fillStyle: "goldenrod",
+        type1: "electric",
+        type2: "ice",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/7/72/740_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/7/72/740_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-gallade-mega",
+        pokemonId: 33741,
+        fillStyle: "goldenrod",
+        type1: "electric",
+        type2: "ice",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/b/bf/741_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/b/bf/741_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-sunflora-mega",
+        pokemonId: 33743,
+        fillStyle: "firebrick",
+        type1: "fire",
+        type2: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/a/a9/743_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/a/a9/743_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-scizor-mega",
+        pokemonId: 33747,
+        fillStyle: "lightblue",
+        type1: "ice",
+        type2: "fighting",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/c/c9/747_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/c/c9/747_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-glalie-mega",
+        pokemonId: 33759,
+        fillStyle: "firebrick",
+        type1: "fire",
+        type2: "rock",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/1/1b/759_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/1/1b/759_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-froslass-mega",
+        pokemonId: 33760,
+        fillStyle: "firebrick",
+        type1: "fire",
+        type2: "ghost",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/1/1a/760_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/1/1a/760_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-typhlosion-mega",
+        pokemonId: 33781,
+        fillStyle: "goldenrod",
+        type1: "electric",
+        type2: "steel",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/2/21/781_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/2/21/781_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-pidgeot-mega",
+        pokemonId: 33799,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        type2: "dragon",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/d/df/799_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/d/df/799_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-girafarig-mega",
+        pokemonId: 33830,
+        fillStyle: "slategray",
+        type1: "steel",
+        type2: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/2/2d/830_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/2/2d/830_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-sableye-mega",
+        pokemonId: 33847,
+        fillStyle: "firebrick",
+        type1: "fire",
+        type2: "rock",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/b/b9/847_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/b/b9/847_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-mawile-mega",
+        pokemonId: 33848,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "dark",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/3/39/848_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/3/39/848_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-medicham-mega",
+        pokemonId: 33853,
+        fillStyle: "pink",
+        type1: "fairy",
+        type2: "ground",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/8/8e/853_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/8/8e/853_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-camerupt-mega",
+        pokemonId: 33855,
+        fillStyle: "purple",
+        type1: "poison",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/5/53/855_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/5/53/855_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-milotic-mega",
+        pokemonId: 33861,
+        fillStyle: "indigo",
+        type1: "ghost",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/c/cf/861_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/c/cf/861_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-metagross-spider-mega",
+        pokemonId: 33867,
+        fillStyle: "olivedrab",
+        type1: "bug",
+        type2: "ground",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/b/b3/867_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/b/b3/867_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-metagross-ruin-mega",
+        pokemonId: 33870,
+        fillStyle: "forestgreen",
+        type1: "grass",
+        type2: "rock",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/0/0e/870_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/0/0e/870_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-lopunny-mega",
+        pokemonId: 33872,
+        fillStyle: "maroon",
+        type1: "fighting",
+        type2: "psychic",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/a/af/872_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/a/af/872_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    },
+    {
+        text: "pokemon.delta-lucario-mega",
+        pokemonId: 33874,
+        fillStyle: "darkslategray",
+        type1: "dark",
+        type2: "ground",
+        sprite: {
+            front_default: "https://wiki.p-insurgence.com/images/c/c0/874_1.png",
+            front_shiny: "https://wiki.p-insurgence.com/images/c/c0/874_1.png"
+        },
+        shiny: false,
+        power: 5,
+        weight: 1
+    }
+];
+
+export const nationalDexPokemon: PokemonItem[] = [...baseDexPokemon, ...insurgenceDeltas];

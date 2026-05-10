@@ -7,5 +7,6 @@ export const starterByGeneration: Record<number, number[]> = {
     6: [650, 653, 656],
     7: [722, 725, 728],
     8: [810, 813, 816],
-    9: [906, 909, 912]
+    9: [906, 909, 912],
+    100: [30727, 30730, 30733] // Delta Bulbasaur, Delta Charmander, Delta Squirtle
 }

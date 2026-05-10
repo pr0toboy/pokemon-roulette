@@ -16,7 +16,8 @@ export type PokemonType =
   | 'ice'
   | 'dragon'
   | 'dark'
-  | 'fairy';
+  | 'fairy'
+  | 'crystal';
 
 export interface PokemonTypeData {
   id: number;
@@ -41,7 +42,8 @@ export const pokemonTypeData: PokemonTypeData[] = [
   { id: 15, key: 'ice' },
   { id: 16, key: 'dragon' },
   { id: 17, key: 'dark' },
-  { id: 18, key: 'fairy' }
+  { id: 18, key: 'fairy' },
+  { id: 19, key: 'crystal' } // Pokémon Insurgence — neutral against all types
 ];
 
 export const pokemonTypeDataByKey: Record<PokemonType, PokemonTypeData> = pokemonTypeData.reduce((acc, typeData) => {

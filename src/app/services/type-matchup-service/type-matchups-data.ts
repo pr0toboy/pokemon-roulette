@@ -72,5 +72,11 @@ export const typeMatchups: TypeMatchupMap = {
     water: {
         strongAgainst: ['fire', 'ground', 'rock'],
         weakAgainst: ['electric', 'grass']
+    },
+    // Pokémon Insurgence — Crystal type deals neutral damage to all types
+    // and takes neutral damage from all types (no weaknesses, resistances, immunities).
+    crystal: {
+        strongAgainst: [],
+        weakAgainst: []
     }
 };

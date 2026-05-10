@@ -9,7 +9,6 @@ import { ItemItem } from '../interfaces/item-item';
 import { RestartGameButtonComponent } from "../restart-game-button/restart-game-button.component";
 import { TrainerService } from '../services/trainer-service/trainer.service';
 import { AnalyticsService } from '../services/analytics-service/analytics.service';
-import { CoffeeButtonComponent } from "./coffee-button/coffee-button.component";
 import { NgIconsModule } from '@ng-icons/core';
 import { DarkModeService } from '../services/dark-mode-service/dark-mode.service';
 import { ThemeService } from '../services/theme-service/theme.service';
@@ -19,6 +18,7 @@ import { RouletteContainerComponent } from './roulette-container/roulette-contai
 import { SettingsButtonComponent } from '../settings-button/settings-button.component';
 import { RareCandyService } from '../services/rare-candy-service/rare-candy.service';
 import { GameSaveService } from '../services/game-save-service/game-save.service';
+import { MegaEvolutionService } from '../services/mega-evolution-service/mega-evolution.service';
 
 @Component({
   selector: 'app-main-game',
@@ -29,7 +29,6 @@ import { GameSaveService } from '../services/game-save-service/game-save.service
     TrainerTeamComponent,
     ItemsComponent,
     RestartGameButtonComponent,
-    CoffeeButtonComponent,
     NgIconsModule,
     NgbCollapseModule,
     LanguageSelectorComponent
@@ -47,7 +46,8 @@ export class MainGameComponent implements OnInit {
     private modalService: NgbModal,
     private analyticsService: AnalyticsService,
     private rareCandyService: RareCandyService,
-    private gameSaveService: GameSaveService) {
+    private gameSaveService: GameSaveService,
+    private megaEvolutionService: MegaEvolutionService) {
       this.darkMode = this.themeService.isDark$;
   }
 
@@ -81,6 +81,14 @@ export class MainGameComponent implements OnInit {
     }
 
     this.rareCandyService.triggerRareCandyEvolution(rareCandy);
+  }
+
+  megaStoneInterrupt(megaStone: ItemItem): void {
+    if (this.wheelSpinning) {
+      return;
+    }
+
+    this.megaEvolutionService.triggerMegaEvolution(megaStone);
   }
 
   resetGame(): void {

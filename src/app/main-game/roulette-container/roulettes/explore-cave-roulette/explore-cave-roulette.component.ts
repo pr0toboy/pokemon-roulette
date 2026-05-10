@@ -19,6 +19,7 @@ export class ExploreCaveRouletteComponent {
   @Output() catchZubatEvent = new EventEmitter<void>();
   @Output() findFossilEvent = new EventEmitter<void>();
   @Output() teamRocketEncounterEvent = new EventEmitter<void>();
+  @Output() findMegaStoneEvent = new EventEmitter<void>();
 
   actions: WheelItem[] = [
     { text: 'game.main.roulette.cave.explore.actions.catchPokemon', fillStyle: 'crimson', weight: 1 },
@@ -28,6 +29,7 @@ export class ExploreCaveRouletteComponent {
     { text: 'game.main.roulette.cave.explore.actions.catchZubat', fillStyle: 'darkcyan', weight: 1 },
     { text: 'game.main.roulette.cave.explore.actions.findFossil', fillStyle: 'blue', weight: 1 },
     { text: 'game.main.roulette.cave.explore.actions.teamRocket', fillStyle: 'purple', weight: 1 },
+    { text: 'game.main.roulette.cave.explore.actions.findMegaStone', fillStyle: 'orchid', weight: 0.2 },
   ];
 
   onItemSelected(index: number): void {
@@ -52,6 +54,9 @@ export class ExploreCaveRouletteComponent {
         break;
       case 6:
         this.teamRocketEncounterEvent.emit();
+        break;
+      case 7:
+        this.findMegaStoneEvent.emit();
         break;
     }
   }

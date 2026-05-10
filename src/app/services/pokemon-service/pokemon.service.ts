@@ -55,4 +55,17 @@ export class PokemonService {
   getAllPokemon(): PokemonItem[] {
     return this.nationalDexPokemon;
   }
+
+  /**
+   * Returns the dex slice appropriate for a generation's roulettes (trade,
+   * mysterious egg, etc.). Insurgence-only entries (Deltas, Primals, Insurgence
+   * Megas — all IDs ≥ 30000) are filtered out unless the run is the
+   * Insurgence (Gen 100) campaign.
+   */
+  getDexForGeneration(generationId: number): PokemonItem[] {
+    if (generationId === 100) {
+      return this.nationalDexPokemon;
+    }
+    return this.nationalDexPokemon.filter(p => p.pokemonId < 30000);
+  }
 }

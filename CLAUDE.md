@@ -9,7 +9,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run watch` — incremental dev build.
 - `npm test` — runs Karma. The default launcher is `ChromeHeadlessNoSandbox` (see `karma.conf.js`), which is required on Raspberry Pi / Docker / sandboxed envs. CI uses plain `ChromeHeadless` and passes `--browsers=ChromeHeadless --watch=false`.
 - Single spec: `npm test -- --include='src/app/services/game-state-service/game-state.service.spec.ts' --watch=false`.
-- `npm run deploy` — `angular-cli-ghpages` deploy with `--base-href=/pokemon-roulette/` (publishes to GitHub Pages).
+- `npm run deploy` — `angular-cli-ghpages` deploy with `--base-href=/pokemon-roulette/` (force-pushes the build to the `gh-pages` branch). The site is hosted by GitHub at `https://<owner>.github.io/pokemon-roulette/` — no Pi/server is involved at runtime, GitHub serves static files only.
+
+## Deployment
+
+GitHub Pages must be **enabled once** in the repo settings before `npm run deploy` produces a live site. The branch `gh-pages` is the deploy target but its existence alone isn't enough — Pages has to be turned on for that branch. To enable from the CLI (token needs `repo` scope, which `gh auth login` provides by default):
+
+```bash
+gh api -X POST /repos/<owner>/pokemon-roulette/pages \
+  -f 'source[branch]=gh-pages' -f 'source[path]=/'
+```
+
+Once enabled, the URL becomes `https://<owner>.github.io/pokemon-roulette/` and propagates within ~1 minute of each `npm run deploy`. There are no runtime dependencies — the app talks directly to `pokeapi.co` from the visitor's browser, and all persistence is in `localStorage`.
 
 ## Architecture
 
@@ -56,3 +67,7 @@ Six locales (`en`, `es`, `fr`, `de`, `it`, `pt`) live in `src/assets/i18n/*.json
 - Standalone components only (no NgModules). New components must declare `standalone: true` and import their own dependencies.
 - Selectors use the `app` prefix (configured in `angular.json`).
 - The `dark-background.png`, sound effects, and other static assets are served from `public/` (mapped to web root), while `src/assets/` holds bundled translations and generation-specific sprites.
+
+## Fork-specific notes
+
+- The `/coffee` donation page is **intentionally not in `app.routes.ts`** on this fork. The upstream `CoffeeComponent` hardcodes the original author's Pix code (name + phone embedded in the payload). The component file is kept so the route can be restored in one line once a fork-owned donation target (Pix, PayPal, Ko-fi, …) replaces the upstream payload in `src/app/coffee/coffee.component.ts`. Don't add the import back until that swap is done — deploying as-is would solicit donations on behalf of someone else.

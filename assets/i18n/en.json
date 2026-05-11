@@ -95,7 +95,15 @@
         "rock": "Rock Badge",
         "ice_galar": "Ice Badge",
         "dark": "Dark Badge",
-        "dragon": "Dragon Badge"
+        "dragon": "Dragon Badge",
+        "thermal": "Thermal Badge",
+        "stinger": "Stinger Badge",
+        "summit": "Summit Badge",
+        "paragon": "Paragon Badge",
+        "circuit": "Circuit Badge",
+        "dreamland": "Dreamland Badge",
+        "rainstorm": "Rainstorm Badge",
+        "tartarus": "Tartarus Badge"
     },
     "credits": {
         "title": "Credits & Acknowledgments",
@@ -147,6 +155,16 @@
                     "thanks": "Thanks Entei!"
                 },
                 "fails": "Team Rocket fails"
+            },
+            "megaStone": {
+                "alreadyMega": {
+                    "title": "Only one Mega per team",
+                    "message": "One of your Pokémon has already Mega Evolved. Save the Mega Stone for later."
+                },
+                "noCandidates": {
+                    "title": "No candidates",
+                    "message": "None of your current Pokémon can Mega Evolve."
+                }
             },
             "altPrizes": {
                 "gymBattle": {
@@ -240,12 +258,23 @@
                         "goFishing": "Go Fishing",
                         "findFossil": "Find a Fossil",
                         "battleRival": "Battle Rival",
-                        "areaZero": "Explore Area Zero"
+                        "areaZero": "Explore Area Zero",
+                        "otherworld": "Other world",
+                        "challenger": "Challenger"
                     }
                 },
                 "areaZero": {
                     "title": "Paradox Pokémon",
                     "catch": "Catch Paradox Pokémon?"
+                },
+                "otherworld": {
+                    "title": "Which world are you crossing?",
+                    "paradox": "Paradox Pokémon",
+                    "ultraBeast": "Ultra Beast"
+                },
+                "ultraBeast": {
+                    "title": "Ultra Beast",
+                    "catch": "Catch the Ultra Beast?"
                 },
                 "cave": {
                     "explore": {
@@ -257,10 +286,18 @@
                             "getLost": "Get Lost",
                             "catchZubat": "Catch a Zubat",
                             "findFossil": "Find a Fossil",
-                            "teamRocket": "Team Rocket Encounter"
+                            "teamRocket": "Team Rocket Encounter",
+                            "findMegaStone": "Mega Stone"
                         }
                     },
                     "which": "Which Pokemon in the cave?"
+                },
+                "megaEvolve": {
+                    "who": "Which Pokémon Mega Evolves?",
+                    "which": "Which Mega form?",
+                    "modal": {
+                        "title": "Mega Evolution!"
+                    }
                 },
                 "champion": {
                     "champion": "Champion",
@@ -333,18 +370,80 @@
                     "found": "Found a",
                     "title": "Which Item?"
                 },
+                "boss": {
+                    "which": "Which legendary boss appears?",
+                    "victory": "Victory?",
+                    "yes": "Yes",
+                    "no": "No",
+                    "appears": "A legendary boss appears:",
+                    "intro": "It blocks your path. Defeat it to claim its power!",
+                    "go": "Let's go!",
+                    "use": "Used a",
+                    "catch": {
+                        "title": "Catch the boss?",
+                        "yes": "Yes",
+                        "no": "No"
+                    }
+                },
                 "legendary": {
                     "catch": "Catch Legendary?",
                     "which": "Which Legendary?",
                     "yes": "Yes",
                     "no": "No"
                 },
+                "mythical": {
+                    "catch": "Catch the Mythical Pokémon?",
+                    "which": "Which Mythical Pokémon?",
+                    "yes": "Yes",
+                    "no": "No"
+                },
+                "tower": {
+                    "title": "Battle Tower",
+                    "floor": "Floor",
+                    "yes": "Win",
+                    "no": "Lose",
+                    "victory": "Tower floor cleared!",
+                    "defeat": "Knocked out of the tower.",
+                    "use": "Used",
+                    "reward": "Victory — Reward:",
+                    "bagFull": "Bag full — reward skipped",
+                    "milestone": {
+                        "porygon": {
+                            "title": "Floor 10 cleared!",
+                            "message": "A Porygon materialises out of the tower's combat system — it joins your team!"
+                        },
+                        "shinyCharm": {
+                            "title": "Floor 20 cleared!",
+                            "message": "You receive the Shiny Charm — your next captures are 4× more likely to be shiny."
+                        }
+                    }
+                },
+                "postgame": {
+                    "title": "What does the master do?",
+                    "hallOfFame": {
+                        "title": "Hall of Fame",
+                        "message": "You defeated the League! Your team enters the Hall of Fame. The adventure continues — climb the Battle Tower between Master actions."
+                    },
+                    "actions": {
+                        "battleTower": "Battle Tower",
+                        "legendaryEncounter": "Hunt a Legendary",
+                        "mythicalEncounter": "Hunt a Mythical Pokémon",
+                        "catchPokemon": "Catch a Wild Pokémon",
+                        "tradePokemon": "Trade a Pokémon",
+                        "findItem": "Find an Item",
+                        "battleRival": "Rival Rematch",
+                        "areaZero": "Explore Area Zero",
+                        "retire": "End the adventure",
+                        "shop": "Shop"
+                    }
+                },
                 "rival": {
                     "against": "Battle against",
                     "go": "Let's Go!",
                     "victory": "Victory?",
                     "yes": "Yes",
-                    "no": "No"
+                    "no": "No",
+                    "use": "Used"
                 },
                 "snorlax": {
                     "outcome": "Outcome",
@@ -377,6 +476,34 @@
                 "trade": {
                     "title": "Trade for?",
                     "which": "Which Pokemon to trade?"
+                },
+                "challenger": {
+                    "title": "A Challenger appears!",
+                    "intro": "A Master-tier trainer stands in your way.",
+                    "warning": "If you lose, your adventure ends.",
+                    "go": "Fight",
+                    "victory": "Victory?",
+                    "yes": "Win",
+                    "no": "Loss",
+                    "victoryMsg": "Challenger defeated!"
+                },
+                "shop": {
+                    "give": "Which item to trade?",
+                    "get": "Which item in return?",
+                    "received": "Trade complete — new item:",
+                    "discard": "Bag full! Which item to throw away?"
+                },
+                "villain": {
+                    "title": "Antagonist",
+                    "against": "You face",
+                    "go": "Fight",
+                    "warning": "Beat them to earn a Master Ball. Lose and your adventure ends.",
+                    "victory": "Defeat the antagonist?",
+                    "victoryMsg": "Antagonist defeated!",
+                    "yes": "Win",
+                    "no": "Loss",
+                    "reward": "Reward: Master Ball",
+                    "use": "Used"
                 }
             },
             "trade": {
@@ -439,6 +566,22 @@
         "escape-rope": {
             "name": "Escape Rope",
             "description": "Escape Rope saves you from bad situations !"
+        },
+        "hyperball": {
+            "name": "Ultra Ball",
+            "description": "The Ultra Ball greatly increases your chances of catching a legendary Pokémon!"
+        },
+        "mega-stone": {
+            "name": "Mega Stone",
+            "description": "The Mega Stone lets one of your team Pokémon permanently Mega Evolve (1 Mega max). Click the item to use it."
+        },
+        "shiny-charm": {
+            "name": "Shiny Charm",
+            "description": "Boosts the chance of catching a shiny Pokémon (1/16 instead of 1/64)."
+        },
+        "master-ball": {
+            "name": "Master Ball",
+            "description": "Guaranteed catch on your next legendary, mythical, paradox, Ultra Beast or boss encounter. Consumed on use."
         }
     },
     "trainer": {
@@ -1481,6 +1624,258 @@
         "iron-crown": "Iron-Crown",
         "terapagos": "Terapagos",
         "pecharunt": "Pecharunt",
+        "delta-bulbasaur": "Delta Bulbasaur",
+        "delta-ivysaur": "Delta Ivysaur",
+        "delta-venusaur": "Delta Venusaur",
+        "delta-charmander": "Delta Charmander",
+        "delta-charmeleon": "Delta Charmeleon",
+        "delta-charizard": "Delta Charizard",
+        "delta-squirtle": "Delta Squirtle",
+        "delta-wartortle": "Delta Wartortle",
+        "delta-blastoise": "Delta Blastoise",
+        "delta-pawniard": "Delta Pawniard",
+        "delta-bisharp": "Delta Bisharp",
+        "delta-ralts": "Delta Ralts",
+        "delta-kirlia": "Delta Kirlia",
+        "delta-gardevoir": "Delta Gardevoir",
+        "delta-gallade": "Delta Gallade",
+        "delta-sunkern": "Delta Sunkern",
+        "delta-sunflora": "Delta Sunflora",
+        "delta-bergmite": "Delta Bergmite",
+        "delta-avalugg": "Delta Avalugg",
+        "delta-scyther": "Delta Scyther",
+        "delta-scizor": "Delta Scizor",
+        "delta-scraggy": "Delta Scraggy",
+        "delta-scrafty": "Delta Scrafty",
+        "delta-combee": "Delta Combee",
+        "delta-vespiquen": "Delta Vespiquen",
+        "delta-koffing": "Delta Koffing",
+        "delta-weezing": "Delta Weezing",
+        "delta-purrloin": "Delta Purrloin",
+        "delta-liepard": "Delta Liepard",
+        "delta-phantump": "Delta Phantump",
+        "delta-trevenant": "Delta Trevenant",
+        "delta-snorunt": "Delta Snorunt",
+        "delta-glalie": "Delta Glalie",
+        "delta-froslass": "Delta Froslass",
+        "delta-shinx": "Delta Shinx",
+        "delta-luxio": "Delta Luxio",
+        "delta-luxray": "Delta Luxray",
+        "delta-noibat": "Delta Noibat",
+        "delta-noivern": "Delta Noivern",
+        "delta-budew": "Delta Budew",
+        "delta-roselia": "Delta Roselia",
+        "delta-roserade": "Delta Roserade",
+        "delta-drifloon": "Delta Drifloon",
+        "delta-drifblim": "Delta Drifblim",
+        "delta-grimer": "Delta Grimer",
+        "delta-muk": "Delta Muk",
+        "delta-wooper": "Delta Wooper",
+        "delta-quagsire": "Delta Quagsire",
+        "delta-munchlax": "Delta Munchlax",
+        "delta-snorlax": "Delta Snorlax",
+        "delta-misdreavus": "Delta Misdreavus",
+        "delta-mismagius": "Delta Mismagius",
+        "delta-cyndaquil": "Delta Cyndaquil",
+        "delta-quilava": "Delta Quilava",
+        "delta-typhlosion": "Delta Typhlosion",
+        "delta-treecko": "Delta Treecko",
+        "delta-grovyle": "Delta Grovyle",
+        "delta-sceptile": "Delta Sceptile",
+        "delta-torchic": "Delta Torchic",
+        "delta-combusken": "Delta Combusken",
+        "delta-blaziken": "Delta Blaziken",
+        "delta-turtwig": "Delta Turtwig",
+        "delta-grotle": "Delta Grotle",
+        "delta-torterra": "Delta Torterra",
+        "delta-snivy": "Delta Snivy",
+        "delta-servine": "Delta Servine",
+        "delta-serperior": "Delta Serperior",
+        "delta-froakie": "Delta Froakie",
+        "delta-frogadier": "Delta Frogadier",
+        "delta-greninja": "Delta Greninja",
+        "delta-pidgey": "Delta Pidgey",
+        "delta-pidgeotto": "Delta Pidgeotto",
+        "delta-pidgeot": "Delta Pidgeot",
+        "delta-diglett": "Delta Diglett",
+        "delta-dugtrio": "Delta Dugtrio",
+        "delta-growlithe": "Delta Growlithe",
+        "delta-arcanine": "Delta Arcanine",
+        "delta-geodude": "Delta Geodude",
+        "delta-graveler": "Delta Graveler",
+        "delta-golem": "Delta Golem",
+        "delta-tentacool": "Delta Tentacool",
+        "delta-tentacruel": "Delta Tentacruel",
+        "delta-doduo": "Delta Doduo",
+        "delta-dodrio": "Delta Dodrio",
+        "delta-tangela": "Delta Tangela",
+        "delta-tangrowth": "Delta Tangrowth",
+        "delta-ditto": "Delta Ditto",
+        "delta-kabuto": "Delta Kabuto",
+        "delta-kabutops": "Delta Kabutops",
+        "delta-dratini": "Delta Dratini",
+        "delta-dragonair": "Delta Dragonair",
+        "delta-dragonite": "Delta Dragonite",
+        "delta-hoothoot": "Delta Hoothoot",
+        "delta-noctowl": "Delta Noctowl",
+        "delta-chinchou": "Delta Chinchou",
+        "delta-lanturn": "Delta Lanturn",
+        "delta-pichu": "Delta Pichu",
+        "delta-pikachu": "Delta Pikachu",
+        "delta-raichu": "Delta Raichu",
+        "delta-aipom": "Delta Aipom",
+        "delta-ambipom": "Delta Ambipom",
+        "delta-yanma": "Delta Yanma",
+        "delta-yanmega": "Delta Yanmega",
+        "delta-girafarig": "Delta Girafarig",
+        "delta-dunsparce": "Delta Dunsparce",
+        "delta-shuckle": "Delta Shuckle",
+        "delta-remoraid": "Delta Remoraid",
+        "delta-octillery": "Delta Octillery",
+        "delta-elekid": "Delta Elekid",
+        "delta-electabuzz": "Delta Electabuzz",
+        "delta-electivire": "Delta Electivire",
+        "delta-magby": "Delta Magby",
+        "delta-magmar": "Delta Magmar",
+        "delta-magmortar": "Delta Magmortar",
+        "delta-lotad": "Delta Lotad",
+        "delta-lombre": "Delta Lombre",
+        "delta-ludicolo": "Delta Ludicolo",
+        "delta-seedot": "Delta Seedot",
+        "delta-nuzleaf": "Delta Nuzleaf",
+        "delta-shiftry": "Delta Shiftry",
+        "delta-sableye": "Delta Sableye",
+        "delta-mawile": "Delta Mawile",
+        "delta-aron": "Delta Aron",
+        "delta-lairon": "Delta Lairon",
+        "delta-aggron": "Delta Aggron",
+        "delta-meditite": "Delta Meditite",
+        "delta-medicham": "Delta Medicham",
+        "delta-numel": "Delta Numel",
+        "delta-camerupt": "Delta Camerupt",
+        "delta-plusle": "Delta Plusle",
+        "delta-minun": "Delta Minun",
+        "delta-wailmer": "Delta Wailmer",
+        "delta-wailord": "Delta Wailord",
+        "delta-feebas": "Delta Feebas",
+        "delta-milotic": "Delta Milotic",
+        "delta-clamperl": "Delta Clamperl",
+        "delta-huntail": "Delta Huntail",
+        "delta-gorebyss": "Delta Gorebyss",
+        "delta-beldum-spider": "Delta Beldum (Spider)",
+        "delta-metang-spider": "Delta Metang (Spider)",
+        "delta-metagross-spider": "Delta Metagross (Spider)",
+        "delta-beldum-ruin": "Delta Beldum (Ruin)",
+        "delta-metang-ruin": "Delta Metang (Ruin)",
+        "delta-metagross-ruin": "Delta Metagross (Ruin)",
+        "delta-buneary": "Delta Buneary",
+        "delta-lopunny": "Delta Lopunny",
+        "delta-riolu": "Delta Riolu",
+        "delta-lucario": "Delta Lucario",
+        "delta-croagunk": "Delta Croagunk",
+        "delta-toxicroak": "Delta Toxicroak",
+        "delta-venipede": "Delta Venipede",
+        "delta-whirlipede": "Delta Whirlipede",
+        "delta-scolipede": "Delta Scolipede",
+        "delta-petilil-water": "Delta Petilil (Water)",
+        "delta-lilligant-water": "Delta Lilligant (Water)",
+        "delta-petilil-fairy": "Delta Petilil (Fairy)",
+        "delta-lilligant-fairy": "Delta Lilligant (Fairy)",
+        "delta-solosis": "Delta Solosis",
+        "delta-duosion": "Delta Duosion",
+        "delta-reuniclus": "Delta Reuniclus",
+        "delta-darumaka": "Delta Darumaka",
+        "delta-darmanitan": "Delta Darmanitan",
+        "delta-maractus": "Delta Maractus",
+        "delta-dwebble-berry": "Delta Dwebble (Berry)",
+        "delta-crustle-berry": "Delta Crustle (Berry)",
+        "delta-dwebble-cake": "Delta Dwebble (Cake)",
+        "delta-crustle-cake": "Delta Crustle (Cake)",
+        "delta-yamask": "Delta Yamask",
+        "delta-cofagrigus": "Delta Cofagrigus",
+        "delta-emolga": "Delta Emolga",
+        "delta-karrablast": "Delta Karrablast",
+        "delta-escavalier": "Delta Escavalier",
+        "delta-foongus": "Delta Foongus",
+        "delta-amoonguss": "Delta Amoonguss",
+        "delta-litwick": "Delta Litwick",
+        "delta-lampent": "Delta Lampent",
+        "delta-chandelure": "Delta Chandelure",
+        "delta-axew": "Delta Axew",
+        "delta-fraxure": "Delta Fraxure",
+        "delta-haxorus": "Delta Haxorus",
+        "delta-golett": "Delta Golett",
+        "delta-golurk": "Delta Golurk",
+        "delta-heatmor": "Delta Heatmor",
+        "delta-deino": "Delta Deino",
+        "delta-zweilous": "Delta Zweilous",
+        "delta-hydreigon": "Delta Hydreigon",
+        "delta-larvesta": "Delta Larvesta",
+        "delta-volcarona": "Delta Volcarona",
+        "delta-amaura": "Delta Amaura",
+        "delta-aurorus": "Delta Aurorus",
+        "delta-goomy": "Delta Goomy",
+        "delta-sliggoo": "Delta Sliggoo",
+        "delta-goodra": "Delta Goodra",
+        "delta-regirock": "Delta Regirock",
+        "delta-regice": "Delta Regice",
+        "delta-registeel": "Delta Registeel",
+        "delta-meloetta": "Delta Meloetta",
+        "delta-hoopa": "Delta Hoopa",
+        "delta-metagross-ruin-crystal": "Crystal Delta Metagross (Ruin)",
+        "giratina-primal": "Giratina (Primal)",
+        "arceus-primal": "Arceus (Primal)",
+        "regigigas-primal": "Regigigas (Primal)",
+        "poliwrath-mega": "Poliwrath (Mega)",
+        "marowak-mega": "Marowak (Mega)",
+        "eevee-mega": "Eevee (Mega)",
+        "typhlosion-mega": "Typhlosion (Mega)",
+        "sudowoodo-mega": "Sudowoodo (Mega)",
+        "politoed-mega": "Politoed (Mega)",
+        "sunflora-mega": "Sunflora (Mega)",
+        "girafarig-mega": "Girafarig (Mega)",
+        "magcargo-mega": "Magcargo (Mega)",
+        "donphan-mega": "Donphan (Mega)",
+        "miltank-mega": "Miltank (Mega)",
+        "shiftry-mega": "Shiftry (Mega)",
+        "flygon-mega": "Flygon (Mega)",
+        "cacturne-mega": "Cacturne (Mega)",
+        "crawdaunt-mega": "Crawdaunt (Mega)",
+        "milotic-mega": "Milotic (Mega)",
+        "jirachi-mega": "Jirachi (Mega)",
+        "chatot-mega": "Chatot (Mega)",
+        "spiritomb-mega": "Spiritomb (Mega)",
+        "zebstrika-mega": "Zebstrika (Mega)",
+        "zoroark-mega": "Zoroark (Mega)",
+        "gothitelle-mega": "Gothitelle (Mega)",
+        "reuniclus-mega": "Reuniclus (Mega)",
+        "cryogonal-mega": "Cryogonal (Mega)",
+        "haxorus-mega": "Haxorus (Mega)",
+        "stunfisk-mega": "Stunfisk (Mega)",
+        "bisharp-mega": "Bisharp (Mega)",
+        "hydreigon-mega": "Hydreigon (Mega)",
+        "delta-venusaur-mega": "Delta Venusaur (Mega)",
+        "delta-charizard-mega": "Delta Charizard (Mega)",
+        "delta-blastoise-mega": "Delta Blastoise (Mega)",
+        "delta-bisharp-mega": "Delta Bisharp (Mega)",
+        "delta-gardevoir-mega": "Delta Gardevoir (Mega)",
+        "delta-gallade-mega": "Delta Gallade (Mega)",
+        "delta-sunflora-mega": "Delta Sunflora (Mega)",
+        "delta-scizor-mega": "Delta Scizor (Mega)",
+        "delta-glalie-mega": "Delta Glalie (Mega)",
+        "delta-froslass-mega": "Delta Froslass (Mega)",
+        "delta-typhlosion-mega": "Delta Typhlosion (Mega)",
+        "delta-pidgeot-mega": "Delta Pidgeot (Mega)",
+        "delta-girafarig-mega": "Delta Girafarig (Mega)",
+        "delta-sableye-mega": "Delta Sableye (Mega)",
+        "delta-mawile-mega": "Delta Mawile (Mega)",
+        "delta-medicham-mega": "Delta Medicham (Mega)",
+        "delta-camerupt-mega": "Delta Camerupt (Mega)",
+        "delta-milotic-mega": "Delta Milotic (Mega)",
+        "delta-metagross-spider-mega": "Delta Metagross (Spider) (Mega)",
+        "delta-metagross-ruin-mega": "Delta Metagross (Ruin) (Mega)",
+        "delta-lopunny-mega": "Delta Lopunny (Mega)",
+        "delta-lucario-mega": "Delta Lucario (Mega)",
         "rattata-alola": "Rattata (Alola)",
         "raticate-alola": "Raticate (Alola)",
         "raichu-alola": "Raichu (Alola)",
@@ -1844,6 +2239,22 @@
             "name": "Hassel",
             "quote1": "I am Hassel, the dragon guarding the final fortress of the Elite Test.",
             "quote2": "Prepare to learn firsthand how the fiery breath of ferocious battle feels!"
+        },
+        "kayla": {
+            "name": "Kayla",
+            "quote1": "My team dances around yours. Taste the elegance of Baton Pass."
+        },
+        "eduard": {
+            "name": "Eduard",
+            "quote1": "The sandstorm is my canvas. Prepare to be buried."
+        },
+        "yuki": {
+            "name": "Yuki",
+            "quote1": "Let the hail fall and your defences crack. No gap will be tolerated."
+        },
+        "london": {
+            "name": "London",
+            "quote1": "Trick Room. This is how the slow become sovereign."
         }
     },
     "gymLeaders": {
@@ -2208,6 +2619,38 @@
             "name": "Grusha",
             "quote1": "Well, this is my job now...so don't take what I'm about to do personally.",
             "quote2": "Get ready to feel the icy bite of reality."
+        },
+        "orion": {
+            "name": "Orion",
+            "quote1": "Welcome to the Suntouched Gym! My Fire-types will burn through your hopes."
+        },
+        "xavier": {
+            "name": "Xavier",
+            "quote1": "Vipik is the kingdom of insects — and I am their Augur. You shall not pass."
+        },
+        "east": {
+            "name": "East",
+            "quote1": "Helios sees the world from above. My birds strike from the sky — adapt or fall."
+        },
+        "harmony": {
+            "name": "Harmony",
+            "quote1": "Sonata resonates in every fairy heart. Will you feel its harmonics?"
+        },
+        "anastasia": {
+            "name": "Anastasia",
+            "quote1": "Kepler's circuit is flawless. Steel does not bend, it cuts."
+        },
+        "diana": {
+            "name": "Diana",
+            "quote1": "Selene wakes at midnight. Let your thoughts hold against mine."
+        },
+        "calreath": {
+            "name": "Calreath",
+            "quote1": "Amphitrite watches the depths. I will drown you in the tide."
+        },
+        "adam": {
+            "name": "Adam",
+            "quote1": "The Erebus Gym exists only in the Dream Realm. Welcome to the shadow."
         }
     },
     "rival": {
@@ -2248,6 +2691,11 @@
             "name": "Nemona",
             "quote1": "Hey! It's meee!",
             "quote2": "Let's have us a fruitful battle!"
+        },
+        "damian": {
+            "name": "Damian",
+            "quote1": "Another fight? Come on, show me how far you've come since Telnor!",
+            "quote2": "We grew up together — but on this field, I'm not going easy on you."
         }
     },
     "champion": {
@@ -2294,6 +2742,11 @@
             "name": "Geeta",
             "quote1": "The final test is a battle against me, the Top Champion.",
             "quote2": "Are you ready for your final test? I want to see the true measure of your talent!"
+        },
+        "reukra": {
+            "name": "Reukra",
+            "quote1": "I am Reukra, founder of Perfection. I hold the title of Champion by default.",
+            "quote2": "My Deltas are the next step in evolution. You are merely data to collect."
         }
     },
     "pokedex": {
@@ -2312,6 +2765,48 @@
         "shiny": {
             "on": "✨ Shiny",
             "off": "Normal"
+        }
+    },
+    "villain": {
+        "giovanni": {
+            "name": "Giovanni",
+            "quote1": "You thought Team Rocket was finished?"
+        },
+        "archer": {
+            "name": "Archer",
+            "quote1": "Team Rocket rises again under my command."
+        },
+        "maxie-archie": {
+            "name": "Maxie & Archie",
+            "quote1": "For Hoenn's future, we will crush you!"
+        },
+        "cyrus": {
+            "name": "Cyrus",
+            "quote1": "A world without emotion awaits — you are the last obstacle."
+        },
+        "ghetsis": {
+            "name": "Ghetsis",
+            "quote1": "You'll regret freeing those Pokémon!"
+        },
+        "lysandre": {
+            "name": "Lysandre",
+            "quote1": "Only a purified world deserves to remain."
+        },
+        "lusamine": {
+            "name": "Lusamine",
+            "quote1": "My beautiful creatures will swallow you whole."
+        },
+        "rose": {
+            "name": "Chairman Rose",
+            "quote1": "The Darkest Day looms — you will not stop me."
+        },
+        "ai-turo-sada": {
+            "name": "AI Turo/Sada",
+            "quote1": "Paradox shall consume this world."
+        },
+        "jaern": {
+            "name": "Jaern",
+            "quote1": "Darkrai deserves to awaken. You don't understand his gift."
         }
     }
 }

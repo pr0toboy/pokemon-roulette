@@ -43,3 +43,15 @@ Thumbs.db
 
 # GitHub config
 .planning/
+
+# Local AI/agent tooling
+.claude/
+CLAUDE.local.md
+
+# TypeScript incremental build info
+*.tsbuildinfo
+
+# Local env files (commit *.example variants explicitly)
+.env
+.env.*
+!.env.example
